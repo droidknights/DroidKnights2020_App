@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
+import com.droidknights.app2020.R
+import com.droidknights.app2020.common.EventObserver
 import com.droidknights.app2020.databinding.HomeFragmentBinding
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
@@ -33,6 +36,16 @@ class HomeFragment : DaggerFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProviders.of(requireActivity(), viewModelFactory).get(HomeViewModel::class.java)
+        binding.vm = viewModel
+
+        viewModel.navigateToSchedule.observe(this, EventObserver {
+            findNavController().navigate(R.id.action_homeFragment_to_scheduleFragment)
+        })
+
+        viewModel.navigateToInfo.observe(this, EventObserver{
+            findNavController().navigate(R.id.action_homeFragment_to_infoFragment)
+        })
+
         binding.run {
             viewModel.homeText.observe(this@HomeFragment, Observer {
                 tvHomePage.text = it
