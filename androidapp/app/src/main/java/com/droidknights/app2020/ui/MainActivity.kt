@@ -1,15 +1,15 @@
-package com.droidknights.app2020
+package com.droidknights.app2020.ui
 
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.NavHostFragment.findNavController
-import com.droidknights.app2020.ui.main.HomeFragment
-import com.droidknights.app2020.ui.main.MainActivityViewModel
+import androidx.navigation.ui.NavigationUI
+import com.droidknights.app2020.R
 import dagger.android.support.DaggerAppCompatActivity
+import kotlinx.android.synthetic.main.main_activity.*
 import javax.inject.Inject
+
 
 class MainActivity : DaggerAppCompatActivity() {
 
@@ -27,5 +27,8 @@ class MainActivity : DaggerAppCompatActivity() {
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(MainActivityViewModel::class.java)
 
         navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment?
+        navHostFragment?.let {
+            NavigationUI.setupWithNavController(bottomNav, it.navController)
+        }
     }
 }
