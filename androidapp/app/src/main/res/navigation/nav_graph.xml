@@ -2,19 +2,8 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/infoFragment">
 
-    <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.droidknights.app2020.ui.main.HomeFragment"
-        android:label="HomeFragment" >
-        <action
-            android:id="@+id/action_homeFragment_to_scheduleFragment"
-            app:destination="@id/scheduleFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_infoFragment"
-            app:destination="@id/infoFragment" />
-    </fragment>
     <fragment
         android:id="@+id/scheduleFragment"
         android:name="com.droidknights.app2020.ui.schedule.ScheduleFragment"
@@ -23,4 +12,12 @@
         android:id="@+id/infoFragment"
         android:name="com.droidknights.app2020.ui.info.InfoFragment"
         android:label="InfoFragment" />
+    <fragment
+        android:id="@+id/mypageFragment"
+        android:name="com.droidknights.app2020.ui.mypage.MypageFragment"
+        android:label="MypageFragment" />
+    <fragment
+        android:id="@+id/sponsorFragment"
+        android:name="com.droidknights.app2020.ui.sponsor.SponsorFragment"
+        android:label="SponsorFragment" />
 </navigation>

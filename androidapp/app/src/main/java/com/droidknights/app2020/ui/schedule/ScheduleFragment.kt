@@ -6,8 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.droidknights.app2020.common.EventObserver
 import com.droidknights.app2020.databinding.ScheduleFragmentBinding
 import dagger.android.support.DaggerFragment
+import kotlinx.android.synthetic.main.schedule_fragment.*
 import javax.inject.Inject
 
 /**
@@ -19,6 +23,7 @@ class ScheduleFragment : DaggerFragment() {
     private lateinit var viewModel: ScheduleViewModel
 
     private lateinit var binding: ScheduleFragmentBinding
+    private val scheduleAdapter = ScheduleAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,11 +31,19 @@ class ScheduleFragment : DaggerFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = ScheduleFragmentBinding.inflate(inflater, container, false).apply { lifecycleOwner = viewLifecycleOwner }
+        viewModel = ViewModelProviders.of(requireActivity(), viewModelFactory).get(ScheduleViewModel::class.java)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProviders.of(requireActivity(), viewModelFactory).get(ScheduleViewModel::class.java)
+
+        binding.rvSchedule.apply {
+            layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+            adapter = scheduleAdapter
+        }
+        viewModel.sessionListData.observe(this, EventObserver {
+            it.let(scheduleAdapter::submitList)
+        })
     }
 }

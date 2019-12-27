@@ -1,4 +1,4 @@
-package com.droidknights.app2020.ui.main
+package com.droidknights.app2020.ui
 
 import androidx.lifecycle.ViewModel
 import com.droidknights.app2020.di.annotation.ViewModelKey
