@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -42,7 +43,7 @@ class ScheduleFragment : DaggerFragment() {
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
             adapter = scheduleAdapter
         }
-        viewModel.sessionListData.observe(this, EventObserver {
+        viewModel.sessionListData.observe(this, Observer {
             it.let(scheduleAdapter::submitList)
         })
     }

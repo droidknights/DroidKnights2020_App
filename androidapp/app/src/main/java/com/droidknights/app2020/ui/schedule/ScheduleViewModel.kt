@@ -13,11 +13,6 @@ import javax.inject.Inject
  */
 class ScheduleViewModel @Inject constructor(repo: SessionRepository) : ViewModel() {
 
-    private val _sessionListData = MediatorLiveData<Event<List<SessionData>>>()
-    val sessionListData : LiveData<Event<List<SessionData>>> get() = _sessionListData
-
-    init {
-        _sessionListData.addSource(repo.get()) { _sessionListData.postValue(Event(it)) }
-    }
-
+    private val _sessionListData = repo.get()
+    val sessionListData : LiveData<List<SessionData>> get() = _sessionListData
 }
