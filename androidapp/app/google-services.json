@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "465514860985",
+    "firebase_url": "https://droidknights2020.firebaseio.com",
+    "project_id": "droidknights2020",
+    "storage_bucket": "droidknights2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:465514860985:android:f0633a71cea92f7513e668",
+        "android_client_info": {
+          "package_name": "com.droidknights.app2020"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "465514860985-isdr01apv2mu7l50u1im9p5vl186evbc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWBqg_o4inPy67jnpfzFQs_fhzZidAig8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "465514860985-isdr01apv2mu7l50u1im9p5vl186evbc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
