@@ -7,13 +7,14 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.droidknights.app2020.databinding.SponsorFragmentBinding
+import com.droidknights.app2020.ext.assistedViewModels
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
 class SponsorFragment : DaggerFragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
-    private lateinit var viewModel: SponsorViewModel
+    private val sponsorViewModel by assistedViewModels<SponsorViewModel>{ viewModelFactory }
 
     private lateinit var binding: SponsorFragmentBinding
 
@@ -28,6 +29,5 @@ class SponsorFragment : DaggerFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProviders.of(requireActivity(), viewModelFactory).get(SponsorViewModel::class.java)
     }
 }

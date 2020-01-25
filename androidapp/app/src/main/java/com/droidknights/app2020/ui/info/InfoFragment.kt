@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.droidknights.app2020.databinding.InfoFragmentBinding
+import com.droidknights.app2020.ext.assistedViewModels
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
@@ -16,7 +17,7 @@ import javax.inject.Inject
 class InfoFragment : DaggerFragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
-    private lateinit var viewModel: InfoViewModel
+    private val infoViewModel by assistedViewModels<InfoViewModel>{ viewModelFactory }
 
     private lateinit var binding: InfoFragmentBinding
 
@@ -31,6 +32,5 @@ class InfoFragment : DaggerFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProviders.of(requireActivity(), viewModelFactory).get(InfoViewModel::class.java)
     }
 }

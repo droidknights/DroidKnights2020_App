@@ -7,13 +7,14 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.droidknights.app2020.databinding.MypageFragmentBinding
+import com.droidknights.app2020.ext.assistedViewModels
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
 class MypageFragment : DaggerFragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
-    private lateinit var viewModel: MypageViewModel
+    private val mypageViewModel by assistedViewModels<MypageViewModel>{ viewModelFactory }
 
     private lateinit var binding: MypageFragmentBinding
 
@@ -28,6 +29,5 @@ class MypageFragment : DaggerFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProviders.of(requireActivity(), viewModelFactory).get(MypageViewModel::class.java)
     }
 }
