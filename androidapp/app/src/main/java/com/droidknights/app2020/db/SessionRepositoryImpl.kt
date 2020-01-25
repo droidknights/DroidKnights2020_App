@@ -1,44 +1,73 @@
 package com.droidknights.app2020.db
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.droidknights.app2020.ui.data.SessionData
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.*
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 class SessionRepositoryImpl @Inject constructor(val db : FirebaseFirestore) : SessionRepository {
     private val TAG = this::class.java.simpleName
 
-    private val sessionDataList = MutableLiveData<List<SessionData>>()
-    private val sessionData = MutableLiveData<SessionData>()
-
-    override fun get(): LiveData<List<SessionData>> {
-        db.collection("Session")
-            .get()
-            .addOnSuccessListener { result ->
-                val list = arrayListOf<SessionData>()
-                for (document in result) {
-                    Log.d(TAG, "${document.id} => ${document.data}")
-                    list.add(document.toObject(SessionData::class.java))
-                }
-                sessionDataList.postValue(list)
-            }
-            .addOnFailureListener { exception ->
-                Log.w(TAG, "Error getting documents.", exception)
-            }
-        return sessionDataList
+    override fun get(): Flow<List<SessionData>> = flow {
+        val snapshot = db.collection("Session").fastGet()
+        emit(snapshot.map {
+            it.toObject(SessionData::class.java)
+        })
     }
 
-    override fun getById(id: String): LiveData<SessionData> {
-        db.collection("Session").document(id)
-            .get()
-            .addOnSuccessListener { result ->
-                sessionData.postValue(result.toObject(SessionData::class.java))
+    override fun getById(id: String): Flow<SessionData> = flow {
+        try {
+            db.collection("Session").document(id)
+                .get()
+                .addOnSuccessListener { result ->
+                    result.toObject(SessionData::class.java)
+                }
+                .addOnFailureListener {
+                    Log.w(TAG, "Error getting documents.", it)
+                }
+        } catch (e: Throwable) {
+
+        }
+    }
+}
+
+private suspend fun Query.fastGet(): QuerySnapshot {
+    return try {
+        get(Source.CACHE).await()
+    } catch (e: Exception) {
+        get(Source.SERVER).await()
+    }
+}
+
+private suspend fun DocumentReference.fastGet(): DocumentSnapshot {
+    return try {
+        get(Source.CACHE).await()
+    } catch (e: Exception) {
+        get(Source.SERVER).await()
+    }
+}
+
+private suspend fun CollectionReference.fastGet(): QuerySnapshot {
+    return try {
+        get(Source.CACHE).await()
+    } catch (e: Exception) {
+        get(Source.SERVER).await()
+    }
+}
+
+private fun Query.toFlow(): Flow<QuerySnapshot> {
+    return callbackFlow<QuerySnapshot> {
+        val listenerRegistration = addSnapshotListener { snapshot, exception ->
+            if (exception != null) close(exception)
+            else if (snapshot != null) {
+                offer(snapshot)
             }
-            .addOnFailureListener {
-                Log.w(TAG, "Error getting documents.", it)
-            }
-        return sessionData
+        }
+        awaitClose { listenerRegistration.remove() }
     }
 }
