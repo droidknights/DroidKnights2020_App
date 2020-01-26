@@ -21,18 +21,10 @@ class SessionRepositoryImpl @Inject constructor(val db : FirebaseFirestore) : Se
     }
 
     override fun getById(id: String): Flow<SessionData> = flow {
-        try {
-            db.collection("Session").document(id)
-                .get()
-                .addOnSuccessListener { result ->
-                    result.toObject(SessionData::class.java)
-                }
-                .addOnFailureListener {
-                    Log.w(TAG, "Error getting documents.", it)
-                }
-        } catch (e: Throwable) {
-
-        }
+        val snapshot = db.collection("Session")
+            .whereEqualTo("id", id)
+            .fastGet()
+        emit(snapshot.map { it.toObject(SessionData::class.java) }[0])
     }
 }
 

@@ -19,4 +19,11 @@ class ScheduleViewModel @Inject constructor(private val dispatchers: DispatcherP
     val sessionListData : LiveData<List<SessionData>> = liveData {
         repo.get().collect { emit(it) }
     }
+
+    private val _itemEvent = MutableLiveData<String>()
+    val itemEvent : LiveData<String> get() = _itemEvent
+
+    fun onClickItem(sessionId: String) {
+        _itemEvent.value = sessionId
+    }
 }
