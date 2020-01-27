@@ -1,6 +1,5 @@
 package com.droidknights.app2020.db
 
-import android.util.Log
 import com.droidknights.app2020.ui.data.SessionData
 import com.google.firebase.firestore.*
 import kotlinx.coroutines.channels.awaitClose
