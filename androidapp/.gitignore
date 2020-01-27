@@ -26,3 +26,6 @@
 .classpath
 .project
 _sandbox
+
+!.idea/icon.png
+!.idea/icon_dark.png
