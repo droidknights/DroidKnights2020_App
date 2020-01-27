@@ -8,16 +8,20 @@
         <variable
             name="item"
             type="com.droidknights.app2020.ui.data.SessionData" />
+
+        <variable
+            name="vm"
+            type="com.droidknights.app2020.ui.schedule.ScheduleViewModel" />
     </data>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="15dp"
+        android:onClick="@{() -> vm.onClickItem(item.id)}"
         android:paddingStart="15dp"
-        android:paddingEnd="15dp"
-        >
+        android:paddingTop="15dp"
+        android:paddingEnd="15dp">
 
         <TextView
             android:id="@+id/tvMemoTitle"
@@ -26,30 +30,27 @@
             android:text="@{item.title}"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text="@string/app_name"
-            />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/app_name" />
 
         <TextView
             android:id="@+id/tvDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{item.time}"
-            app:layout_constraintTop_toBottomOf="@id/tvMemoTitle"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text="@string/app_name"
-            />
+            app:layout_constraintTop_toBottomOf="@id/tvMemoTitle"
+            tools:text="@string/app_name" />
 
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginTop="15dp"
             android:background="@color/colorBorder"
-            app:layout_constraintTop_toBottomOf="@id/tvDate"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDate" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

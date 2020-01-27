@@ -72,5 +72,10 @@ dependencies {
     androidTestImplementation deps.atsl.ext_junit
     androidTestImplementation deps.atsl.espresso_core
     testImplementation deps.kotlin.coroutines.test
+
+    // SimpleRecyclerView
+    // https://github.com/sjjeong/SimpleRecyclerView
+    implementation 'com.dino.library:simplerecyclerview:0.3.1'
+
 }
 apply plugin: 'com.google.gms.google-services'
