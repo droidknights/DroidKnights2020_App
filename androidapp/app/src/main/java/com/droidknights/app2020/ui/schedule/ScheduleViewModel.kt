@@ -1,14 +1,13 @@
 package com.droidknights.app2020.ui.schedule
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.liveData
 import com.droidknights.app2020.base.BaseViewModel
 import com.droidknights.app2020.base.DispatcherProvider
-import com.droidknights.app2020.common.Event
 import com.droidknights.app2020.db.SessionRepository
 import com.droidknights.app2020.ui.data.SessionData
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 /**
