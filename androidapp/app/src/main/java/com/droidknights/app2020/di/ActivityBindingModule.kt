@@ -1,9 +1,9 @@
 package com.droidknights.app2020.di
 
-import com.droidknights.app2020.ui.MainActivity
 import com.droidknights.app2020.di.annotation.ActivityScoped
-import com.droidknights.app2020.ui.info.InfoModule
+import com.droidknights.app2020.ui.MainActivity
 import com.droidknights.app2020.ui.MainActivityModule
+import com.droidknights.app2020.ui.info.InfoModule
 import com.droidknights.app2020.ui.mypage.MypageModule
 import com.droidknights.app2020.ui.schedule.ScheduleModule
 import com.droidknights.app2020.ui.sponsor.SponsorModule
@@ -25,5 +25,5 @@ abstract class ActivityBindingModule {
             SponsorModule::class
         ]
     )
-    internal abstract fun getMainActivity() : MainActivity
+    internal abstract fun getMainActivity(): MainActivity
 }

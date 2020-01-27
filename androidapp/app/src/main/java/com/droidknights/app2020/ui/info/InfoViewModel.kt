@@ -6,7 +6,4 @@ import javax.inject.Inject
 /**
  * Created by jiyoung on 04/12/2019
  */
-class InfoViewModel @Inject constructor() : ViewModel() {
-
-
-}
+class InfoViewModel @Inject constructor() : ViewModel()

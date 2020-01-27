@@ -34,8 +34,8 @@
         <ProgressBar
             android:id="@+id/sessionsProgressBar"
             android:layout_width="wrap_content"
-            android:visibility="@{vm.sessionListData.size() == 0 ? View.VISIBLE : View.GONE}"
             android:layout_height="wrap_content"
+            android:visibility="@{vm.sessionListData.size() == 0 ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

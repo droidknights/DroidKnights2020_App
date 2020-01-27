@@ -14,11 +14,12 @@ abstract class DataBindingAdapter<T>(diffCallback: DiffUtil.ItemCallback<T>) :
         fun onClickItem(sessionId: String)
     }
 
-    abstract var itemClickListener : ItemClickListener?
+    abstract var itemClickListener: ItemClickListener?
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataBindingViewHolder<T> {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding = DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, viewType, parent, false)
+        val binding =
+            DataBindingUtil.inflate<ViewDataBinding>(layoutInflater, viewType, parent, false)
         return DataBindingViewHolder(binding)
     }
 

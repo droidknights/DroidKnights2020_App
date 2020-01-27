@@ -7,8 +7,7 @@
     <fragment
         android:id="@+id/scheduleFragment"
         android:name="com.droidknights.app2020.ui.schedule.ScheduleFragment"
-        android:label="ScheduleFragment" >
-    </fragment>
+        android:label="ScheduleFragment"></fragment>
     <fragment
         android:id="@+id/infoFragment"
         android:name="com.droidknights.app2020.ui.info.InfoFragment"
@@ -24,7 +23,7 @@
     <fragment
         android:id="@+id/sessionDetailFragment"
         android:name="com.droidknights.app2020.ui.schedule.detail.SessionDetailFragment"
-        android:label="SessionDetailFragment" >
+        android:label="SessionDetailFragment">
         <argument
             android:name="sessionId"
             app:argType="string" />
