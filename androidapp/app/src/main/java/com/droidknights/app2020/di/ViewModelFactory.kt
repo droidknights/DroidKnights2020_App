@@ -8,7 +8,9 @@ import javax.inject.Provider
 /**
  * Created by jiyoung on 29/11/2019
  */
-class DKViewModelFactory @Inject constructor(private val creators: @JvmSuppressWildcards Map<Class<out ViewModel>, Provider<ViewModel>>) : ViewModelProvider.Factory {
+class ViewModelFactory @Inject constructor(
+    private val creators: @JvmSuppressWildcards Map<Class<out ViewModel>, Provider<ViewModel>>) :
+    ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         val found = creators.entries.find { modelClass.isAssignableFrom(it.key) }
         val creator = found?.value ?: throw IllegalArgumentException("unknown model class $modelClass")
