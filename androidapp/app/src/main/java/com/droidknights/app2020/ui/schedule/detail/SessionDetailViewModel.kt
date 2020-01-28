@@ -10,9 +10,12 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class SessionDetailViewModel @Inject constructor(dispatchers: DispatcherProvider, val repo: SessionRepository) : BaseViewModel() {
+class SessionDetailViewModel @Inject constructor(
+    dispatchers: DispatcherProvider,
+    private val repo: SessionRepository
+) : BaseViewModel() {
 
-    val sessionContents  = MutableLiveData<SessionData>()
+    val sessionContents = MutableLiveData<SessionData>()
 
     fun getSessionFromFirestore(id: String) {
         viewModelScope.launch {
