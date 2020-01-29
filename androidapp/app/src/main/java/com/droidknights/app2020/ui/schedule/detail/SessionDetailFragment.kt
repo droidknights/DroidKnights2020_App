@@ -16,5 +16,7 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
         arguments?.getString("sessionId")?.let {
             viewModel.getSessionFromFirestore(it)
         }
+
+        //TODO : Speaker 표시
     }
 }
