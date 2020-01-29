@@ -9,7 +9,9 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
-class SessionRepositoryImpl @Inject constructor(val db : FirebaseFirestore) : SessionRepository {
+class SessionRepositoryImpl @Inject constructor(
+    private val db : FirebaseFirestore
+) : SessionRepository {
     private val TAG = this::class.java.simpleName
 
     override fun get(): Flow<List<SessionData>> = flow {
