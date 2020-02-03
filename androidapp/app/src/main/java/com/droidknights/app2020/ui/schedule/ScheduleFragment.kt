@@ -28,6 +28,9 @@ class ScheduleFragment : BaseFragment<ScheduleViewModel, ScheduleFragmentBinding
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //TODO : 세션 태그 필터링 기능
+        //TODO : 관심세션 북마크 기능 
+
         initView()
         initObserve()
     }

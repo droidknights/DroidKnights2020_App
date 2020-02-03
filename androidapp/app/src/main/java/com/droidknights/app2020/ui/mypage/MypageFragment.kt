@@ -9,4 +9,8 @@ class MypageFragment :
     BaseFragment<MypageViewModel, MypageFragmentBinding>(
         R.layout.mypage_fragment,
         MypageViewModel::class
-    )
+    ) {
+    //TODO : 내 세션 북마크 (즐겨찾기 기능)
+    //TODO : DarkTheme on/off
+    //TODO : license 페이지
+}
