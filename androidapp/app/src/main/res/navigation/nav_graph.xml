@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/infoFragment">
 
     <fragment
         android:id="@+id/scheduleFragment"
         android:name="com.droidknights.app2020.ui.schedule.ScheduleFragment"
-        android:label="ScheduleFragment" >
-    </fragment>
+        android:label="ScheduleFragment"
+        tools:layout="@layout/schedule_fragment" />
     <fragment
         android:id="@+id/infoFragment"
         android:name="com.droidknights.app2020.ui.info.InfoFragment"
-        android:label="InfoFragment" />
+        android:label="InfoFragment"
+        tools:layout="@layout/info_fragment" />
     <fragment
         android:id="@+id/mypageFragment"
         android:name="com.droidknights.app2020.ui.mypage.MypageFragment"
-        android:label="MypageFragment" />
+        android:label="MypageFragment"
+        tools:layout="@layout/mypage_fragment" />
     <fragment
         android:id="@+id/sponsorFragment"
         android:name="com.droidknights.app2020.ui.sponsor.SponsorFragment"
-        android:label="SponsorFragment" />
+        android:label="SponsorFragment"
+        tools:layout="@layout/sponsor_fragment" />
     <fragment
         android:id="@+id/sessionDetailFragment"
         android:name="com.droidknights.app2020.ui.schedule.detail.SessionDetailFragment"
-        android:label="SessionDetailFragment" >
+        android:label="SessionDetailFragment"
+        tools:layout="@layout/session_detail_fragment">
         <argument
             android:name="sessionId"
             app:argType="string" />
