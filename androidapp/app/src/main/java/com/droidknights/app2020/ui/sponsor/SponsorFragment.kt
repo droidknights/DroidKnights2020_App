@@ -26,7 +26,6 @@ class SponsorFragment : BaseFragment<SponsorViewModel, SponsorFragmentBinding>(
     private fun initView() {
         sponsorAdapter.submitList(viewModel.sponsorList)
         binding.rvSponsor.apply {
-            layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
             adapter = sponsorAdapter
         }
     }
