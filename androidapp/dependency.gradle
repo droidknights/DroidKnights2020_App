@@ -34,6 +34,7 @@ androidx.navigation = [
         fragment_ktx: "androidx.navigation:navigation-fragment-ktx:$versions.navigation",
         ui_ktx      : "androidx.navigation:navigation-ui-ktx:$versions.navigation"
 ]
+androidx.material = "com.google.android.material:material:1.1.0"
 deps.androidx = androidx
 
 // kotlin
@@ -93,7 +94,7 @@ ext.build_versions = [
 ]
 
 // repository
-def addRepos(RepositoryHandler handler) {
+def static addRepos(RepositoryHandler handler) {
     handler.google()
     handler.jcenter()
 }
