@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: "scabbard.gradle"
 
 android {
     compileSdkVersion build_versions.compile_sdk
@@ -31,6 +32,10 @@ android {
     dataBinding {
         enabled true
     }
+}
+
+scabbard {
+    enabled true
 }
 
 dependencies {
