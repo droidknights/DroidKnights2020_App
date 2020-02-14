@@ -9,27 +9,22 @@
             type="com.droidknights.app2020.ui.schedule.ScheduleViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipeRefreshLayout"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:isRefreshing="@{vm.isRefreshing}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:onRefresh="@{vm::refresh}">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvSchedule"
-                android:layout_width="0dp"
-                android:layout_height="0dp" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
 </layout>
