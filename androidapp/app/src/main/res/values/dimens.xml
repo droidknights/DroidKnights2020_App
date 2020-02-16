@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="SessionChip_height">20dp</dimen>
+    <dimen name="SessionChip_horizontal_margin">8dp</dimen>
+    <dimen name="SessionChip_vertical_margin">4dp</dimen>
+</resources>
