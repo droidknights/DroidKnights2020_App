@@ -2,31 +2,40 @@
   "textColor" : "#FFFFFF",
   "data": [
     {
-      "name": "toss"
+      "name": "toss",
+      "image": "@drawable/ic_sponsor_toss"
     },
     {
-      "name": "헤이딜러"
+      "name": "헤이딜러",
+      "image": "@drawable/ic_sponsor_heydealer"
     },
     {
-      "name": "LINE"
+      "name": "LINE",
+      "image": "@drawable/ic_sponsor_line"
     },
     {
-      "name": "Remember"
+      "name": "Remember",
+      "image": "@drawable/ic_sponsor_remember"
     },
     {
-      "name": "강남언니"
+      "name": "강남언니",
+      "image": "@drawable/ic_sponsor_gangnamunni"
     },
     {
-      "name": "NAVER"
+      "name": "NAVER",
+      "image": "@drawable/ic_sponsor_naver"
     },
     {
-      "name": "my real trip"
+      "name": "my real trip",
+      "image": "@drawable/ic_sponsor_myrealtrip"
     },
     {
-      "name": "카카오페이"
+      "name": "카카오페이",
+      "image": "@drawable/ic_sponsor_kakaopay"
     },
     {
-      "name": "vcnc"
+      "name": "vcnc",
+      "image": "@drawable/ic_sponsor_vcnc"
     }
   ]
 }
