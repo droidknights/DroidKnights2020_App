@@ -6,6 +6,8 @@
 ## Contributions Welcome!
 드로이드나이츠 행사 정보를 볼 수 있는 앱을 개발하고 있습니다. 여러분들의 참여로 함께 만들어 나가길 기대합니다!
 
+자세한 내용은 [CONTRIBUTING.md](CONTRIBUTING.md) 를 참고해주세요.
+
 ### Ways to contribute
 - 기능 개발
 - Issue 제안
