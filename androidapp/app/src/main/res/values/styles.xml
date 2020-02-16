@@ -6,6 +6,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <!-- Setting Custom Font-->
+        <item name="android:fontFamily">@font/nanum_square</item>
     </style>
 
 </resources>
