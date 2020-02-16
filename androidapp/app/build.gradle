@@ -47,6 +47,7 @@ dependencies {
     implementation deps.androidx.lifecycle.livedata_ktx
     implementation deps.androidx.navigation.fragment_ktx
     implementation deps.androidx.navigation.ui_ktx
+    implementation deps.androidx.material
 
     // coroutine
     implementation deps.kotlin.coroutines.core
