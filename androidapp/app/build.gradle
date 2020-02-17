@@ -53,6 +53,7 @@ dependencies {
     implementation deps.androidx.navigation.fragment_ktx
     implementation deps.androidx.navigation.ui_ktx
     implementation deps.androidx.material
+    implementation deps.androidx.swiperefresh
 
     // coroutine
     implementation deps.kotlin.coroutines.core

@@ -35,6 +35,7 @@ androidx.navigation = [
         ui_ktx      : "androidx.navigation:navigation-ui-ktx:$versions.navigation"
 ]
 androidx.material = "com.google.android.material:material:1.1.0"
+androidx.swiperefresh = "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 deps.androidx = androidx
 
 // kotlin
