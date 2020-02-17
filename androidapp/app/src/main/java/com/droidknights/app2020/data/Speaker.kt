@@ -1,6 +1,6 @@
-package com.droidknights.app2020.ui.data
+package com.droidknights.app2020.data
 
-data class SpeakerData(
+data class Speaker(
     val id: String,
     val name: String,
     val profileUrl: String,

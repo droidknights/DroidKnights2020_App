@@ -1,6 +1,6 @@
 package com.droidknights.app2020.db
 
-import com.droidknights.app2020.ui.data.SessionData
+import com.droidknights.app2020.data.Session
 import com.google.firebase.firestore.*
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
@@ -14,18 +14,18 @@ class SessionRepositoryImpl @Inject constructor(
 ) : SessionRepository {
     private val TAG = this::class.java.simpleName
 
-    override fun get(): Flow<List<SessionData>> = flow {
+    override fun get(): Flow<List<Session>> = flow {
         val snapshot = db.collection("Session").fastGet()
         emit(snapshot.map {
-            it.toObject(SessionData::class.java)
+            it.toObject(Session::class.java)
         })
     }
 
-    override fun getById(id: String): Flow<SessionData> = flow {
+    override fun getById(id: String): Flow<Session> = flow {
         val snapshot = db.collection("Session")
             .whereEqualTo("id", id)
             .fastGet()
-        emit(snapshot.map { it.toObject(SessionData::class.java) }[0])
+        emit(snapshot.map { it.toObject(Session::class.java) }[0])
     }
 }
 
