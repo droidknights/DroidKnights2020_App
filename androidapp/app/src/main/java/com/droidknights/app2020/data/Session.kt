@@ -1,6 +1,6 @@
-package com.droidknights.app2020.ui.data
+package com.droidknights.app2020.data
 
-data class SessionData(
+data class Session(
     var id: String = "",
     var track: Int = 0,
     var title: String = "",

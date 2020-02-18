@@ -50,7 +50,7 @@ class ScheduleFragment : BaseFragment<ScheduleViewModel, ScheduleFragmentBinding
     }
 
     private fun initObserve() {
-        viewModel.sessionListData.observe(viewLifecycleOwner, Observer {
+        viewModel.sessionList.observe(viewLifecycleOwner, Observer {
             it.let(scheduleAdapter::submitList)
             Timber.d(TAG, "getSessionListData : $it")
         })

@@ -4,7 +4,8 @@ import androidx.lifecycle.*
 import com.droidknights.app2020.base.BaseViewModel
 import com.droidknights.app2020.base.DispatcherProvider
 import com.droidknights.app2020.db.SessionRepository
-import com.droidknights.app2020.ui.data.SessionData
+import com.droidknights.app2020.ui.model.asUiModel
+import com.droidknights.app2020.ui.model.UiSessionModel
 import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
 
@@ -14,12 +15,12 @@ import javax.inject.Inject
 class ScheduleViewModel @Inject constructor(private val dispatchers: DispatcherProvider, repo: SessionRepository) : BaseViewModel() {
 
     private val _refreshEvent = MutableLiveData<Unit>()
-    val sessionListData: LiveData<List<SessionData>> = _refreshEvent.switchMap {
+    val sessionList: LiveData<List<UiSessionModel>> = _refreshEvent.switchMap {
         liveData {
-            repo.get().collect { emit(it) }
+            repo.get().collect { emit(it.map { session -> session.asUiModel() }) }
         }
     }
-    val isRefreshing: LiveData<Boolean> = sessionListData.map { false }
+    val isRefreshing: LiveData<Boolean> = sessionList.map { false }
 
     private val _itemEvent = MutableLiveData<String>()
     val itemEvent: LiveData<String> get() = _itemEvent

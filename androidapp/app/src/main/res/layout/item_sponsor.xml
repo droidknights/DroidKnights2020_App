@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="com.droidknights.app2020.ui.data.SponsorData" />
+            type="com.droidknights.app2020.ui.model.UiSponsorModel" />
     </data>
 
 
