@@ -61,7 +61,6 @@ dependencies {
     implementation deps.kotlin.coroutines.play_services
 
     // firebase
-    implementation deps.firebase.core
     implementation deps.firebase.analytics
     implementation deps.firebase.firestore
 
