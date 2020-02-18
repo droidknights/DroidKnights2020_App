@@ -15,5 +15,5 @@ fun Sponsor.asUiModel() =
     UiSponsorModel(
         name = name,
         url = url,
-        imageDrawableResId = image ?: 0
+        image = image ?: 0
     )

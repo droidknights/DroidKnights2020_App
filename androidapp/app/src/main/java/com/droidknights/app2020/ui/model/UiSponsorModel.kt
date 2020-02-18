@@ -6,5 +6,5 @@ import androidx.annotation.DrawableRes
 data class UiSponsorModel(
     val name: String,
     val url: String,
-    @DrawableRes val imageDrawableResId: Int
+    @DrawableRes val image: Int
 )
