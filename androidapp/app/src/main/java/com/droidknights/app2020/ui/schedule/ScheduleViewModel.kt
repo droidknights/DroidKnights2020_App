@@ -4,7 +4,7 @@ import androidx.lifecycle.*
 import com.droidknights.app2020.base.BaseViewModel
 import com.droidknights.app2020.base.DispatcherProvider
 import com.droidknights.app2020.db.SessionRepository
-import com.droidknights.app2020.mapper.asUiModel
+import com.droidknights.app2020.ui.model.asUiModel
 import com.droidknights.app2020.ui.model.UiSessionModel
 import kotlinx.coroutines.flow.collect
 import javax.inject.Inject

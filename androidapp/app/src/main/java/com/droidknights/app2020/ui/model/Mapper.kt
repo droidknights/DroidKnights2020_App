@@ -1,9 +1,7 @@
-package com.droidknights.app2020.mapper
+package com.droidknights.app2020.ui.model
 
 import com.droidknights.app2020.data.Session
 import com.droidknights.app2020.data.Sponsor
-import com.droidknights.app2020.ui.model.UiSessionModel
-import com.droidknights.app2020.ui.model.UiSponsorModel
 
 
 fun Session.asUiModel() =

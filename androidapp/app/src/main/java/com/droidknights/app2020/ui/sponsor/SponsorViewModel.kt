@@ -3,7 +3,7 @@ package com.droidknights.app2020.ui.sponsor
 import androidx.lifecycle.ViewModel
 import com.droidknights.app2020.R
 import com.droidknights.app2020.data.Sponsor
-import com.droidknights.app2020.mapper.asUiModel
+import com.droidknights.app2020.ui.model.asUiModel
 import javax.inject.Inject
 
 class SponsorViewModel @Inject constructor() : ViewModel() {
