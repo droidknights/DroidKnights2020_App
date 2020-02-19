@@ -3,7 +3,6 @@ package com.droidknights.app2020.ui.schedule
 import android.os.Bundle
 import android.view.View
 import androidx.core.os.bundleOf
-import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -51,10 +50,9 @@ class ScheduleFragment : BaseFragment<ScheduleViewModel, ScheduleFragmentBinding
     }
 
     private fun initObserve() {
-        viewModel.sessionListData.observe(viewLifecycleOwner, Observer {
+        viewModel.sessionList.observe(viewLifecycleOwner, Observer {
             it.let(scheduleAdapter::submitList)
             Timber.d(TAG, "getSessionListData : $it")
-            if(it.isNotEmpty()) binding.sessionsProgressBar.isVisible = false
         })
 
         viewModel.itemEvent.observe(viewLifecycleOwner, Observer {

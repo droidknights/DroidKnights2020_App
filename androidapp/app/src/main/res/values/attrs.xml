@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SessionChipGroup">
+        <attr name="chipGravity">
+            <enum name="start" value="-1" />
+            <enum name="center" value="0" />
+            <enum name="end" value="1" />
+        </attr>
+        <attr name="itemMargin" format="dimension" />
+        <attr name="itemMarginStart" format="dimension" />
+        <attr name="itemMarginEnd" format="dimension" />
+        <attr name="itemMarginTop" format="dimension" />
+        <attr name="itemMarginBottom" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="SessionChip">
+        <attr name="sc_textColor" format="color" />
+        <attr name="sc_cornerRadius" format="dimension" />
+        <attr name="sc_strokeSize" format="dimension" />
+    </declare-styleable>
+</resources>

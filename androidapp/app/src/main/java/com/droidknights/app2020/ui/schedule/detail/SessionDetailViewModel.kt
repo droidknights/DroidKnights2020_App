@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.droidknights.app2020.base.BaseViewModel
 import com.droidknights.app2020.base.DispatcherProvider
 import com.droidknights.app2020.db.SessionRepository
-import com.droidknights.app2020.ui.data.SessionData
+import com.droidknights.app2020.data.Session
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -15,7 +15,7 @@ class SessionDetailViewModel @Inject constructor(
     private val repo: SessionRepository
 ) : BaseViewModel() {
 
-    val sessionContents = MutableLiveData<SessionData>()
+    val sessionContents = MutableLiveData<Session>()
 
     fun getSessionFromFirestore(id: String) {
         viewModelScope.launch {

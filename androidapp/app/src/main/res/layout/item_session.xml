@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="com.droidknights.app2020.ui.data.SessionData" />
+            type="com.droidknights.app2020.ui.model.UiSessionModel" />
     </data>
 
 
@@ -21,35 +21,88 @@
 
         <TextView
             android:id="@+id/tvMemoTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:text="@{item.title}"
             android:textSize="16sp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvDate"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="@string/app_name"
-            />
+            tools:text="1년간 토스 앱의 '홈' 탭을 개발하며 쌓은 Learning Share" />
 
         <TextView
             android:id="@+id/tvDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{item.time}"
-            app:layout_constraintTop_toBottomOf="@id/tvMemoTitle"
+            android:textColor="#00d0a8"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text="@string/app_name"
-            />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="10:45" />
 
-        <View
+        <com.droidknights.app2020.widget.SessionChipGroup
             android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="15dp"
-            android:background="@color/colorBorder"
-            app:layout_constraintTop_toBottomOf="@id/tvDate"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tvMemoTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvMemoTitle"
+            app:layout_constraintVertical_bias="0.0">
+
+            <com.droidknights.app2020.widget.SessionChip
+                android:id="@+id/sessionChip1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="기술"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDate"
+                app:sc_strokeSize="1dp"
+                app:sc_textColor="@color/color_sessionChipText" />
+
+            <com.droidknights.app2020.widget.SessionChip
+                android:id="@+id/sessionChip2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="경험"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/sessionChip1"
+                app:layout_constraintTop_toTopOf="@+id/sessionChip1"
+                app:sc_strokeSize="1dp"
+                app:sc_textColor="@color/color_sessionChipText_white" />
+
+            <com.droidknights.app2020.widget.SessionChip
+                android:id="@+id/sessionChip3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="심화"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/sessionChip2"
+                app:layout_constraintTop_toTopOf="@+id/sessionChip2"
+                app:sc_strokeSize="1dp"
+                app:sc_textColor="@color/color_sessionChipText_red" />
+
+            <com.droidknights.app2020.widget.SessionChip
+                android:id="@+id/sessionChip4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="중급"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/sessionChip3"
+                app:layout_constraintTop_toTopOf="@+id/sessionChip3"
+                app:sc_strokeSize="1dp"
+                app:sc_textColor="@color/color_sessionChipText_purple" />
+
+        </com.droidknights.app2020.widget.SessionChipGroup>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

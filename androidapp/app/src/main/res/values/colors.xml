@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
-
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#C7C7C7</color>
+    <color name="colorAccent">#EE5050</color>
     <color name="colorBorder">#a0a0a0</color>
 
     <!--sponsor tab-->
     <color name="sponsor_background_color">#303033</color>
+
+    <!--custom SessionChip-->
+    <!--Default Color-->
+    <color name="color_sessionChipText">#000000</color>
+    <color name="color_sessionChipText_white">#ffffff</color>
+    <color name="color_sessionChipText_blue">#5499e8</color>
+    <color name="color_sessionChipText_purple">#5a00d0</color>
+    <color name="color_sessionChipText_orange">#ff9900</color>
+    <color name="color_sessionChipText_red">#ee5050</color>
+
+    <!--Session-->
+    <color name="color_session_date">#00d0a8</color>
 </resources>
