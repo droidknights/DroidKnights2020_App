@@ -31,7 +31,8 @@ class SessionRepositoryImpl @Inject constructor(
 
 private suspend fun Query.fastGet(): QuerySnapshot {
     return try {
-        get(Source.CACHE).await()
+//        get(Source.CACHE).await()
+        get(Source.SERVER).await()
     } catch (e: Exception) {
         get(Source.SERVER).await()
     }
@@ -47,7 +48,8 @@ private suspend fun DocumentReference.fastGet(): DocumentSnapshot {
 
 private suspend fun CollectionReference.fastGet(): QuerySnapshot {
     return try {
-        get(Source.CACHE).await()
+//        get(Source.CACHE).await()
+        get(Source.SERVER).await()
     } catch (e: Exception) {
         get(Source.SERVER).await()
     }
