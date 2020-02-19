@@ -64,6 +64,10 @@ deps.dagger = [
         android_processor: "com.google.dagger:dagger-android-processor:$versions.dagger"
 ]
 
+deps.google = [
+        gson: 'com.google.code.gson:gson:2.8.6'
+]
+
 // debugging
 deps.debugging = [
         timber      : "com.jakewharton.timber:timber:$versions.timber"
