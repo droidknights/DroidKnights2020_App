@@ -18,6 +18,7 @@ import javax.inject.Singleton
         ActivityBindingModule::class,
         ViewModelModule::class,
         FirestoreModule::class,
+        PrePackagedDbModule::class,
         RepositoryModule::class
     ]
 )

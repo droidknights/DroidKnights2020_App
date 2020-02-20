@@ -70,6 +70,8 @@ dependencies {
     kapt deps.dagger.compiler
     kapt deps.dagger.android_processor
 
+    implementation deps.google.gson
+
     // debugging
     implementation deps.debugging.timber
 
