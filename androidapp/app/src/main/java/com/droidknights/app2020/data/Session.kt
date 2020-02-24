@@ -6,5 +6,8 @@ data class Session(
     var title: String = "",
     var tag: List<String>? = emptyList(),
     var time: String = "",
-    var contents: String? = ""
+    var contents: String? = "",
+    var speakerName: String? = "",
+    var speakerDesc: String? = "",
+    var speakerProfile: String? = ""
 )
