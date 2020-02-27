@@ -6,45 +6,38 @@ import com.google.firebase.firestore.*
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 class SessionRepositoryImpl @Inject constructor(
-    private val db : FirebaseFirestore,
+    private val db: FirebaseFirestore,
     private val prePackagedDb: PrePackagedDb
 ) : SessionRepository {
     private val TAG = this::class.java.simpleName
 
-    override fun get(): Flow<List<Session>> = flow {
-        val snapshot = db.collection("Session").fastGet()
-        if (snapshot.isEmpty) {
-            emit(prePackagedDb.getSessionList())
-        } else {
-            emit(snapshot.map {
-                it.toObject(Session::class.java)
-            })
-        }
+    override suspend fun get(): Flow<List<Session>> {
+        return db.collection("Session").toFlow()
+            .map { snapshot ->
+                snapshot.map { it.toObject(Session::class.java) }
+            }
     }
 
-    override fun getById(id: String): Flow<Session> = flow {
-        val snapshot = db.collection("Session")
+    override suspend fun getById(id: String): Flow<Session> {
+        return db.collection("Session")
             .whereEqualTo("id", id)
-            .fastGet()
-        if (snapshot.isEmpty) {
-            prePackagedDb.getSessionById(id)?.let {
-                emit(it)
+            .toFlow()
+            .map { snapshot ->
+                snapshot.map {
+                    it.toObject(Session::class.java)
+                }[0]
             }
-        } else {
-            emit(snapshot.map { it.toObject(Session::class.java) }[0])
-        }
     }
 }
 
 private suspend fun Query.fastGet(): QuerySnapshot {
     return try {
-//        get(Source.CACHE).await()
-        get(Source.SERVER).await()
+        get(Source.CACHE).await()
     } catch (e: Exception) {
         get(Source.SERVER).await()
     }
@@ -60,21 +53,32 @@ private suspend fun DocumentReference.fastGet(): DocumentSnapshot {
 
 private suspend fun CollectionReference.fastGet(): QuerySnapshot {
     return try {
-//        get(Source.CACHE).await()
-        get(Source.SERVER).await()
+        get(Source.CACHE).await()
     } catch (e: Exception) {
         get(Source.SERVER).await()
     }
 }
 
-private fun Query.toFlow(): Flow<QuerySnapshot> {
-    return callbackFlow<QuerySnapshot> {
-        val listenerRegistration = addSnapshotListener { snapshot, exception ->
-            if (exception != null) close(exception)
-            else if (snapshot != null) {
-                offer(snapshot)
+private suspend fun DocumentReference.toFlow() = callbackFlow {
+    val listener = addSnapshotListener { snapshot, exception ->
+        if (exception != null) close(exception)
+        if (snapshot != null && !snapshot.exists()) {
+            runCatching {
+                offer(snapshot!!)
             }
         }
-        awaitClose { listenerRegistration.remove() }
     }
+    awaitClose { listener.remove() }
+}
+
+private fun Query.toFlow() = callbackFlow {
+    val listener = addSnapshotListener { snapshot, exception ->
+        if (exception != null) close(exception)
+        if (snapshot != null && !snapshot.isEmpty) {
+            runCatching {
+                offer(snapshot!!)
+            }
+        }
+    }
+    awaitClose { listener.remove() }
 }
