@@ -1,3 +1,4 @@
+![Android Pull Request & Master CI](https://github.com/droidknights/DroidKnights2020_App/workflows/Android%20Pull%20Request%20&%20Master%20CI/badge.svg)
 
 # 👨‍💻👩‍💻DroidKnights2020 App 🛠🔧🔨
 드로이드나이츠는 기술 세션으로 개발자들의 경험을 공유하는 안드로이드 컨퍼런스 입니다.
