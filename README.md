@@ -7,7 +7,11 @@
 ## Contributions Welcome!
 드로이드나이츠 행사 정보를 볼 수 있는 앱을 개발하고 있습니다. 여러분들의 참여로 함께 만들어 나가길 기대합니다!
 
+[![](https://sourcerer.io/fame/Jiyoung9310/droidknights/DroidKnights2020_App/images/0)](https://sourcerer.io/fame/Jiyoung9310/droidknights/DroidKnights2020_App/links/0)[![](https://sourcerer.io/fame/Jiyoung9310/droidknights/DroidKnights2020_App/images/1)](https://sourcerer.io/fame/Jiyoung9310/droidknights/DroidKnights2020_App/links/1)[![](https://sourcerer.io/fame/Jiyoung9310/droidknights/DroidKnights2020_App/images/2)](https://sourcerer.io/fame/Jiyoung9310/droidknights/DroidKnights2020_App/links/2)[![](https://sourcerer.io/fame/Jiyoung9310/droidknights/DroidKnights2020_App/images/3)](https://sourcerer.io/fame/Jiyoung9310/droidknights/DroidKnights2020_App/links/3)[![](https://sourcerer.io/fame/Jiyoung9310/droidknights/DroidKnights2020_App/images/4)](https://sourcerer.io/fame/Jiyoung9310/droidknights/DroidKnights2020_App/links/4)[![](https://sourcerer.io/fame/Jiyoung9310/droidknights/DroidKnights2020_App/images/5)](https://sourcerer.io/fame/Jiyoung9310/droidknights/DroidKnights2020_App/links/5)[![](https://sourcerer.io/fame/Jiyoung9310/droidknights/DroidKnights2020_App/images/6)](https://sourcerer.io/fame/Jiyoung9310/droidknights/DroidKnights2020_App/links/6)[![](https://sourcerer.io/fame/Jiyoung9310/droidknights/DroidKnights2020_App/images/7)](https://sourcerer.io/fame/Jiyoung9310/droidknights/DroidKnights2020_App/links/7)
+
 자세한 내용은 [CONTRIBUTING.md](CONTRIBUTING.md) 를 참고해주세요.
+
+참여해주신 모든 분들 감사합니다!
 
 ### Ways to contribute
 - 기능 개발
