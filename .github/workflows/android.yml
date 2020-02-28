@@ -9,9 +9,8 @@ on:
       - 'master'
 
 jobs:
-  test:
-    name: Run Unit Tests
-    runs-on: ubuntu-latest
+  instrumentation-test:
+    runs-on: macOS-latest
 
     steps:
       - uses: actions/checkout@v1
