@@ -1,4 +1,4 @@
-package com.droidknights.app2020.ui.sponsor
+package com.droidknights.app2020.ui.info
 
 import androidx.recyclerview.widget.DiffUtil
 import com.droidknights.app2020.R
