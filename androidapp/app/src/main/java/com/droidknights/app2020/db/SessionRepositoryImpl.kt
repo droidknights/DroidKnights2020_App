@@ -6,11 +6,11 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.*
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
-import kotlin.coroutines.suspendCoroutine
 
 class SessionRepositoryImpl @Inject constructor(
     private val db: FirebaseFirestore,
@@ -21,6 +21,8 @@ class SessionRepositoryImpl @Inject constructor(
     override suspend fun get(): Flow<List<Session>> = flow {
         val snapshot = db.collection("Session").toCacheFirstFlow()
         emit(snapshot.map { it.toObject(Session::class.java) })
+    }.catch {
+        emit(prePackagedDb.getSessionList())
     }
 
     override suspend fun getById(id: String): Flow<Session> {
@@ -31,6 +33,10 @@ class SessionRepositoryImpl @Inject constructor(
                 snapshot.map {
                     it.toObject(Session::class.java)
                 }[0]
+            }.catch {
+                prePackagedDb.getSessionById(id)?.let {
+                    emit(it)
+                }
             }
     }
 }
@@ -72,7 +78,7 @@ private fun Query.toFlow() = callbackFlow {
 }
 
 private suspend fun CollectionReference.toCacheFirstFlow() =
-    suspendCoroutine<QuerySnapshot> { con ->
+    suspendCancellableCoroutine<QuerySnapshot> { con ->
         get(Source.CACHE).toComplete { cacheSnapshot, _ ->
             if (cacheSnapshot != null && !cacheSnapshot.isEmpty) {
                 con.resume(cacheSnapshot)
