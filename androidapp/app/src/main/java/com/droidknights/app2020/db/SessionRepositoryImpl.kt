@@ -2,13 +2,15 @@ package com.droidknights.app2020.db
 
 import com.droidknights.app2020.data.Session
 import com.droidknights.app2020.db.prepackage.PrePackagedDb
+import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.*
 import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
+import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
+import kotlin.coroutines.suspendCoroutine
 
 class SessionRepositoryImpl @Inject constructor(
     private val db: FirebaseFirestore,
@@ -16,11 +18,9 @@ class SessionRepositoryImpl @Inject constructor(
 ) : SessionRepository {
     private val TAG = this::class.java.simpleName
 
-    override suspend fun get(): Flow<List<Session>> {
-        return db.collection("Session").toFlow()
-            .map { snapshot ->
-                snapshot.map { it.toObject(Session::class.java) }
-            }
+    override suspend fun get(): Flow<List<Session>> = flow {
+        val snapshot = db.collection("Session").toCacheFirstFlow()
+        emit(snapshot.map { it.toObject(Session::class.java) })
     }
 
     override suspend fun getById(id: String): Flow<Session> {
@@ -59,18 +59,6 @@ private suspend fun CollectionReference.fastGet(): QuerySnapshot {
     }
 }
 
-private suspend fun DocumentReference.toFlow() = callbackFlow {
-    val listener = addSnapshotListener { snapshot, exception ->
-        if (exception != null) close(exception)
-        if (snapshot != null && !snapshot.exists()) {
-            runCatching {
-                offer(snapshot!!)
-            }
-        }
-    }
-    awaitClose { listener.remove() }
-}
-
 private fun Query.toFlow() = callbackFlow {
     val listener = addSnapshotListener { snapshot, exception ->
         if (exception != null) close(exception)
@@ -81,4 +69,27 @@ private fun Query.toFlow() = callbackFlow {
         }
     }
     awaitClose { listener.remove() }
+}
+
+private suspend fun CollectionReference.toCacheFirstFlow() =
+    suspendCoroutine<QuerySnapshot> { con ->
+        get(Source.CACHE).toComplete { cacheSnapshot, _ ->
+            if (cacheSnapshot != null && !cacheSnapshot.isEmpty) {
+                con.resume(cacheSnapshot)
+            } else {
+                get(Source.SERVER).toComplete { serverSnapshot, error ->
+                    if (serverSnapshot != null && !serverSnapshot.isEmpty) {
+                        con.resume(serverSnapshot)
+                    } else {
+                        con.resumeWithException(error ?: IllegalStateException("Error"))
+                    }
+                }
+            }
+        }
+    }
+
+private inline fun Task<QuerySnapshot>.toComplete(
+    crossinline block: (snapshot: QuerySnapshot?, error: Throwable?) -> Unit
+) = addOnCompleteListener { task ->
+    block(task.result, task.exception)
 }

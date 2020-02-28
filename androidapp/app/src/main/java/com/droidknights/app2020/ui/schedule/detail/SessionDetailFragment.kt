@@ -14,7 +14,7 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         arguments?.getString("sessionId")?.let {
-            viewModel.getSessionFromFirestore(it)
+            viewModel.getSession(it)
         }
 
         //TODO : Speaker 표시
