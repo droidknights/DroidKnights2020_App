@@ -2,15 +2,12 @@ package com.droidknights.app2020.db
 
 import com.droidknights.app2020.data.Session
 import com.droidknights.app2020.db.prepackage.PrePackagedDb
-import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.*
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.tasks.await
+import timber.log.Timber
 import javax.inject.Inject
-import kotlin.coroutines.resume
-import kotlin.coroutines.resumeWithException
 
 class SessionRepositoryImpl @Inject constructor(
     private val db: FirebaseFirestore,
@@ -19,9 +16,10 @@ class SessionRepositoryImpl @Inject constructor(
     private val TAG = this::class.java.simpleName
 
     override suspend fun get(): Flow<List<Session>> = flow {
-        val snapshot = db.collection("Session").toCacheFirstFlow()
+        val snapshot = db.collection("Session").cacheFirstGet()
         emit(snapshot.map { it.toObject(Session::class.java) })
     }.catch {
+        Timber.e(it)
         emit(prePackagedDb.getSessionList())
     }
 
@@ -77,25 +75,10 @@ private fun Query.toFlow() = callbackFlow {
     awaitClose { listener.remove() }
 }
 
-private suspend fun CollectionReference.toCacheFirstFlow() =
-    suspendCancellableCoroutine<QuerySnapshot> { con ->
-        get(Source.CACHE).toComplete { cacheSnapshot, _ ->
-            if (cacheSnapshot != null && !cacheSnapshot.isEmpty) {
-                con.resume(cacheSnapshot)
-            } else {
-                get(Source.SERVER).toComplete { serverSnapshot, error ->
-                    if (serverSnapshot != null && !serverSnapshot.isEmpty) {
-                        con.resume(serverSnapshot)
-                    } else {
-                        con.resumeWithException(error ?: IllegalStateException("Error"))
-                    }
-                }
-            }
-        }
+private suspend fun CollectionReference.cacheFirstGet(): QuerySnapshot {
+    val cacheSnapshot = get(Source.CACHE).await()
+    if (cacheSnapshot != null && !cacheSnapshot.isEmpty) {
+        return cacheSnapshot
     }
-
-private inline fun Task<QuerySnapshot>.toComplete(
-    crossinline block: (snapshot: QuerySnapshot?, error: Throwable?) -> Unit
-) = addOnCompleteListener { task ->
-    block(task.result, task.exception)
+    return get(Source.SERVER).await()
 }
