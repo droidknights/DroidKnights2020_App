@@ -17,6 +17,7 @@ class SessionRepositoryImpl @Inject constructor(
 
     override suspend fun get(): Flow<List<Session>> = flow {
         val snapshot = db.collection("Session").cacheFirstGet()
+        Timber.d("Loaded ${if (snapshot.metadata.isFromCache) "Cache" else "Server"} ")
         emit(snapshot.map { it.toObject(Session::class.java) })
     }.catch {
         Timber.e(it)
@@ -24,18 +25,24 @@ class SessionRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getById(id: String): Flow<Session> {
-        return db.collection("Session")
-            .whereEqualTo("id", id)
-            .toFlow()
-            .map { snapshot ->
-                snapshot.map {
-                    it.toObject(Session::class.java)
-                }[0]
-            }.catch {
-                prePackagedDb.getSessionById(id)?.let {
-                    emit(it)
-                }
+        val collectionRefFlow = flow {
+            emit(db.collection("Session"))
+        }
+        val snapshotFlow = collectionRefFlow.flatMapLatest { snapshot ->
+            snapshot.whereEqualTo("id", id).toFlow()
+        }
+        return snapshotFlow.mapLatest { snapshot ->
+            if (snapshot.isEmpty) {
+                // 사전 처리 DB로 전환하기 위한 에러 반환
+                throw IllegalStateException("Not Found")
             }
+            snapshot.mapNotNull { it.toObject(Session::class.java) }[0]
+        }.catch {
+            Timber.e(it)
+            prePackagedDb.getSessionById(id)?.let { session ->
+                emit(session)
+            }
+        }
     }
 }
 
@@ -66,10 +73,8 @@ private suspend fun CollectionReference.fastGet(): QuerySnapshot {
 private fun Query.toFlow() = callbackFlow {
     val listener = addSnapshotListener { snapshot, exception ->
         if (exception != null) close(exception)
-        if (snapshot != null && !snapshot.isEmpty) {
-            runCatching {
-                offer(snapshot!!)
-            }
+        if (snapshot != null) {
+            offer(snapshot!!)
         }
     }
     awaitClose { listener.remove() }

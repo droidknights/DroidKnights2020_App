@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class SessionDetailViewModel @Inject constructor(
-    dispatchers: DispatcherProvider,
+    private val dispatchers: DispatcherProvider,
     private val repo: SessionRepository
 ) : BaseViewModel() {
 
