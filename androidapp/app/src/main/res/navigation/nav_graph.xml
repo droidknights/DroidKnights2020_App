@@ -21,11 +21,6 @@
         android:label="MypageFragment"
         tools:layout="@layout/mypage_fragment" />
     <fragment
-        android:id="@+id/sponsorFragment"
-        android:name="com.droidknights.app2020.ui.sponsor.SponsorFragment"
-        android:label="SponsorFragment"
-        tools:layout="@layout/sponsor_fragment" />
-    <fragment
         android:id="@+id/sessionDetailFragment"
         android:name="com.droidknights.app2020.ui.schedule.detail.SessionDetailFragment"
         android:label="SessionDetailFragment"
