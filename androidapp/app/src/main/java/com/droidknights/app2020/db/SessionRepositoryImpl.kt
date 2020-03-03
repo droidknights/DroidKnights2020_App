@@ -1,7 +1,6 @@
 package com.droidknights.app2020.db
 
 import com.droidknights.app2020.data.Session
-import com.droidknights.app2020.data.toSortedSessions
 import com.droidknights.app2020.db.prepackage.PrePackagedDb
 import com.google.firebase.firestore.*
 import kotlinx.coroutines.channels.awaitClose
@@ -80,3 +79,15 @@ private fun Query.toFlow(): Flow<QuerySnapshot> {
         awaitClose { listenerRegistration.remove() }
     }
 }
+
+/**
+ * 1차: time 순서
+ * 2차: track 순서
+ */
+private fun List<Session>.toSortedSessions(): List<Session> =
+    sortedWith(
+        compareBy(
+            { it.time },
+            { it.track }
+        )
+    )

@@ -11,15 +11,3 @@ data class Session(
     var speakerDesc: String? = "",
     var speakerProfile: String? = ""
 )
-
-/**
- * 1차: time 순서
- * 2차: track 순서
- */
-fun List<Session>.toSortedSessions(): List<Session> =
-    sortedWith(
-        compareBy(
-            { it.time },
-            { it.track }
-        )
-    )
