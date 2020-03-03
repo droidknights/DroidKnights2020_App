@@ -1,17 +1,19 @@
 package com.droidknights.app2020.db
 
 import com.droidknights.app2020.data.Session
+import com.droidknights.app2020.data.toSortedSessions
 import com.droidknights.app2020.db.prepackage.PrePackagedDb
 import com.google.firebase.firestore.*
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 class SessionRepositoryImpl @Inject constructor(
-    private val db : FirebaseFirestore,
+    private val db: FirebaseFirestore,
     private val prePackagedDb: PrePackagedDb
 ) : SessionRepository {
     private val TAG = this::class.java.simpleName
@@ -25,7 +27,7 @@ class SessionRepositoryImpl @Inject constructor(
                 it.toObject(Session::class.java)
             })
         }
-    }
+    }.map { it.toSortedSessions() }
 
     override fun getById(id: String): Flow<Session> = flow {
         val snapshot = db.collection("Session")
