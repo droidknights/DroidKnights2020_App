@@ -7,11 +7,12 @@ import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 class SessionRepositoryImpl @Inject constructor(
-    private val db : FirebaseFirestore,
+    private val db: FirebaseFirestore,
     private val prePackagedDb: PrePackagedDb
 ) : SessionRepository {
     private val TAG = this::class.java.simpleName
@@ -25,7 +26,7 @@ class SessionRepositoryImpl @Inject constructor(
                 it.toObject(Session::class.java)
             })
         }
-    }
+    }.map { it.toSortedSessions() }
 
     override fun getById(id: String): Flow<Session> = flow {
         val snapshot = db.collection("Session")
@@ -78,3 +79,15 @@ private fun Query.toFlow(): Flow<QuerySnapshot> {
         awaitClose { listenerRegistration.remove() }
     }
 }
+
+/**
+ * 1차: time 순서
+ * 2차: track 순서
+ */
+private fun List<Session>.toSortedSessions(): List<Session> =
+    sortedWith(
+        compareBy(
+            { it.time },
+            { it.track }
+        )
+    )
