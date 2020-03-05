@@ -22,6 +22,8 @@ class SessionRepositoryImpl @Inject constructor(
     }.catch {
         Timber.e(it)
         emit(prePackagedDb.getSessionList())
+    }.map {
+        it.toSortedSessions()
     }
 
     override suspend fun getById(id: String): Flow<Session> {
@@ -87,3 +89,15 @@ private suspend fun CollectionReference.cacheFirstGet(): QuerySnapshot {
     }
     return get(Source.SERVER).await()
 }
+
+/**
+ * 1차: time 순서
+ * 2차: track 순서
+ */
+private fun List<Session>.toSortedSessions(): List<Session> =
+    sortedWith(
+        compareBy(
+            { it.time },
+            { it.track }
+        )
+    )
