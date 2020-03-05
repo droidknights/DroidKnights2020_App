@@ -3,4 +3,12 @@
     <dimen name="SessionChip_height">20dp</dimen>
     <dimen name="SessionChip_horizontal_margin">8dp</dimen>
     <dimen name="SessionChip_vertical_margin">4dp</dimen>
+
+    <dimen name="bottom_nav_height">48dp</dimen>
+    <dimen name="bottom_nav_horizontal_margin">30dp</dimen>
+    <dimen name="bottom_nav_bottom_margin">12dp</dimen>
+
+    <dimen name="fragment_bottom_padding">60dp</dimen>
+
+    <dimen name="fab_filter_bottom_margin">66dp</dimen>
 </resources>

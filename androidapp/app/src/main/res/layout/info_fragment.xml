@@ -20,7 +20,7 @@
             android:layout_height="0dp"
             android:clipToPadding="false"
             android:orientation="vertical"
-            android:paddingBottom="68dp"
+            android:paddingBottom="@dimen/fragment_bottom_padding"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
