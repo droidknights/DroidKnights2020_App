@@ -2,7 +2,6 @@ package com.droidknights.app2020.ui.schedule
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -55,9 +54,11 @@ class ScheduleFragment : BaseFragment<ScheduleViewModel, ScheduleFragmentBinding
             Timber.d(TAG, "getSessionListData : $it")
         })
 
-        viewModel.itemEvent.observe(viewLifecycleOwner, Observer {
-            val bundle = bundleOf("sessionId" to it)
-            binding.root.findNavController().navigate(R.id.sessionDetailFragment, bundle)
+        viewModel.itemEvent.observe(viewLifecycleOwner, Observer { event ->
+            event.getContentIfNotHandled()?.let { sessionId ->
+                val action = ScheduleFragmentDirections.actionScheduleToSessionDetail(sessionId)
+                binding.root.findNavController().navigate(action)
+            }
         })
     }
 }
