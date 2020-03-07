@@ -6,20 +6,30 @@
     app:startDestination="@id/infoFragment">
 
     <fragment
-        android:id="@+id/scheduleFragment"
-        android:name="com.droidknights.app2020.ui.schedule.ScheduleFragment"
-        android:label="ScheduleFragment"
-        tools:layout="@layout/schedule_fragment" />
-    <fragment
         android:id="@+id/infoFragment"
         android:name="com.droidknights.app2020.ui.info.InfoFragment"
         android:label="InfoFragment"
-        tools:layout="@layout/info_fragment" />
+        tools:layout="@layout/info_fragment"/>
+
     <fragment
-        android:id="@+id/mypageFragment"
-        android:name="com.droidknights.app2020.ui.mypage.MypageFragment"
-        android:label="MypageFragment"
-        tools:layout="@layout/mypage_fragment" />
+        android:id="@+id/scheduleFragment"
+        android:name="com.droidknights.app2020.ui.schedule.ScheduleFragment"
+        android:label="ScheduleFragment"
+        tools:layout="@layout/schedule_fragment" >
+        <action
+            android:id="@+id/actionScheduleToSessionDetail"
+            app:destination="@id/sessionDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim">
+            <argument
+                android:name="sessionId"
+                app:argType="string"
+                app:nullable="false" />
+        </action>
+    </fragment>
+
     <fragment
         android:id="@+id/sessionDetailFragment"
         android:name="com.droidknights.app2020.ui.schedule.detail.SessionDetailFragment"
@@ -27,6 +37,14 @@
         tools:layout="@layout/session_detail_fragment">
         <argument
             android:name="sessionId"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="false" />
     </fragment>
+
+    <fragment
+        android:id="@+id/mypageFragment"
+        android:name="com.droidknights.app2020.ui.mypage.MypageFragment"
+        android:label="MypageFragment"
+        tools:layout="@layout/mypage_fragment" />
+
 </navigation>
