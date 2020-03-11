@@ -5,6 +5,7 @@ buildscript {
         classpath gradlePlugin.android
         classpath gradlePlugin.kotlin
         classpath gradlePlugin.play_services
+        classpath gradlePlugin.navigation_safe_args
     }
 }
 

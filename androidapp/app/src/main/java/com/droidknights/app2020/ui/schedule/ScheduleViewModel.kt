@@ -3,6 +3,7 @@ package com.droidknights.app2020.ui.schedule
 import androidx.lifecycle.*
 import com.droidknights.app2020.base.BaseViewModel
 import com.droidknights.app2020.base.DispatcherProvider
+import com.droidknights.app2020.common.Event
 import com.droidknights.app2020.db.SessionRepository
 import com.droidknights.app2020.ui.model.UiSessionModel
 import com.droidknights.app2020.ui.model.asUiModel
@@ -30,8 +31,8 @@ class ScheduleViewModel @Inject constructor(
     }
     val isRefreshing: LiveData<Boolean> = sessionList.map { false }
 
-    private val _itemEvent = MutableLiveData<String>()
-    val itemEvent: LiveData<String> get() = _itemEvent
+    private val _itemEvent = MutableLiveData<Event<String>>()
+    val itemEvent: LiveData<Event<String>> get() = _itemEvent
 
     init {
         refresh()
@@ -42,6 +43,6 @@ class ScheduleViewModel @Inject constructor(
     }
 
     fun onClickItem(sessionId: String) {
-        _itemEvent.value = sessionId
+        _itemEvent.value = Event(sessionId)
     }
 }
