@@ -16,21 +16,22 @@ import javax.inject.Inject
 import kotlin.reflect.KClass
 
 abstract class BaseFragment<VM : ViewModel, B : ViewDataBinding>(
-    @LayoutRes val layoutResId: Int,
+    @LayoutRes private val layoutResId: Int,
     viewModelClass: KClass<VM>
 ) : DaggerFragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
     protected val viewModel: VM by assistedViewModels(viewModelClass) { viewModelFactory }
 
-    protected val binding: B by lazy { DataBindingUtil.bind<B>(view!!)!! }
+    protected lateinit var binding: B
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(layoutResId, container, false)
+        binding = DataBindingUtil.inflate(inflater, layoutResId, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
