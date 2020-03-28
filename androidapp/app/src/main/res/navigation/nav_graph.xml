@@ -9,13 +9,33 @@
         android:id="@+id/infoFragment"
         android:name="com.droidknights.app2020.ui.info.InfoFragment"
         android:label="InfoFragment"
-        tools:layout="@layout/info_fragment"/>
+        tools:layout="@layout/info_fragment">
+
+        <action
+            android:id="@+id/actionInfoSponsor"
+            app:destination="@id/sponsorFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/sponsorFragment"
+        android:name="com.droidknights.app2020.ui.info.sponsor.SponsorFragment"
+        android:label="SponsorFragment"
+        tools:layout="@layout/sponsor_fragment">
+        <argument
+            android:name="webUrl"
+            app:argType="string"
+            app:nullable="false" />
+    </fragment>
 
     <fragment
         android:id="@+id/scheduleFragment"
         android:name="com.droidknights.app2020.ui.schedule.ScheduleFragment"
         android:label="ScheduleFragment"
-        tools:layout="@layout/schedule_fragment" >
+        tools:layout="@layout/schedule_fragment">
         <action
             android:id="@+id/actionScheduleToSessionDetail"
             app:destination="@id/sessionDetailFragment"
