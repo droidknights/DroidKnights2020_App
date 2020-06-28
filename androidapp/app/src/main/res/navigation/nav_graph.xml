@@ -9,13 +9,13 @@
         android:id="@+id/infoFragment"
         android:name="com.droidknights.app2020.ui.info.InfoFragment"
         android:label="InfoFragment"
-        tools:layout="@layout/info_fragment"/>
+        tools:layout="@layout/info_fragment" />
 
     <fragment
         android:id="@+id/scheduleFragment"
         android:name="com.droidknights.app2020.ui.schedule.ScheduleFragment"
         android:label="ScheduleFragment"
-        tools:layout="@layout/schedule_fragment" >
+        tools:layout="@layout/schedule_fragment">
         <action
             android:id="@+id/actionScheduleToSessionDetail"
             app:destination="@id/sessionDetailFragment"

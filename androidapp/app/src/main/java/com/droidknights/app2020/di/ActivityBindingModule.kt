@@ -23,5 +23,5 @@ abstract class ActivityBindingModule {
             MypageModule::class
         ]
     )
-    internal abstract fun getMainActivity() : MainActivity
+    internal abstract fun getMainActivity(): MainActivity
 }
