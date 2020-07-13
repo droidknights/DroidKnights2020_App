@@ -5,6 +5,7 @@ import com.droidknights.app2020.di.annotation.FragmentScoped
 import com.droidknights.app2020.di.annotation.ViewModelKey
 import com.droidknights.app2020.ui.schedule.detail.SessionDetailFragment
 import com.droidknights.app2020.ui.schedule.detail.SessionDetailViewModel
+import com.droidknights.app2020.ui.schedule.filter.ScheduleFilterFragment
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -32,4 +33,8 @@ internal abstract class ScheduleModule {
     @IntoMap
     @ViewModelKey(SessionDetailViewModel::class)
     abstract fun bindSessionDetailFragmentViewModel(viewModel: SessionDetailViewModel): ViewModel
+
+    @FragmentScoped
+    @ContributesAndroidInjector
+    internal abstract fun contributeScheduleFilterFragment(): ScheduleFilterFragment
 }

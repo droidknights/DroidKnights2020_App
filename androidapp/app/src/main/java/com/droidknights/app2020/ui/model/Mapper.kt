@@ -8,7 +8,8 @@ fun Session.asUiModel() =
     UiSessionModel(
         id = id,
         title = title,
-        time = time
+        time = time,
+        tag = tag
     )
 
 fun Sponsor.asUiModel() =

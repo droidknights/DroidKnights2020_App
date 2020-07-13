@@ -7,6 +7,7 @@ import com.droidknights.app2020.common.Event
 import com.droidknights.app2020.db.SessionRepository
 import com.droidknights.app2020.ui.model.UiSessionModel
 import com.droidknights.app2020.ui.model.asUiModel
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -23,16 +24,33 @@ class ScheduleViewModel @Inject constructor(
     val sessionList: LiveData<List<UiSessionModel>> = _refreshEvent.switchMap {
         liveData<List<UiSessionModel>> {
             emitSource(
-                repo.get().map {
-                    it.map { session -> session.asUiModel() }
-                }.flowOn(dispatchers.default()).asLiveData()
+                repo.get()
+                    .map {
+                        it.map { session -> session.asUiModel() }
+                    }
+                    .map {
+                        it.filter { session -> selectedTags.intersect(session.tag).isNotEmpty() }
+                    }
+                    .flowOn(dispatchers.default())
+                    .asLiveData()
             )
         }
     }
     val isRefreshing: LiveData<Boolean> = sessionList.map { false }
 
+    var selectedTags: ArrayList<String> = arrayListOf()
+        set(value) {
+            field = value
+        }
+
     private val _itemEvent = MutableLiveData<Event<String>>()
     val itemEvent: LiveData<Event<String>> get() = _itemEvent
+
+    private val _fabEvent = MutableLiveData<Event<String>>()
+    val fabEvent: LiveData<Event<String>> get() = _fabEvent
+
+    private val _submitEvent = MutableLiveData<Event<String>>()
+    val submitEvent: LiveData<Event<String>> get() = _submitEvent
 
     init {
         refresh()
@@ -44,5 +62,14 @@ class ScheduleViewModel @Inject constructor(
 
     fun onClickItem(sessionId: String) {
         _itemEvent.value = Event(sessionId)
+    }
+
+    fun onClickFilter() {
+        _fabEvent.value = Event("")
+    }
+
+    fun onClickSubmit() {
+        _submitEvent.value = Event("")
+        refresh()
     }
 }

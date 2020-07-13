@@ -10,6 +10,8 @@ import com.droidknights.app2020.R
 import com.droidknights.app2020.base.BaseFragment
 import com.droidknights.app2020.common.DataBindingAdapter
 import com.droidknights.app2020.databinding.ScheduleFragmentBinding
+import com.droidknights.app2020.ui.schedule.filter.ScheduleFilterFragment
+import kotlinx.android.synthetic.main.schedule_fragment.*
 import timber.log.Timber
 
 /**
@@ -59,6 +61,13 @@ class ScheduleFragment : BaseFragment<ScheduleViewModel, ScheduleFragmentBinding
                 val action = ScheduleFragmentDirections.actionScheduleToSessionDetail(sessionId)
                 binding.root.findNavController().navigate(action)
             }
+        })
+
+        viewModel.fabEvent.observe(viewLifecycleOwner, Observer { event ->
+            parentFragmentManager
+                .beginTransaction()
+                .add(R.id.frameLayout, ScheduleFilterFragment())
+                .commit()
         })
     }
 }
