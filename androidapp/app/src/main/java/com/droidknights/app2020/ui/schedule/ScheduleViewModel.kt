@@ -4,12 +4,15 @@ import androidx.lifecycle.*
 import com.droidknights.app2020.base.BaseViewModel
 import com.droidknights.app2020.base.DispatcherProvider
 import com.droidknights.app2020.common.Event
+import com.droidknights.app2020.data.Session
 import com.droidknights.app2020.db.SessionRepository
 import com.droidknights.app2020.ui.model.UiSessionModel
 import com.droidknights.app2020.ui.model.asUiModel
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
+import java.io.Serializable
 import javax.inject.Inject
 
 /**
@@ -17,10 +20,10 @@ import javax.inject.Inject
  */
 class ScheduleViewModel @Inject constructor(
     private val dispatchers: DispatcherProvider,
-    repo: SessionRepository
-) : BaseViewModel() {
+    private val repo: SessionRepository
+) : BaseViewModel(), Serializable {
 
-    private val _refreshEvent = MutableLiveData<Unit>()
+    private val _refreshEvent = MutableLiveData(Unit)
     val sessionList: LiveData<List<UiSessionModel>> = _refreshEvent.switchMap {
         liveData<List<UiSessionModel>> {
             emitSource(
@@ -28,19 +31,18 @@ class ScheduleViewModel @Inject constructor(
                     .map {
                         it.map { session -> session.asUiModel() }
                     }
-                    .map {
-                        it.filter { session -> selectedTags.intersect(session.tag).isNotEmpty() }
-                    }
                     .flowOn(dispatchers.default())
                     .asLiveData()
             )
         }
     }
+
     val isRefreshing: LiveData<Boolean> = sessionList.map { false }
 
-    var selectedTags: ArrayList<String> = arrayListOf()
+    var selectedTags: ArrayList<String> = arrayListOf("Beginner", "UI", "Kotlin", "Architecture", "Rx")
         set(value) {
             field = value
+            refresh()
         }
 
     private val _itemEvent = MutableLiveData<Event<String>>()
@@ -70,6 +72,5 @@ class ScheduleViewModel @Inject constructor(
 
     fun onClickSubmit() {
         _submitEvent.value = Event("")
-        refresh()
     }
 }

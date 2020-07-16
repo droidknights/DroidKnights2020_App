@@ -3,12 +3,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data>
-        <variable
-            name="vm"
-            type="com.droidknights.app2020.ui.schedule.ScheduleViewModel" />
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -64,7 +58,6 @@
             android:layout_marginBottom="@dimen/fab_filter_bottom_margin"
             android:contentDescription="Submit"
             android:text="Submit"
-            android:onClick="@{() -> vm.onClickSubmit()}"
             app:icon="@drawable/ic_filter_list_white_24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

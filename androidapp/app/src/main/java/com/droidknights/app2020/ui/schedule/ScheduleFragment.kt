@@ -11,8 +11,10 @@ import com.droidknights.app2020.base.BaseFragment
 import com.droidknights.app2020.common.DataBindingAdapter
 import com.droidknights.app2020.databinding.ScheduleFragmentBinding
 import com.droidknights.app2020.ui.schedule.filter.ScheduleFilterFragment
+import kotlinx.android.synthetic.main.schedule_filter_fragment.*
 import kotlinx.android.synthetic.main.schedule_fragment.*
 import timber.log.Timber
+
 
 /**
  * Created by jiyoung on 04/12/2019
@@ -35,6 +37,12 @@ class ScheduleFragment : BaseFragment<ScheduleViewModel, ScheduleFragmentBinding
         initObserve()
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        viewModel.refresh()
+    }
+
     private fun initView() {
         scheduleAdapter.apply {
             itemClickListener = object : DataBindingAdapter.ItemClickListener {
@@ -52,7 +60,11 @@ class ScheduleFragment : BaseFragment<ScheduleViewModel, ScheduleFragmentBinding
 
     private fun initObserve() {
         viewModel.sessionList.observe(viewLifecycleOwner, Observer {
-            it.let(scheduleAdapter::submitList)
+            floatingFilter.visibility = View.VISIBLE
+
+            it.filter { session ->
+                viewModel.selectedTags.intersect(session.tag).isNotEmpty()
+            }.let(scheduleAdapter::submitList)
             Timber.d(TAG, "getSessionListData : $it")
         })
 
@@ -64,9 +76,15 @@ class ScheduleFragment : BaseFragment<ScheduleViewModel, ScheduleFragmentBinding
         })
 
         viewModel.fabEvent.observe(viewLifecycleOwner, Observer { event ->
-            parentFragmentManager
-                .beginTransaction()
-                .add(R.id.frameLayout, ScheduleFilterFragment())
+            floatingFilter.visibility = View.GONE
+
+            val bundle = Bundle()
+            bundle.putSerializable("obj", viewModel)
+
+            val fragment = ScheduleFilterFragment()
+            fragment.arguments = bundle
+            parentFragmentManager.beginTransaction()
+                .add(R.id.frameLayout, fragment)
                 .commit()
         })
     }
