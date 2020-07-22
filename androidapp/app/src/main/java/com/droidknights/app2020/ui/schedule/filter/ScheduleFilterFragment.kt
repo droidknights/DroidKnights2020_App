@@ -5,9 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.children
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.fragment.findNavController
 import com.droidknights.app2020.R
 import com.droidknights.app2020.base.BaseFragment
 import com.droidknights.app2020.data.Const
@@ -19,7 +16,7 @@ class ScheduleFilterFragment : BaseFragment<ScheduleViewModel, ScheduleFilterFra
     R.layout.schedule_filter_fragment,
     ScheduleViewModel::class
 ) {
-    private lateinit var vm: ScheduleViewModel
+    private lateinit var _selectedTags: List<String>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -27,7 +24,7 @@ class ScheduleFilterFragment : BaseFragment<ScheduleViewModel, ScheduleFilterFra
         //TODO : 세션 태그 필터링 기능
         //TODO : 관심세션 북마크 기능
 
-        vm = arguments!!.getSerializable(Const.SelectedTagsKey) as ScheduleViewModel
+        _selectedTags = arguments!!.getSerializable(Const.SelectedTagsKey) as List<String>
 
         initView()
     }
@@ -37,7 +34,7 @@ class ScheduleFilterFragment : BaseFragment<ScheduleViewModel, ScheduleFilterFra
 
         filterChipGroup.children.forEach { view ->
             if (view is Chip) {
-                view.isChecked = vm.selectedTags.contains(view.text)
+                view.isChecked = _selectedTags.contains(view.text)
             }
         }
 

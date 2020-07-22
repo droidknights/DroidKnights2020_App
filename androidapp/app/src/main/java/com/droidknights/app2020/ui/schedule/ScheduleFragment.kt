@@ -70,14 +70,19 @@ class ScheduleFragment : BaseFragment<ScheduleViewModel, ScheduleFragmentBinding
                 visibility = View.VISIBLE
             }
 
-//            val result = arrayListOf<String>()
-//
-//            it.forEach { session ->
-//                result.addAll(session.tag ?: emptyList())
-//            }
-//
-//            val tags = result.distinctBy { s -> s }
-//            viewModel.selectedTags = tags
+            val selectedTag = viewModel.selectedTags
+
+            // 앱을 처음 켠 상태에서 초기화 해주는 경우
+            if (selectedTag.isEmpty()) {
+                val result = arrayListOf<String>()
+
+                it.forEach { session ->
+                    result.addAll(session.tag ?: emptyList())
+                }
+
+                val tags = result.distinctBy { s -> s }
+                viewModel.selectedTags = tags
+            }
 
             it.filter { session ->
                 viewModel.selectedTags.intersect(session.tag!!).isNotEmpty()
@@ -116,18 +121,6 @@ class ScheduleFragment : BaseFragment<ScheduleViewModel, ScheduleFragmentBinding
         if (requestCode == Const.FILTER_FRAGMENT_CODE && resultCode == Activity.RESULT_OK) {
             val selectedTags = data?.getStringArrayListExtra(Const.SelectedTagsKey)
             viewModel.selectedTags = selectedTags?.toList() ?: emptyList()
-        }
-    }
-
-    inline fun FragmentManager.inTransaction(func: FragmentTransaction.() -> Unit) {
-        val fragmentTransaction = beginTransaction()
-        fragmentTransaction.func()
-        fragmentTransaction.commit()
-    }
-
-    fun Fragment.removeFragment(fragment: Fragment, enter: Int = 0, exit: Int = 0) {
-        requireFragmentManager().inTransaction {
-            remove(fragment)
         }
     }
 }

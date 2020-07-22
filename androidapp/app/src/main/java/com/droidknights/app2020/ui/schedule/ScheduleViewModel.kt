@@ -44,8 +44,12 @@ class ScheduleViewModel @Inject constructor(
 
     var selectedTags: List<String> = emptyList()
         set(value) {
-            field = value
-            refresh()
+            val equal = field.containsAll(value) && value.containsAll(field)
+            if (!equal) {
+                //both lists are of the same elements
+                field = value
+                refresh()
+            }
         }
 
     private val _itemEvent = MutableLiveData<Event<String>>()
