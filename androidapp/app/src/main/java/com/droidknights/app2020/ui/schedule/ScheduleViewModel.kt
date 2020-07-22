@@ -52,6 +52,8 @@ class ScheduleViewModel @Inject constructor(
             }
         }
 
+    var allTags: List<String> = emptyList()
+
     private val _itemEvent = MutableLiveData<Event<String>>()
     val itemEvent: LiveData<Event<String>> get() = _itemEvent
 

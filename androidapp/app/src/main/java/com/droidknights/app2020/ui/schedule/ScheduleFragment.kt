@@ -71,6 +71,7 @@ class ScheduleFragment : BaseFragment<ScheduleViewModel, ScheduleFragmentBinding
             }
 
             val selectedTag = viewModel.selectedTags
+            val allTag = viewModel.allTags
 
             // 앱을 처음 켠 상태에서 초기화 해주는 경우
             if (selectedTag.isEmpty()) {
@@ -82,6 +83,9 @@ class ScheduleFragment : BaseFragment<ScheduleViewModel, ScheduleFragmentBinding
 
                 val tags = result.distinctBy { s -> s }
                 viewModel.selectedTags = tags
+
+                if (allTag.isEmpty())
+                    viewModel.allTags = tags
             }
 
             it.filter { session ->
@@ -102,7 +106,10 @@ class ScheduleFragment : BaseFragment<ScheduleViewModel, ScheduleFragmentBinding
                 visibility = View.GONE
             }
 
-            val bundle = bundleOf(Pair(Const.SelectedTagsKey, viewModel.selectedTags))
+            val bundle = bundleOf(
+                Pair(Const.SelectedTagsKey, viewModel.selectedTags),
+                Pair(Const.AllTagsKey, viewModel.allTags)
+            )
             val fragment = ScheduleFilterFragment()
             fragment.arguments = bundle
 

@@ -23,37 +23,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <com.google.android.material.chip.Chip
-                style="@style/Widget.MaterialComponents.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Beginner" />
-
-            <com.google.android.material.chip.Chip
-                style="@style/Widget.MaterialComponents.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text="Rx" />
-
-            <com.google.android.material.chip.Chip
-                style="@style/Widget.MaterialComponents.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text="UI" />
-
-            <com.google.android.material.chip.Chip
-                style="@style/Widget.MaterialComponents.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Kotlin" />
-
-            <com.google.android.material.chip.Chip
-                style="@style/Widget.MaterialComponents.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Architecture" />
         </com.google.android.material.chip.ChipGroup>
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton

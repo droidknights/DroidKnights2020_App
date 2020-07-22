@@ -3,6 +3,7 @@ package com.droidknights.app2020.ui.schedule.filter
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import androidx.core.view.children
 import com.droidknights.app2020.R
@@ -17,6 +18,7 @@ class ScheduleFilterFragment : BaseFragment<ScheduleViewModel, ScheduleFilterFra
     ScheduleViewModel::class
 ) {
     private lateinit var _selectedTags: List<String>
+    private lateinit var _allTags: List<String>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -25,12 +27,19 @@ class ScheduleFilterFragment : BaseFragment<ScheduleViewModel, ScheduleFilterFra
         //TODO : 관심세션 북마크 기능
 
         _selectedTags = arguments!!.getSerializable(Const.SelectedTagsKey) as List<String>
+        _allTags = arguments!!.getSerializable(Const.AllTagsKey) as List<String>
 
         initView()
     }
 
     private fun initView() {
         val filterChipGroup = binding.filterChipGroup
+
+        _allTags.forEach { tag ->
+            val chip = LayoutInflater.from(activity).inflate(R.layout.filter_chip,null) as Chip
+            chip.text = tag
+            filterChipGroup.addView(chip)
+        }
 
         filterChipGroup.children.forEach { view ->
             if (view is Chip) {
