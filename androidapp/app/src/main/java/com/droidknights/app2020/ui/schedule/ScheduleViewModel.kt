@@ -1,5 +1,7 @@
 package com.droidknights.app2020.ui.schedule
 
+import android.os.Parcel
+import android.os.Parcelable
 import androidx.lifecycle.*
 import com.droidknights.app2020.base.BaseViewModel
 import com.droidknights.app2020.base.DispatcherProvider
@@ -8,6 +10,7 @@ import com.droidknights.app2020.data.Session
 import com.droidknights.app2020.db.SessionRepository
 import com.droidknights.app2020.ui.model.UiSessionModel
 import com.droidknights.app2020.ui.model.asUiModel
+import kotlinx.android.parcel.Parcelize
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flowOn
@@ -21,7 +24,7 @@ import javax.inject.Inject
 class ScheduleViewModel @Inject constructor(
     private val dispatchers: DispatcherProvider,
     private val repo: SessionRepository
-) : BaseViewModel(), Serializable {
+) : BaseViewModel() {
 
     private val _refreshEvent = MutableLiveData(Unit)
     val sessionList: LiveData<List<UiSessionModel>> = _refreshEvent.switchMap {
@@ -39,7 +42,7 @@ class ScheduleViewModel @Inject constructor(
 
     val isRefreshing: LiveData<Boolean> = sessionList.map { false }
 
-    var selectedTags: ArrayList<String> = arrayListOf("Beginner", "UI", "Kotlin", "Architecture", "Rx")
+    var selectedTags: List<String> = emptyList()
         set(value) {
             field = value
             refresh()

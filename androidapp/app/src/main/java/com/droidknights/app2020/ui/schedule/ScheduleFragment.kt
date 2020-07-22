@@ -1,7 +1,13 @@
 package com.droidknights.app2020.ui.schedule
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -9,12 +15,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.droidknights.app2020.R
 import com.droidknights.app2020.base.BaseFragment
 import com.droidknights.app2020.common.DataBindingAdapter
+import com.droidknights.app2020.data.Const
 import com.droidknights.app2020.databinding.ScheduleFragmentBinding
 import com.droidknights.app2020.ui.schedule.filter.ScheduleFilterFragment
-import kotlinx.android.synthetic.main.schedule_filter_fragment.*
-import kotlinx.android.synthetic.main.schedule_fragment.*
 import timber.log.Timber
-
 
 /**
  * Created by jiyoung on 04/12/2019
@@ -24,6 +28,8 @@ class ScheduleFragment : BaseFragment<ScheduleViewModel, ScheduleFragmentBinding
     ScheduleViewModel::class
 ) {
     private val TAG = this@ScheduleFragment::class.java.simpleName
+
+    private lateinit var model: ScheduleViewModel
 
     private val scheduleAdapter = ScheduleAdapter()
 
@@ -60,10 +66,21 @@ class ScheduleFragment : BaseFragment<ScheduleViewModel, ScheduleFragmentBinding
 
     private fun initObserve() {
         viewModel.sessionList.observe(viewLifecycleOwner, Observer {
-            floatingFilter.visibility = View.VISIBLE
+            binding.floatingFilter.apply {
+                visibility = View.VISIBLE
+            }
+
+//            val result = arrayListOf<String>()
+//
+//            it.forEach { session ->
+//                result.addAll(session.tag ?: emptyList())
+//            }
+//
+//            val tags = result.distinctBy { s -> s }
+//            viewModel.selectedTags = tags
 
             it.filter { session ->
-                viewModel.selectedTags.intersect(session.tag).isNotEmpty()
+                viewModel.selectedTags.intersect(session.tag!!).isNotEmpty()
             }.let(scheduleAdapter::submitList)
             Timber.d(TAG, "getSessionListData : $it")
         })
@@ -76,16 +93,41 @@ class ScheduleFragment : BaseFragment<ScheduleViewModel, ScheduleFragmentBinding
         })
 
         viewModel.fabEvent.observe(viewLifecycleOwner, Observer { event ->
-            floatingFilter.visibility = View.GONE
+            binding.floatingFilter.apply {
+                visibility = View.GONE
+            }
 
-            val bundle = Bundle()
-            bundle.putSerializable("obj", viewModel)
-
+            val bundle = bundleOf(Pair(Const.SelectedTagsKey, viewModel.selectedTags))
             val fragment = ScheduleFilterFragment()
             fragment.arguments = bundle
+
+            setTargetFragment(targetFragment, Const.FILTER_FRAGMENT_CODE)
+
             parentFragmentManager.beginTransaction()
+                .addToBackStack(fragment::class.java.simpleName)
                 .add(R.id.frameLayout, fragment)
                 .commit()
         })
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == Const.FILTER_FRAGMENT_CODE && resultCode == Activity.RESULT_OK) {
+            val selectedTags = data?.getStringArrayListExtra(Const.SelectedTagsKey)
+            viewModel.selectedTags = selectedTags?.toList() ?: emptyList()
+        }
+    }
+
+    inline fun FragmentManager.inTransaction(func: FragmentTransaction.() -> Unit) {
+        val fragmentTransaction = beginTransaction()
+        fragmentTransaction.func()
+        fragmentTransaction.commit()
+    }
+
+    fun Fragment.removeFragment(fragment: Fragment, enter: Int = 0, exit: Int = 0) {
+        requireFragmentManager().inTransaction {
+            remove(fragment)
+        }
     }
 }
