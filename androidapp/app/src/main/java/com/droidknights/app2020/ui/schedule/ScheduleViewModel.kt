@@ -7,6 +7,7 @@ import com.droidknights.app2020.base.BaseViewModel
 import com.droidknights.app2020.base.DispatcherProvider
 import com.droidknights.app2020.common.Event
 import com.droidknights.app2020.data.Session
+import com.droidknights.app2020.data.Tag
 import com.droidknights.app2020.db.SessionRepository
 import com.droidknights.app2020.ui.model.UiSessionModel
 import com.droidknights.app2020.ui.model.asUiModel
@@ -42,17 +43,13 @@ class ScheduleViewModel @Inject constructor(
 
     val isRefreshing: LiveData<Boolean> = sessionList.map { false }
 
-    var selectedTags: List<String> = emptyList()
-        set(value) {
-            val equal = field.containsAll(value) && value.containsAll(field)
-            if (!equal) {
-                //both lists are of the same elements
-                field = value
-                refresh()
-            }
-        }
+    val selectedTags: List<Tag> get() = allTags.filter { it.isSelected }
 
-    var allTags: List<String> = emptyList()
+    var allTags: List<Tag> = emptyList()
+        set(value) {
+            field = value
+            refresh()
+        }
 
     private val _itemEvent = MutableLiveData<Event<String>>()
     val itemEvent: LiveData<Event<String>> get() = _itemEvent

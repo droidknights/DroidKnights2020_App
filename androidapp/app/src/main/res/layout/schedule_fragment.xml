@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="android.view.View"/>
         <variable
             name="vm"
             type="com.droidknights.app2020.ui.schedule.ScheduleViewModel" />

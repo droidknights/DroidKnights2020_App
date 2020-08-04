@@ -2,6 +2,7 @@ package com.droidknights.app2020.ui.model
 
 import com.droidknights.app2020.data.Session
 import com.droidknights.app2020.data.Sponsor
+import com.droidknights.app2020.data.Tag
 
 
 fun Session.asUiModel() =
@@ -9,7 +10,7 @@ fun Session.asUiModel() =
         id = id,
         title = title,
         time = time,
-        tag = tag
+        tag = tag?.map { Tag(it, true) }
     )
 
 fun Sponsor.asUiModel() =
