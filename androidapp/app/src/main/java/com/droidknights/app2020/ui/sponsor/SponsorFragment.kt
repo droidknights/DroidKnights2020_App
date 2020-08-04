@@ -1,4 +1,4 @@
-package com.droidknights.app2020.ui.info
+package com.droidknights.app2020.ui.sponsor
 
 import android.net.Uri
 import android.os.Bundle
@@ -7,19 +7,20 @@ import androidx.browser.customtabs.CustomTabsIntent
 import com.droidknights.app2020.R
 import com.droidknights.app2020.base.BaseFragment
 import com.droidknights.app2020.common.DataBindingAdapter
-import com.droidknights.app2020.databinding.InfoFragmentBinding
+import com.droidknights.app2020.databinding.SponsorFragmentBinding
 
 /**
  * Created by jiyoung on 04/12/2019
  */
-class InfoFragment : BaseFragment<InfoViewModel, InfoFragmentBinding>(
-    R.layout.info_fragment,
-    InfoViewModel::class
+class SponsorFragment : BaseFragment<SponsorViewModel, SponsorFragmentBinding>(
+    R.layout.sponsor_fragment,
+    SponsorViewModel::class
 ) {
     //TODO : 행사와 관련된 정보
     //TODO : 코엑스 위치 지도
     //TODO : 세션장 지도 이미지
-    private val sponsorAdapter = SponsorAdapter()
+    private val sponsorAdapter =
+        SponsorAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

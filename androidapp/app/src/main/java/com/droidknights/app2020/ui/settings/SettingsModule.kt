@@ -1,4 +1,4 @@
-package com.droidknights.app2020.ui.info
+package com.droidknights.app2020.ui.settings
 
 import androidx.lifecycle.ViewModel
 import com.droidknights.app2020.di.annotation.FragmentScoped
@@ -8,17 +8,14 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import dagger.multibindings.IntoMap
 
-/**
- * Created by jiyoung on 04/12/2019
- */
 @Module
-internal abstract class InfoModule {
+internal abstract class SettingsModule {
     @FragmentScoped
     @ContributesAndroidInjector
-    internal abstract fun contributeInfoFragment(): InfoFragment
+    internal abstract fun contributeMypageFragment(): SettingsFragment
 
     @Binds
     @IntoMap
-    @ViewModelKey(InfoViewModel::class)
-    abstract fun bindInfoFragmentViewModel(viewModel: InfoViewModel): ViewModel
+    @ViewModelKey(SettingsViewModel::class)
+    abstract fun bindMypageFragmentViewModel(viewModel: SettingsViewModel): ViewModel
 }

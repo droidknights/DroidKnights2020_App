@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/infoFragment"
-        android:name="com.droidknights.app2020.ui.info.InfoFragment"
+        android:name="com.droidknights.app2020.ui.sponsor.SponsorFragment"
         android:label="InfoFragment"
-        tools:layout="@layout/info_fragment" />
+        tools:layout="@layout/sponsor_fragment" />
 
     <fragment
         android:id="@+id/scheduleFragment"
@@ -43,8 +43,8 @@
 
     <fragment
         android:id="@+id/mypageFragment"
-        android:name="com.droidknights.app2020.ui.mypage.MypageFragment"
+        android:name="com.droidknights.app2020.ui.settings.SettingsFragment"
         android:label="MypageFragment"
-        tools:layout="@layout/mypage_fragment" />
+        tools:layout="@layout/settings_fragment" />
 
 </navigation>

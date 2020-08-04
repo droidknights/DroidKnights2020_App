@@ -6,7 +6,7 @@
     <data>
         <variable
             name="vm"
-            type="com.droidknights.app2020.ui.info.InfoViewModel" />
+            type="com.droidknights.app2020.ui.sponsor.SponsorViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
