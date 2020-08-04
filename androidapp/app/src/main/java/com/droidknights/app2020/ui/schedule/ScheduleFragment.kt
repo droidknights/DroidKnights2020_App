@@ -3,8 +3,7 @@ package com.droidknights.app2020.ui.schedule
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,11 +12,9 @@ import com.droidknights.app2020.BR
 import com.droidknights.app2020.R
 import com.droidknights.app2020.base.BaseFragment
 import com.droidknights.app2020.common.DataBindingAdapter
-import com.droidknights.app2020.data.Const
 import com.droidknights.app2020.databinding.ScheduleFragmentBinding
 import com.droidknights.app2020.ext.assistedActivityViewModels
 import com.droidknights.app2020.ui.schedule.filter.ScheduleFilterFragment
-import kotlinx.android.synthetic.main.schedule_fragment.*
 import timber.log.Timber
 
 /**
@@ -71,9 +68,7 @@ class ScheduleFragment : BaseFragment<ScheduleViewModel, ScheduleFragmentBinding
 
     private fun initObserve() {
         _viewModel.sessionList.observe(viewLifecycleOwner, Observer {
-            binding.floatingFilter.apply {
-                visibility = View.VISIBLE
-            }
+            binding.floatingFilter.isVisible = true
 
             val allTag = _viewModel.allTags
 
@@ -98,14 +93,9 @@ class ScheduleFragment : BaseFragment<ScheduleViewModel, ScheduleFragmentBinding
         })
 
         _viewModel.fabEvent.observe(viewLifecycleOwner, Observer { event ->
-            binding.floatingFilter.apply {
-                visibility = View.GONE
-            }
+            binding.floatingFilter.isVisible = false
 
             val fragment = ScheduleFilterFragment()
-
-            setTargetFragment(targetFragment, Const.FILTER_FRAGMENT_CODE)
-
             parentFragmentManager.beginTransaction()
                 .addToBackStack(fragment::class.java.simpleName)
                 .add(R.id.frameLayout, fragment)
