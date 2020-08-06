@@ -2,6 +2,7 @@ package com.droidknights.app2020.ui.schedule
 
 import android.os.Parcel
 import android.os.Parcelable
+import androidx.core.view.isVisible
 import androidx.lifecycle.*
 import com.droidknights.app2020.base.BaseViewModel
 import com.droidknights.app2020.base.DispatcherProvider
@@ -12,10 +13,15 @@ import com.droidknights.app2020.db.SessionRepository
 import com.droidknights.app2020.ui.model.UiSessionModel
 import com.droidknights.app2020.ui.model.asUiModel
 import kotlinx.android.parcel.Parcelize
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.withContext
+import kotlinx.coroutines.yield
+import timber.log.Timber
 import java.io.Serializable
 import javax.inject.Inject
 
@@ -29,12 +35,24 @@ class ScheduleViewModel @Inject constructor(
 
     private val _refreshEvent = MutableLiveData(Unit)
     val sessionList: LiveData<List<UiSessionModel>> = _refreshEvent.switchMap {
+
         liveData<List<UiSessionModel>> {
-            emitSource(
-                repo.get()
-                    .map {
-                        it.map { session -> session.asUiModel() }
+            val sessions = repo.get()
+                .map {
+                    if (allTags.isEmpty()) {
+                        withContext(Dispatchers.Main) {
+                            allTags =
+                                sequence { it.map { sessions -> yieldAll(sessions.asUiModel().tag.orEmpty()) } }
+                                    .distinctBy { s -> s }
+                                    .toList()
+                        }
                     }
+
+                    it.map { session -> session.asUiModel() }
+                }
+
+            emitSource(
+                sessions
                     .flowOn(dispatchers.default())
                     .asLiveData()
             )
@@ -46,7 +64,7 @@ class ScheduleViewModel @Inject constructor(
     val selectedTags: List<Tag> get() = allTags.filter { it.isSelected }
 
     var allTags: List<Tag> = emptyList()
-        set(value) {
+        private set(value) {
             field = value
             refresh()
         }

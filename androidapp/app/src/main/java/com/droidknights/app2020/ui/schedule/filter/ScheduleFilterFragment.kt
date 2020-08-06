@@ -15,7 +15,7 @@ class ScheduleFilterFragment : BaseFragment<ScheduleViewModel, ScheduleFilterFra
     R.layout.schedule_filter_fragment,
     ScheduleViewModel::class
 ) {
-    private val activityViewModel: ScheduleViewModel by assistedActivityViewModels { viewModelFactory }
+    private val scheduleViewModel: ScheduleViewModel by assistedActivityViewModels { viewModelFactory }
 
     private var _allTags = listOf<Tag>()
 
@@ -25,7 +25,7 @@ class ScheduleFilterFragment : BaseFragment<ScheduleViewModel, ScheduleFilterFra
         //TODO : 세션 태그 필터링 기능
         //TODO : 관심세션 북마크 기능
 
-        _allTags = activityViewModel.allTags
+        _allTags = scheduleViewModel.allTags
 
         initView()
     }
@@ -42,7 +42,7 @@ class ScheduleFilterFragment : BaseFragment<ScheduleViewModel, ScheduleFilterFra
         }
 
         binding.fabSubmit.setOnClickListener {
-            activityViewModel.allTags = _allTags
+            scheduleViewModel.allTags = _allTags
 
             parentFragmentManager.beginTransaction()
                 .remove(this)
