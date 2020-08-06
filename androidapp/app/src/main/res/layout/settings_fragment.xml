@@ -5,7 +5,7 @@
     <data>
         <variable
             name="vm"
-            type="com.droidknights.app2020.ui.mypage.MypageViewModel" />
+            type="com.droidknights.app2020.ui.settings.SettingsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

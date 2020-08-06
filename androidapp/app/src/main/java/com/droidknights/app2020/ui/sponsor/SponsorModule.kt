@@ -1,4 +1,4 @@
-package com.droidknights.app2020.ui.mypage
+package com.droidknights.app2020.ui.sponsor
 
 import androidx.lifecycle.ViewModel
 import com.droidknights.app2020.di.annotation.FragmentScoped
@@ -8,14 +8,17 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 import dagger.multibindings.IntoMap
 
+/**
+ * Created by jiyoung on 04/12/2019
+ */
 @Module
-internal abstract class MypageModule {
+internal abstract class SponsorModule {
     @FragmentScoped
     @ContributesAndroidInjector
-    internal abstract fun contributeMypageFragment(): MypageFragment
+    internal abstract fun contributeInfoFragment(): SponsorFragment
 
     @Binds
     @IntoMap
-    @ViewModelKey(MypageViewModel::class)
-    abstract fun bindMypageFragmentViewModel(viewModel: MypageViewModel): ViewModel
+    @ViewModelKey(SponsorViewModel::class)
+    abstract fun bindInfoFragmentViewModel(viewModel: SponsorViewModel): ViewModel
 }
