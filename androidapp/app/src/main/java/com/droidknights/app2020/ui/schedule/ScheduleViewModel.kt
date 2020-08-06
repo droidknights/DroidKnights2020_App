@@ -64,7 +64,7 @@ class ScheduleViewModel @Inject constructor(
     val selectedTags: List<Tag> get() = allTags.filter { it.isSelected }
 
     var allTags: List<Tag> = emptyList()
-        private set(value) {
+        set(value) {
             field = value
             refresh()
         }
