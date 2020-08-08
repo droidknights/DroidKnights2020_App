@@ -1,6 +1,5 @@
 package com.droidknights.app2020.ui.settings
 
-
 import com.droidknights.app2020.R
 import com.droidknights.app2020.base.BaseFragment
 import com.droidknights.app2020.databinding.SettingsFragmentBinding

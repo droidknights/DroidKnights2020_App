@@ -19,8 +19,7 @@ class SponsorFragment : BaseFragment<SponsorViewModel, SponsorFragmentBinding>(
     //TODO : 행사와 관련된 정보
     //TODO : 코엑스 위치 지도
     //TODO : 세션장 지도 이미지
-    private val sponsorAdapter =
-        SponsorAdapter()
+    private val sponsorAdapter = SponsorAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -7,18 +7,18 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.droidknights.app2020.BR
 import com.droidknights.app2020.ext.assistedViewModels
-import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 import kotlin.reflect.KClass
 
 abstract class BaseFragment<VM : ViewModel, B : ViewDataBinding>(
     @LayoutRes private val layoutResId: Int,
     viewModelClass: KClass<VM>
-) : DaggerFragment() {
+) : Fragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
     protected val viewModel: VM by assistedViewModels(viewModelClass) { viewModelFactory }

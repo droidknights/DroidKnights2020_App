@@ -1,5 +1,6 @@
 package com.droidknights.app2020.ui.schedule
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.droidknights.app2020.base.BaseViewModel
 import com.droidknights.app2020.base.DispatcherProvider
@@ -9,12 +10,11 @@ import com.droidknights.app2020.ui.model.UiSessionModel
 import com.droidknights.app2020.ui.model.asUiModel
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
-import javax.inject.Inject
 
 /**
  * Created by jiyoung on 04/12/2019
  */
-class ScheduleViewModel @Inject constructor(
+class ScheduleViewModel @ViewModelInject constructor(
     private val dispatchers: DispatcherProvider,
     repo: SessionRepository
 ) : BaseViewModel() {

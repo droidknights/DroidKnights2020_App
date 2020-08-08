@@ -1,15 +1,15 @@
 package com.droidknights.app2020.ui.sponsor
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
 import com.droidknights.app2020.R
 import com.droidknights.app2020.data.Sponsor
 import com.droidknights.app2020.ui.model.asUiModel
-import javax.inject.Inject
 
 /**
  * Created by jiyoung on 04/12/2019
  */
-class SponsorViewModel @Inject constructor() : ViewModel() {
+class SponsorViewModel @ViewModelInject constructor() : ViewModel() {
 
     val sponsorList = listOf(
         Sponsor("toss", "https://toss.im/", R.drawable.ic_sponsor_toss),
