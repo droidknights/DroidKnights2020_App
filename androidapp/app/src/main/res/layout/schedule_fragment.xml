@@ -23,8 +23,20 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvSchedule"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingBottom="@dimen/fragment_bottom_padding" />
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="@dimen/fab_filter_bottom_margin"
+            android:src="@drawable/ic_filter_list_white_24dp"
+            />
     </FrameLayout>
 </layout>

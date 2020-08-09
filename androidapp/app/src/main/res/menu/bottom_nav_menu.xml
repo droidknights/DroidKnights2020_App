@@ -3,18 +3,14 @@
     <item
         android:id="@id/infoFragment"
         android:icon="@android:drawable/ic_menu_info_details"
-        android:title="Info" />
+        android:title="스폰서" />
     <item
         android:id="@id/scheduleFragment"
         android:icon="@android:drawable/ic_menu_agenda"
-        android:title="Session" />
-    <item
-        android:id="@id/sponsorFragment"
-        android:icon="@drawable/ic_group_add_white_24dp"
-        android:title="Sponsored" />
+        android:title="일정" />
     <item
         android:id="@id/mypageFragment"
         android:icon="@drawable/ic_person_white_24dp"
-        android:title="Mypage" />
+        android:title="설정" />
 
 </menu>

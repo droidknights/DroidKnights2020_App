@@ -9,16 +9,16 @@ import dagger.android.ContributesAndroidInjector
 import dagger.multibindings.IntoMap
 
 /**
- * Created by jiyoung on 25/12/2019
+ * Created by jiyoung on 04/12/2019
  */
 @Module
 internal abstract class SponsorModule {
     @FragmentScoped
     @ContributesAndroidInjector
-    internal abstract fun contributeSponsorFragment(): SponsorFragment
+    internal abstract fun contributeInfoFragment(): SponsorFragment
 
     @Binds
     @IntoMap
     @ViewModelKey(SponsorViewModel::class)
-    abstract fun bindSponsorFragmentViewModel(viewModel: SponsorViewModel): ViewModel
+    abstract fun bindInfoFragmentViewModel(viewModel: SponsorViewModel): ViewModel
 }

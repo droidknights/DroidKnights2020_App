@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: "scabbard.gradle"
+apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
     compileSdkVersion build_versions.compile_sdk
@@ -54,6 +55,7 @@ dependencies {
     implementation deps.androidx.navigation.ui_ktx
     implementation deps.androidx.material
     implementation deps.androidx.swiperefresh
+    implementation deps.androidx.browser
 
     // coroutine
     implementation deps.kotlin.coroutines.core
@@ -69,6 +71,8 @@ dependencies {
     implementation deps.dagger.android_support
     kapt deps.dagger.compiler
     kapt deps.dagger.android_processor
+
+    implementation deps.google.gson
 
     // debugging
     implementation deps.debugging.timber

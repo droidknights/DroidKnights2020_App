@@ -1,5 +1,6 @@
 package com.droidknights.app2020.binding
 
+import android.webkit.WebView
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -15,3 +16,6 @@ fun SwipeRefreshLayout.bindRefreshing(isRefreshing: Boolean) {
 @BindingAdapter(value = ["onRefresh"])
 fun SwipeRefreshLayout.bindRefreshListener(onRefreshListener: SwipeRefreshLayout.OnRefreshListener) =
     setOnRefreshListener(onRefreshListener)
+
+@BindingAdapter("webUrl")
+fun WebView.bindUrl(value: String?) = value?.let(::loadUrl)

@@ -14,6 +14,7 @@ versions.lifecycle = "2.2.0"
 versions.coroutine = "1.3.3"
 versions.navigation = "2.2.0"
 versions.timber = "4.7.1"
+versions.browser = "1.2.0"
 deps.versions = versions
 
 // dependency
@@ -36,6 +37,7 @@ androidx.navigation = [
 ]
 androidx.material = "com.google.android.material:material:1.1.0"
 androidx.swiperefresh = "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+androidx.browser = "androidx.browser:browser:$versions.browser"
 deps.androidx = androidx
 
 // kotlin
@@ -64,6 +66,10 @@ deps.dagger = [
         android_processor: "com.google.dagger:dagger-android-processor:$versions.dagger"
 ]
 
+deps.google = [
+        gson: 'com.google.code.gson:gson:2.8.6'
+]
+
 // debugging
 deps.debugging = [
         timber      : "com.jakewharton.timber:timber:$versions.timber"
@@ -80,9 +86,10 @@ ext.deps = deps
 
 // build gradle plugin
 def gradlePlugin = [
-        android      : "com.android.tools.build:gradle:3.5.3",
+        android      : "com.android.tools.build:gradle:4.0.1",
         kotlin       : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
-        play_services: "com.google.gms:google-services:4.3.3"
+        play_services: "com.google.gms:google-services:4.3.3",
+        navigation_safe_args: "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigation"
 ]
 ext.gradlePlugin = gradlePlugin
 

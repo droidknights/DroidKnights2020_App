@@ -1,27 +1,29 @@
 package com.droidknights.app2020.ui.schedule.detail
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.droidknights.app2020.base.BaseViewModel
 import com.droidknights.app2020.base.DispatcherProvider
-import com.droidknights.app2020.db.SessionRepository
 import com.droidknights.app2020.data.Session
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
+import com.droidknights.app2020.db.SessionRepository
+import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 class SessionDetailViewModel @Inject constructor(
-    dispatchers: DispatcherProvider,
+    private val dispatchers: DispatcherProvider,
     private val repo: SessionRepository
 ) : BaseViewModel() {
 
-    val sessionContents = MutableLiveData<Session>()
+    private val _id: MutableLiveData<String> = MutableLiveData()
 
-    fun getSessionFromFirestore(id: String) {
-        viewModelScope.launch {
-            repo.getById(id).collect {
-                sessionContents.value = it
-            }
+    val sessionContents: LiveData<Session> = _id.switchMap { id ->
+        liveData<Session> {
+            emitSource(
+                repo.getById(id).flowOn(dispatchers.default()).asLiveData()
+            )
         }
+    }
+
+    fun getSession(id: String) {
+        _id.value = id
     }
 }

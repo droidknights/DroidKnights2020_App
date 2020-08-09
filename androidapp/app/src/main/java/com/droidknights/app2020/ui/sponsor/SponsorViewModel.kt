@@ -6,7 +6,11 @@ import com.droidknights.app2020.data.Sponsor
 import com.droidknights.app2020.ui.model.asUiModel
 import javax.inject.Inject
 
+/**
+ * Created by jiyoung on 04/12/2019
+ */
 class SponsorViewModel @Inject constructor() : ViewModel() {
+
     val sponsorList = listOf(
         Sponsor("toss", "https://toss.im/", R.drawable.ic_sponsor_toss),
         Sponsor("헤이딜러", "https://dealer.heydealer.com/", R.drawable.ic_sponsor_heydealer),
