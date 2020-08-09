@@ -11,19 +11,20 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.droidknights.app2020.BR
-import com.droidknights.app2020.ext.assistedViewModels
-import javax.inject.Inject
-import kotlin.reflect.KClass
 
 abstract class BaseFragment<VM : ViewModel, B : ViewDataBinding>(
     @LayoutRes private val layoutResId: Int,
-    viewModelClass: KClass<VM>
+    private val viewModelClass: Class<VM>
 ) : Fragment() {
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
-    protected val viewModel: VM by assistedViewModels(viewModelClass) { viewModelFactory }
+
+    protected lateinit var viewModel: VM
 
     protected lateinit var binding: B
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = ViewModelProvider(this).get(viewModelClass)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

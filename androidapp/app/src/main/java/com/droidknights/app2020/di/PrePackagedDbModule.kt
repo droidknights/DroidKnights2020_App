@@ -13,6 +13,7 @@ import javax.inject.Singleton
 @InstallIn(ApplicationComponent::class)
 @Module
 class PrePackagedDbModule {
+
     @Singleton
     @Provides
     fun providePrePackagedDb(@ApplicationContext application: Context): PrePackagedDb =

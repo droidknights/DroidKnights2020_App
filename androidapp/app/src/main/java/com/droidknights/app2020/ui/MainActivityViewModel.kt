@@ -6,6 +6,4 @@ import androidx.lifecycle.ViewModel
 /**
  * Created by jiyoung on 29/11/2019
  */
-class MainActivityViewModel @ViewModelInject constructor(): ViewModel() {
-
-}
+class MainActivityViewModel @ViewModelInject constructor(): ViewModel()

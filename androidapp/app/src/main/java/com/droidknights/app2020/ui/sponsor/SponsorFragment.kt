@@ -8,13 +8,15 @@ import com.droidknights.app2020.R
 import com.droidknights.app2020.base.BaseFragment
 import com.droidknights.app2020.common.DataBindingAdapter
 import com.droidknights.app2020.databinding.SponsorFragmentBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * Created by jiyoung on 04/12/2019
  */
+@AndroidEntryPoint
 class SponsorFragment : BaseFragment<SponsorViewModel, SponsorFragmentBinding>(
     R.layout.sponsor_fragment,
-    SponsorViewModel::class
+    SponsorViewModel::class.java
 ) {
     //TODO : 행사와 관련된 정보
     //TODO : 코엑스 위치 지도

@@ -7,7 +7,7 @@ import com.droidknights.app2020.databinding.SettingsFragmentBinding
 class SettingsFragment :
     BaseFragment<SettingsViewModel, SettingsFragmentBinding>(
         R.layout.settings_fragment,
-        SettingsViewModel::class
+        SettingsViewModel::class.java
     ) {
     //TODO : 내 세션 북마크 (즐겨찾기 기능)
     //TODO : DarkTheme on/off

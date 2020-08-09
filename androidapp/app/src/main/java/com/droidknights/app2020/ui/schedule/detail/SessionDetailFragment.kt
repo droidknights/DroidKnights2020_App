@@ -6,10 +6,12 @@ import androidx.navigation.fragment.navArgs
 import com.droidknights.app2020.R
 import com.droidknights.app2020.base.BaseFragment
 import com.droidknights.app2020.databinding.SessionDetailFragmentBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetailFragmentBinding>(
     R.layout.session_detail_fragment,
-    SessionDetailViewModel::class
+    SessionDetailViewModel::class.java
 ) {
 
     private val args: SessionDetailFragmentArgs by navArgs()
