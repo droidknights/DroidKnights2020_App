@@ -4,4 +4,10 @@
     <string name="menu_schedule_title">일정</string>
     <string name="menu_settings_title">설정</string>
     <string name="menu_sponsor_title">스폰서</string>
+
+    <string name="item_session_skill">기술</string>
+    <string name="item_session_experience">경험</string>
+    <string name="item_session_deepen">심화</string>
+    <string name="item_session_medium">중급</string>
+
 </resources>

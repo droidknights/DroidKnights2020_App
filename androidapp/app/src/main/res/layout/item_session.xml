@@ -10,14 +10,12 @@
             type="com.droidknights.app2020.ui.model.UiSessionModel" />
     </data>
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="15dp"
         android:paddingStart="15dp"
-        android:paddingEnd="15dp"
-        >
+        android:paddingTop="15dp"
+        android:paddingEnd="15dp">
 
         <TextView
             android:id="@+id/tvMemoTitle"
@@ -27,10 +25,20 @@
             android:text="@{item.title}"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cb_alarm"
             app:layout_constraintStart_toEndOf="@+id/tvDate"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="1년간 토스 앱의 '홈' 탭을 개발하며 쌓은 Learning Share" />
+
+        <CheckBox
+            android:id="@+id/cb_alarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_alarm"
+            android:button="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvDate"
@@ -47,7 +55,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cb_alarm"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/tvMemoTitle"
             app:layout_constraintTop_toBottomOf="@+id/tvMemoTitle"
@@ -57,7 +65,7 @@
                 android:id="@+id/sessionChip1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="기술"
+                android:text="@string/item_session_skill"
                 android:textSize="10sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -69,7 +77,7 @@
                 android:id="@+id/sessionChip2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="경험"
+                android:text="@string/item_session_experience"
                 android:textSize="10sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/sessionChip1"
@@ -81,7 +89,7 @@
                 android:id="@+id/sessionChip3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="심화"
+                android:text="@string/item_session_deepen"
                 android:textSize="10sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/sessionChip2"
@@ -93,7 +101,7 @@
                 android:id="@+id/sessionChip4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="중급"
+                android:text="@string/item_session_medium"
                 android:textSize="10sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/sessionChip3"
@@ -102,7 +110,5 @@
                 app:sc_textColor="@color/color_sessionChipText_purple" />
 
         </com.droidknights.app2020.widget.SessionChipGroup>
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
