@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="vm"
             type="com.droidknights.app2020.ui.schedule.ScheduleViewModel" />
     </data>
 
     <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -32,8 +33,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clipToPadding="false"
-                android:paddingTop="?android:actionBarSize"
-                android:paddingBottom="@dimen/fragment_bottom_padding" />
+                android:paddingBottom="@dimen/fragment_bottom_padding"
+                tools:listitem="@layout/item_session" />
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
@@ -44,6 +45,9 @@
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="@dimen/fab_filter_bottom_margin"
+            android:onClick="@{() -> vm.onClickFilter()}"
             android:src="@drawable/ic_filter_list_white_24dp" />
+
     </FrameLayout>
+
 </layout>
