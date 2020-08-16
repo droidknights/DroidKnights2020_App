@@ -10,4 +10,9 @@
         <item name="android:fontFamily">@font/nanum_square</item>
     </style>
 
+    <style name="Widget.Knights.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:textSize">20sp</item>
+        <item name="android:background">@color/toolbar_background_white</item>
+        <item name="android:titleTextColor">@color/toolbar_textColor_black</item>
+    </style>
 </resources>

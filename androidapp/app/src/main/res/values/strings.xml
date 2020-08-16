@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">DroidKnights2020</string>
 
-    <string name="menu_info_title">Info</string>
-    <string name="menu_schedule_title">Schedule</string>
+    <string name="menu_schedule_title">일정</string>
+    <string name="menu_settings_title">설정</string>
+    <string name="menu_sponsor_title">스폰서</string>
 </resources>

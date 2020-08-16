@@ -3,14 +3,14 @@
     <item
         android:id="@id/infoFragment"
         android:icon="@android:drawable/ic_menu_info_details"
-        android:title="이벤트 정보" />
+        android:title="스폰서" />
     <item
         android:id="@id/scheduleFragment"
         android:icon="@android:drawable/ic_menu_agenda"
-        android:title="세션" />
+        android:title="일정" />
     <item
         android:id="@id/mypageFragment"
         android:icon="@drawable/ic_person_white_24dp"
-        android:title="프로필" />
+        android:title="설정" />
 
 </menu>

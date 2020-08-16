@@ -5,6 +5,10 @@
     <color name="colorAccent">#EE5050</color>
     <color name="colorBorder">#a0a0a0</color>
 
+    <!--toolbar-->
+    <color name="toolbar_background_white">#FFFFFF</color>
+    <color name="toolbar_textColor_black">#000000</color>
+
     <!--sponsor tab-->
     <color name="sponsor_background_color">#303033</color>
 
