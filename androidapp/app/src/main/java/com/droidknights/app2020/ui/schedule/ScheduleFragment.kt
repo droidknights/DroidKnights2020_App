@@ -3,6 +3,7 @@ package com.droidknights.app2020.ui.schedule
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,22 +13,23 @@ import com.droidknights.app2020.R
 import com.droidknights.app2020.base.BaseFragment
 import com.droidknights.app2020.common.DataBindingAdapter
 import com.droidknights.app2020.databinding.ScheduleFragmentBinding
-import com.droidknights.app2020.ext.assistedActivityViewModels
 import com.droidknights.app2020.ui.schedule.filter.ScheduleFilterFragment
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
 /**
  * Created by jiyoung on 04/12/2019
  */
+@AndroidEntryPoint
 class ScheduleFragment : BaseFragment<ScheduleViewModel, ScheduleFragmentBinding>(
     R.layout.schedule_fragment,
-    ScheduleViewModel::class
+    ScheduleViewModel::class.java
 ) {
     private val TAG = this@ScheduleFragment::class.java.simpleName
 
     private val scheduleAdapter = ScheduleAdapter()
 
-    val scheduleViewModel: ScheduleViewModel by assistedActivityViewModels { viewModelFactory }
+    val scheduleViewModel by viewModels<ScheduleViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
