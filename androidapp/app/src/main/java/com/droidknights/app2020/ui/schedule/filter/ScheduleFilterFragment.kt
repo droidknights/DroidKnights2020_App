@@ -10,7 +10,9 @@ import com.droidknights.app2020.data.Tag
 import com.droidknights.app2020.databinding.ScheduleFilterFragmentBinding
 import com.droidknights.app2020.ui.schedule.ScheduleViewModel
 import com.google.android.material.chip.Chip
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ScheduleFilterFragment : BaseFragment<ScheduleViewModel, ScheduleFilterFragmentBinding>(
     R.layout.schedule_filter_fragment,
     ScheduleViewModel::class.java
