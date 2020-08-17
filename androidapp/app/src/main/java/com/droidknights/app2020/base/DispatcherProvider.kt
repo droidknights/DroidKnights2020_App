@@ -2,7 +2,6 @@ package com.droidknights.app2020.base
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import javax.inject.Inject
 
 interface DispatcherProvider {
     fun main(): CoroutineDispatcher
@@ -11,7 +10,7 @@ interface DispatcherProvider {
     fun unconfined(): CoroutineDispatcher
 }
 
-class DefaultDispatcherProvider @Inject constructor() : DispatcherProvider {
+class DefaultDispatcherProvider : DispatcherProvider {
     override fun main(): CoroutineDispatcher = Dispatchers.Main
     override fun default(): CoroutineDispatcher = Dispatchers.Default
     override fun io(): CoroutineDispatcher = Dispatchers.IO

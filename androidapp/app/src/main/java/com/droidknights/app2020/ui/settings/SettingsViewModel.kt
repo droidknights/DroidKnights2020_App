@@ -1,8 +1,8 @@
 package com.droidknights.app2020.ui.settings
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
-import javax.inject.Inject
 
-class SettingsViewModel @Inject constructor() : ViewModel() {
+class SettingsViewModel @ViewModelInject constructor() : ViewModel() {
     // TODO: Implement the ViewModel
 }

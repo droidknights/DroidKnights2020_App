@@ -4,6 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: "scabbard.gradle"
 apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: "dagger.hilt.android.plugin"
 
 android {
     compileSdkVersion build_versions.compile_sdk
@@ -30,8 +31,8 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
-    dataBinding {
-        enabled true
+    buildFeatures {
+        dataBinding true
     }
 }
 
@@ -67,10 +68,10 @@ dependencies {
     implementation deps.firebase.firestore
 
     // Dagger
-    implementation deps.dagger.android
-    implementation deps.dagger.android_support
-    kapt deps.dagger.compiler
-    kapt deps.dagger.android_processor
+    implementation deps.hilt.android
+    implementation deps.hilt.view_model
+    kapt deps.hilt.compiler
+    kapt deps.hilt.view_model_compiler
 
     implementation deps.google.gson
 

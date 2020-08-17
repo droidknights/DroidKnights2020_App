@@ -4,7 +4,6 @@ import com.droidknights.app2020.data.Session
 import com.droidknights.app2020.data.Sponsor
 import com.droidknights.app2020.data.Tag
 
-
 fun Session.asUiModel() =
     UiSessionModel(
         id = id,

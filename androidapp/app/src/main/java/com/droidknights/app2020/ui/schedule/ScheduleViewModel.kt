@@ -1,5 +1,6 @@
 package com.droidknights.app2020.ui.schedule
 
+import androidx.hilt.lifecycle.ViewModelInject
 import android.os.Parcel
 import android.os.Parcelable
 import androidx.core.view.isVisible
@@ -28,7 +29,7 @@ import javax.inject.Inject
 /**
  * Created by jiyoung on 04/12/2019
  */
-class ScheduleViewModel @Inject constructor(
+class ScheduleViewModel @ViewModelInject constructor(
     private val dispatchers: DispatcherProvider,
     private val repo: SessionRepository
 ) : BaseViewModel() {
