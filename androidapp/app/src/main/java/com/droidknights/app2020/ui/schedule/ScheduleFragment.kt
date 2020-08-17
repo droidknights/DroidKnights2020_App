@@ -3,7 +3,7 @@ package com.droidknights.app2020.ui.schedule
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,15 +21,15 @@ import timber.log.Timber
  * Created by jiyoung on 04/12/2019
  */
 @AndroidEntryPoint
-class ScheduleFragment : BaseFragment<ScheduleViewModel, ScheduleFragmentBinding>(
+class ScheduleFragment : BaseFragment<ScheduleEmptyViewModel, ScheduleFragmentBinding>(
     R.layout.schedule_fragment,
-    ScheduleViewModel::class.java
+    ScheduleEmptyViewModel::class.java
 ) {
     private val TAG = this@ScheduleFragment::class.java.simpleName
 
     private val scheduleAdapter = ScheduleAdapter()
 
-    val scheduleViewModel by viewModels<ScheduleViewModel>()
+    val scheduleViewModel by activityViewModels<ScheduleViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -38,7 +38,7 @@ class ScheduleFragment : BaseFragment<ScheduleViewModel, ScheduleFragmentBinding
         //TODO : 관심세션 북마크 기능 
 
         with(binding) {
-            setVariable(BR.vm, scheduleViewModel)
+            setVariable(BR.scheduleVm, scheduleViewModel)
             lifecycleOwner = viewLifecycleOwner
         }
 

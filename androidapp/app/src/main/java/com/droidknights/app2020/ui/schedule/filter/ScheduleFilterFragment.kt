@@ -3,19 +3,22 @@ package com.droidknights.app2020.ui.schedule.filter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import com.droidknights.app2020.R
 import com.droidknights.app2020.base.BaseFragment
 import com.droidknights.app2020.data.Tag
 import com.droidknights.app2020.databinding.ScheduleFilterFragmentBinding
+import com.droidknights.app2020.ui.schedule.ScheduleEmptyViewModel
 import com.droidknights.app2020.ui.schedule.ScheduleViewModel
 import com.google.android.material.chip.Chip
+import dagger.hilt.android.AndroidEntryPoint
 
-class ScheduleFilterFragment : BaseFragment<ScheduleViewModel, ScheduleFilterFragmentBinding>(
+@AndroidEntryPoint
+class ScheduleFilterFragment : BaseFragment<ScheduleEmptyViewModel, ScheduleFilterFragmentBinding>(
     R.layout.schedule_filter_fragment,
-    ScheduleViewModel::class.java
+    ScheduleEmptyViewModel::class.java
 ) {
-    private val scheduleViewModel by viewModels<ScheduleViewModel>()
+    private val scheduleViewModel by activityViewModels<ScheduleViewModel>()
 
     private var _allTags = listOf<Tag>()
 
