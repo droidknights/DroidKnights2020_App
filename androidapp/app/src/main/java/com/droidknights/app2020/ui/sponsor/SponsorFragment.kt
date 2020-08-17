@@ -38,7 +38,7 @@ class SponsorFragment : BaseFragment<SponsorViewModel, SponsorFragmentBinding>(
             }
         }
 
-        rvSponsor.run {
+        binding.rvSponsor.run {
             adapter = sponsorAdapter
         }
     }

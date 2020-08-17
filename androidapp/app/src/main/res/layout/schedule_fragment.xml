@@ -33,6 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clipToPadding="false"
+                android:paddingTop="?android:actionBarSize"
                 android:paddingBottom="@dimen/fragment_bottom_padding"
                 tools:listitem="@layout/item_session" />
 
