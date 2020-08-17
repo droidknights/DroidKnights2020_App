@@ -37,7 +37,7 @@ class ScheduleViewModel @ViewModelInject constructor(
     private val _refreshEvent = MutableLiveData(Unit)
     val sessionList: LiveData<List<UiSessionModel>> = _refreshEvent.switchMap {
 
-        liveData<List<UiSessionModel>> {
+        liveData {
             val sessions = repo.get()
                 .map {
                     if (allTags.isEmpty()) {

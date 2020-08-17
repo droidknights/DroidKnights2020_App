@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -68,23 +67,23 @@ class ScheduleFragment : BaseFragment<ScheduleViewModel, ScheduleFragmentBinding
     }
 
     private fun initObserve() {
-        scheduleViewModel.sessionList.observe(viewLifecycleOwner, Observer {
+        scheduleViewModel.sessionList.observe(viewLifecycleOwner) {
             binding.floatingFilter.isVisible = true
 
             it.filter { session ->
                 scheduleViewModel.selectedTags.intersect(session.tag.orEmpty()).isNotEmpty()
             }.let(scheduleAdapter::submitList)
             Timber.d(TAG, "getSessionListData : $it")
-        })
+        }
 
-        scheduleViewModel.itemEvent.observe(viewLifecycleOwner, Observer { event ->
+        scheduleViewModel.itemEvent.observe(viewLifecycleOwner) { event ->
             event.getContentIfNotHandled()?.let { sessionId ->
                 val action = ScheduleFragmentDirections.actionScheduleToSessionDetail(sessionId)
                 binding.root.findNavController().navigate(action)
             }
-        })
+        }
 
-        scheduleViewModel.fabEvent.observe(viewLifecycleOwner, Observer { event ->
+        scheduleViewModel.fabEvent.observe(viewLifecycleOwner) { event ->
             binding.floatingFilter.isVisible = false
 
             val fragment = ScheduleFilterFragment()
@@ -92,6 +91,6 @@ class ScheduleFragment : BaseFragment<ScheduleViewModel, ScheduleFragmentBinding
                 .addToBackStack(fragment::class.java.simpleName)
                 .add(R.id.frameLayout, fragment)
                 .commit()
-        })
+        }
     }
 }
