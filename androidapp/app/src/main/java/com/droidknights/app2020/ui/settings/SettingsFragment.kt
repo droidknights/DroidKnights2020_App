@@ -3,7 +3,9 @@ package com.droidknights.app2020.ui.settings
 import com.droidknights.app2020.R
 import com.droidknights.app2020.base.BaseFragment
 import com.droidknights.app2020.databinding.SettingsFragmentBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SettingsFragment :
     BaseFragment<SettingsViewModel, SettingsFragmentBinding>(
         R.layout.settings_fragment,
