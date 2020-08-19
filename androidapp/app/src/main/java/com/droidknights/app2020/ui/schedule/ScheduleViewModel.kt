@@ -1,30 +1,18 @@
 package com.droidknights.app2020.ui.schedule
 
 import androidx.hilt.lifecycle.ViewModelInject
-import android.os.Parcel
-import android.os.Parcelable
-import androidx.core.view.isVisible
 import androidx.lifecycle.*
 import com.droidknights.app2020.base.BaseViewModel
 import com.droidknights.app2020.base.DispatcherProvider
 import com.droidknights.app2020.common.Event
-import com.droidknights.app2020.data.Session
 import com.droidknights.app2020.data.Tag
 import com.droidknights.app2020.db.SessionRepository
 import com.droidknights.app2020.ui.model.UiSessionModel
 import com.droidknights.app2020.ui.model.asUiModel
-import kotlinx.android.parcel.Parcelize
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.withContext
-import kotlinx.coroutines.yield
-import timber.log.Timber
-import java.io.Serializable
-import javax.inject.Inject
 
 /**
  * Created by jiyoung on 04/12/2019

@@ -8,7 +8,6 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import androidx.hilt.Assisted
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.droidknights.app2020.BR
