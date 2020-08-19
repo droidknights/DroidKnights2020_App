@@ -14,15 +14,15 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:background="@color/sponsor_background_color"
-        android:padding="15dp">
+        android:padding="15dp"
+        tools:background="@color/sponsor_background_color">
 
         <TextView
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{item.name}"
-            tools:textColor="@sample/sponsor.json/textColor"
+            android:textColor="@android:color/white"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"

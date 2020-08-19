@@ -15,7 +15,8 @@
         android:layout_height="wrap_content"
         android:paddingStart="15dp"
         android:paddingTop="15dp"
-        android:paddingEnd="15dp">
+        android:paddingEnd="15dp"
+        tools:background="@android:color/white">
 
         <TextView
             android:id="@+id/tvMemoTitle"
