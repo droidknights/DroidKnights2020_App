@@ -16,7 +16,7 @@ class SessionDetailViewModel @ViewModelInject constructor(
     private val _id: MutableLiveData<String> = MutableLiveData()
 
     val sessionContents: LiveData<Session> = _id.switchMap { id ->
-        liveData<Session> {
+        liveData {
             emitSource(
                 repo.getById(id).flowOn(dispatchers.default()).asLiveData()
             )

@@ -72,11 +72,11 @@ private suspend fun CollectionReference.fastGet(): QuerySnapshot {
     }
 }
 
-private fun Query.toFlow() = callbackFlow {
+private fun Query.toFlow() = callbackFlow<QuerySnapshot> {
     val listener = addSnapshotListener { snapshot, exception ->
         if (exception != null) close(exception)
         if (snapshot != null) {
-            offer(snapshot!!)
+            offer(snapshot)
         }
     }
     awaitClose { listener.remove() }

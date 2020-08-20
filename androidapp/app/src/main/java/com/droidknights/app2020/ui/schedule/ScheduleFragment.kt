@@ -68,23 +68,23 @@ class ScheduleFragment : BaseFragment<ScheduleEmptyViewModel, ScheduleFragmentBi
     }
 
     private fun initObserve() {
-        scheduleViewModel.sessionList.observe(viewLifecycleOwner, Observer {
+        scheduleViewModel.sessionList.observe(viewLifecycleOwner) {
             binding.floatingFilter.isVisible = true
 
             it.filter { session ->
                 scheduleViewModel.selectedTags.intersect(session.tag.orEmpty()).isNotEmpty()
             }.let(scheduleAdapter::submitList)
             Timber.d(TAG, "getSessionListData : $it")
-        })
+        }
 
-        scheduleViewModel.itemEvent.observe(viewLifecycleOwner, Observer { event ->
+        scheduleViewModel.itemEvent.observe(viewLifecycleOwner) { event ->
             event.getContentIfNotHandled()?.let { sessionId ->
                 val action = ScheduleFragmentDirections.actionScheduleToSessionDetail(sessionId)
                 binding.root.findNavController().navigate(action)
             }
-        })
+        }
 
-        scheduleViewModel.fabEvent.observe(viewLifecycleOwner, Observer { event ->
+        scheduleViewModel.fabEvent.observe(viewLifecycleOwner) { event ->
             binding.floatingFilter.isVisible = false
 
             val fragment = ScheduleFilterFragment()
@@ -92,6 +92,6 @@ class ScheduleFragment : BaseFragment<ScheduleEmptyViewModel, ScheduleFragmentBi
                 .addToBackStack(fragment::class.java.simpleName)
                 .add(R.id.frameLayout, fragment)
                 .commit()
-        })
+        }
     }
 }
