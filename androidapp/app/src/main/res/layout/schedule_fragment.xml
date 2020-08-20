@@ -6,6 +6,10 @@
     <data>
         <variable
             name="vm"
+            type="com.droidknights.app2020.ui.schedule.ScheduleEmptyViewModel" />
+
+        <variable
+            name="scheduleVm"
             type="com.droidknights.app2020.ui.schedule.ScheduleViewModel" />
     </data>
 
@@ -25,8 +29,8 @@
             android:id="@+id/swipeRefreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:isRefreshing="@{vm.isRefreshing}"
-            app:onRefresh="@{vm::refresh}">
+            app:isRefreshing="@{scheduleVm.isRefreshing}"
+            app:onRefresh="@{scheduleVm::refresh}">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvSchedule"
@@ -46,7 +50,7 @@
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="@dimen/fab_filter_bottom_margin"
-            android:onClick="@{() -> vm.onClickFilter()}"
+            android:onClick="@{() -> scheduleVm.onClickFilter()}"
             android:src="@drawable/ic_filter_list_white_24dp" />
 
     </FrameLayout>
