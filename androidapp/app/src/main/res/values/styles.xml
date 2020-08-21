@@ -8,6 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
         <!-- Setting Custom Font-->
         <item name="android:fontFamily">@font/nanum_square</item>
+
+        <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
     <style name="Widget.Knights.Toolbar" parent="Widget.MaterialComponents.Toolbar">
