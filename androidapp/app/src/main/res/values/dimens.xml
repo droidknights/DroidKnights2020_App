@@ -11,4 +11,6 @@
     <dimen name="fragment_bottom_padding">60dp</dimen>
 
     <dimen name="fab_filter_bottom_margin">66dp</dimen>
+
+    <dimen name="session_detail_bottom_app_bar_height">120dp</dimen>
 </resources>
