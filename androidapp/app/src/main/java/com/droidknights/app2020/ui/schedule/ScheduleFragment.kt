@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -68,13 +67,15 @@ class ScheduleFragment : BaseFragment<ScheduleEmptyViewModel, ScheduleFragmentBi
     }
 
     private fun initObserve() {
-        scheduleViewModel.sessionList.observe(viewLifecycleOwner) {
+        scheduleViewModel.sessionList.observe(viewLifecycleOwner) { sessions ->
             binding.floatingFilter.isVisible = true
 
-            it.filter { session ->
+            sessions.filter { session ->
                 scheduleViewModel.selectedTags.intersect(session.tag.orEmpty()).isNotEmpty()
+            }.sortedBy {
+                it.title
             }.let(scheduleAdapter::submitList)
-            Timber.d(TAG, "getSessionListData : $it")
+            Timber.d(TAG, "getSessionListData : $sessions")
         }
 
         scheduleViewModel.itemEvent.observe(viewLifecycleOwner) { event ->
