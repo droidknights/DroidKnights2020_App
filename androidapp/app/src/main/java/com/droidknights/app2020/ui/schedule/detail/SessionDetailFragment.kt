@@ -21,5 +21,23 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
         viewModel.getSession(args.sessionId)
 
         //TODO : Speaker 표시
+
+        initBottomAppBar()
+    }
+
+    private fun initBottomAppBar() {
+        setOnMenuItemClickListenerInBottomAppBar()
+    }
+
+    private fun setOnMenuItemClickListenerInBottomAppBar() {
+        binding.bottomAppBar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.menu_qna -> {
+                    viewModel.onClickQnALink()
+                    return@setOnMenuItemClickListener true
+                }
+            }
+            return@setOnMenuItemClickListener false
+        }
     }
 }
