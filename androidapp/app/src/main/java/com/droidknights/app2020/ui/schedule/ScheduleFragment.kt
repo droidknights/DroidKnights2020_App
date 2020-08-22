@@ -72,8 +72,6 @@ class ScheduleFragment : BaseFragment<ScheduleEmptyViewModel, ScheduleFragmentBi
 
             sessions.filter { session ->
                 scheduleViewModel.selectedTags.intersect(session.tag.orEmpty()).isNotEmpty()
-            }.sortedBy {
-                it.title
             }.let(scheduleAdapter::submitList)
             Timber.d(TAG, "getSessionListData : $sessions")
         }
