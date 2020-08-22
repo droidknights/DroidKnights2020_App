@@ -6,5 +6,6 @@ data class UiSessionModel(
     val id: String,
     val title: String,
     val time: String,
-    val tag: List<Tag>?
+    val tag: List<Tag>?,
+    val speakerName: String
 )
