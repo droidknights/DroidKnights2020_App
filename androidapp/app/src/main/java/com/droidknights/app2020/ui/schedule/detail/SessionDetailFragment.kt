@@ -3,14 +3,17 @@ package com.droidknights.app2020.ui.schedule.detail
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.view.ViewTreeObserver
 import android.widget.Toast
 import androidx.annotation.StringRes
+import androidx.appcompat.widget.ActionMenuView
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.navigation.fragment.navArgs
 import com.droidknights.app2020.R
 import com.droidknights.app2020.base.BaseFragment
 import com.droidknights.app2020.common.EventObserver
 import com.droidknights.app2020.databinding.SessionDetailFragmentBinding
+import com.google.android.material.bottomappbar.BottomAppBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,6 +36,7 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
 
     private fun initBottomAppBar() {
         setOnMenuItemClickListenerInBottomAppBar()
+        changeMarginTopToZeroForActionMenuView()
     }
 
     private fun setOnMenuItemClickListenerInBottomAppBar() {
@@ -45,6 +49,45 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
             }
             return@setOnMenuItemClickListener false
         }
+    }
+
+    private fun changeMarginTopToZeroForActionMenuView() {
+        binding.bottomAppBar.viewTreeObserver.addOnGlobalLayoutListener(object :
+            ViewTreeObserver.OnGlobalLayoutListener {
+            override fun onGlobalLayout() {
+                binding.bottomAppBar.viewTreeObserver.removeOnGlobalLayoutListener(this)
+                val actionMenuView = getActionMenuViewInBottomAppBar(binding.bottomAppBar)
+                val margin = getMarginTopOfActionMenuView(
+                    binding.bottomAppBar.height,
+                    actionMenuView?.height ?: 0
+                )
+                if (margin != 0) {
+                    actionMenuView?.translationY =- margin.toFloat()
+                }
+            }
+        })
+    }
+
+    private fun getMarginTopOfActionMenuView(
+        bottomAppBarHeight: Int,
+        actionMenuViewHeight: Int
+    ): Int {
+        if (bottomAppBarHeight != 0 && actionMenuViewHeight != 0) {
+            val appBarHalf = bottomAppBarHeight / 2
+            val menuHalf = actionMenuViewHeight / 2
+            return appBarHalf - menuHalf
+        }
+        return 0
+    }
+
+    private fun getActionMenuViewInBottomAppBar(bottomAppBar: BottomAppBar): ActionMenuView? {
+        for (i in 0 until bottomAppBar.childCount) {
+            val view: View = bottomAppBar.getChildAt(i)
+            if (view is ActionMenuView) {
+                return view
+            }
+        }
+        return null
     }
 
     private fun initObserve() {
