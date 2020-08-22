@@ -62,13 +62,13 @@ class ScheduleFragment : BaseFragment<ScheduleEmptyViewModel, ScheduleFragmentBi
     }
 
     private fun initObserve() {
-        scheduleViewModel.sessionList.observe(viewLifecycleOwner) {
+        scheduleViewModel.sessionList.observe(viewLifecycleOwner) { sessions ->
             binding.floatingFilter.isVisible = true
 
-            it.filter { session ->
+            sessions.filter { session ->
                 scheduleViewModel.selectedTags.intersect(session.tag.orEmpty()).isNotEmpty()
             }.let(scheduleAdapter::submitList)
-            Timber.d(TAG, "getSessionListData : $it")
+            Timber.d(TAG, "getSessionListData : $sessions")
         }
 
         scheduleViewModel.itemEvent.observe(viewLifecycleOwner) { event ->
