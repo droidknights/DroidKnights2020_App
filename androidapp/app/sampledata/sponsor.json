@@ -1,5 +1,4 @@
 {
-  "textColor" : "#FFFFFF",
   "data": [
     {
       "name": "toss",
@@ -8,26 +7,6 @@
     {
       "name": "헤이딜러",
       "image": "@drawable/ic_sponsor_heydealer"
-    },
-    {
-      "name": "LINE",
-      "image": "@drawable/ic_sponsor_line"
-    },
-    {
-      "name": "Remember",
-      "image": "@drawable/ic_sponsor_remember"
-    },
-    {
-      "name": "강남언니",
-      "image": "@drawable/ic_sponsor_gangnamunni"
-    },
-    {
-      "name": "NAVER",
-      "image": "@drawable/ic_sponsor_naver"
-    },
-    {
-      "name": "my real trip",
-      "image": "@drawable/ic_sponsor_myrealtrip"
     },
     {
       "name": "카카오페이",
