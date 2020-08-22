@@ -96,8 +96,5 @@ private suspend fun CollectionReference.cacheFirstGet(): QuerySnapshot {
  */
 private fun List<Session>.toSortedSessions(): List<Session> =
     sortedWith(
-        compareBy(
-            { it.time },
-            { it.track }
-        )
+        compareBy { it.id }
     )
