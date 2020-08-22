@@ -102,6 +102,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/color_session_detail_fab_background"
+            android:onClick="@{() -> vm.onClickVideoLink()}"
             app:borderWidth="0dp"
             app:layout_anchor="@id/bottomAppBar"
             app:srcCompat="@drawable/ic_session_video_play_arrow_24"

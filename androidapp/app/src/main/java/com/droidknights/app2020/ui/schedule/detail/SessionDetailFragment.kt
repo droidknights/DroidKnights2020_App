@@ -1,10 +1,15 @@
 package com.droidknights.app2020.ui.schedule.detail
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
+import androidx.annotation.StringRes
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.navigation.fragment.navArgs
 import com.droidknights.app2020.R
 import com.droidknights.app2020.base.BaseFragment
+import com.droidknights.app2020.common.EventObserver
 import com.droidknights.app2020.databinding.SessionDetailFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,6 +28,7 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
         //TODO : Speaker 표시
 
         initBottomAppBar()
+        initObserve()
     }
 
     private fun initBottomAppBar() {
@@ -38,6 +44,28 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
                 }
             }
             return@setOnMenuItemClickListener false
+        }
+    }
+
+    private fun initObserve() {
+        viewModel.videoEvent.observe(viewLifecycleOwner, EventObserver(this::openBrowser))
+
+        viewModel.qnaEvent.observe(viewLifecycleOwner, EventObserver(this::openBrowser))
+
+        viewModel.toastEvent.observe(viewLifecycleOwner, EventObserver(this::toastMessage))
+    }
+
+    private fun openBrowser(url: String) {
+        context?.let {
+            CustomTabsIntent.Builder()
+                .build()
+                .launchUrl(it, Uri.parse(url))
+        }
+    }
+
+    private fun toastMessage(@StringRes messageRes: Int) {
+        context?.let {
+            Toast.makeText(it, getString(messageRes), Toast.LENGTH_SHORT).show()
         }
     }
 }
