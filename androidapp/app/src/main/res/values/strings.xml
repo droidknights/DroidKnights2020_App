@@ -10,4 +10,5 @@
     <string name="item_session_deepen">심화</string>
     <string name="item_session_medium">중급</string>
 
+    <string name="session_speaker_name_format">speaker %s</string>
 </resources>

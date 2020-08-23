@@ -52,14 +52,25 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="10:45" />
 
+        <TextView
+            android:id="@+id/tvSessionSpeakerName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="@{@string/session_speaker_name_format(item.speakerName)}"
+            app:layout_constraintEnd_toEndOf="@id/tvMemoTitle"
+            app:layout_constraintStart_toStartOf="@id/tvMemoTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvMemoTitle"
+            tools:text="speaker 김안드" />
+
         <com.droidknights.app2020.widget.SessionChipGroup
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/cb_alarm"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/tvMemoTitle"
-            app:layout_constraintTop_toBottomOf="@+id/tvMemoTitle"
+            app:layout_constraintStart_toStartOf="@+id/tvSessionSpeakerName"
+            app:layout_constraintTop_toBottomOf="@+id/tvSessionSpeakerName"
             app:layout_constraintVertical_bias="0.0">
 
             <com.droidknights.app2020.widget.SessionChip
