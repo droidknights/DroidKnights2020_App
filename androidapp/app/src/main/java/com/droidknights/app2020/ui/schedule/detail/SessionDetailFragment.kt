@@ -101,6 +101,6 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
     }
 
     private fun toastMessage(@StringRes messageRes: Int) {
-        Toast.makeText(requireContext(), getString(messageRes), Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), messageRes, Toast.LENGTH_SHORT).show()
     }
 }
