@@ -29,8 +29,20 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
 
         //TODO : Speaker 표시
 
+        initNestedScrollView()
         initBottomAppBar()
         initObserve()
+    }
+
+    private fun initNestedScrollView() {
+        updatePaddingBottomByBottomAppBar()
+    }
+
+    private fun updatePaddingBottomByBottomAppBar() {
+        binding.nsvSessionDetail.doOnPreDraw {
+            val bottomAppBarHeight = binding.bottomAppBar.measuredHeight
+            it.updatePadding(bottom = it.paddingBottom + bottomAppBarHeight)
+        }
     }
 
     private fun initBottomAppBar() {
