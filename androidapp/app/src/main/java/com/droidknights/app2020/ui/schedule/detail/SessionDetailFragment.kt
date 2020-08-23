@@ -1,12 +1,12 @@
 package com.droidknights.app2020.ui.schedule.detail
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.appcompat.widget.ActionMenuView
 import androidx.browser.customtabs.CustomTabsIntent
+import androidx.core.net.toUri
 import androidx.core.view.doOnLayout
 import androidx.navigation.fragment.navArgs
 import com.droidknights.app2020.R
@@ -97,7 +97,7 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
     private fun openBrowser(url: String) {
         CustomTabsIntent.Builder()
             .build()
-            .launchUrl(requireContext(), Uri.parse(url))
+            .launchUrl(requireContext(), url.toUri())
     }
 
     private fun toastMessage(@StringRes messageRes: Int) {
