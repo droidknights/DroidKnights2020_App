@@ -95,16 +95,12 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
     }
 
     private fun openBrowser(url: String) {
-        context?.let {
-            CustomTabsIntent.Builder()
-                .build()
-                .launchUrl(it, Uri.parse(url))
-        }
+        CustomTabsIntent.Builder()
+            .build()
+            .launchUrl(requireContext(), Uri.parse(url))
     }
 
     private fun toastMessage(@StringRes messageRes: Int) {
-        context?.let {
-            Toast.makeText(it, getString(messageRes), Toast.LENGTH_SHORT).show()
-        }
+        Toast.makeText(requireContext(), getString(messageRes), Toast.LENGTH_SHORT).show()
     }
 }
