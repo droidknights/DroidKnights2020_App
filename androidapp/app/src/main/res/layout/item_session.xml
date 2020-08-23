@@ -17,7 +17,7 @@
         android:paddingTop="10dp"
         android:paddingEnd="15dp"
         android:paddingBottom="5dp"
-        android:foreground="?attr/selectableItemBackground"
+        android:background="?attr/selectableItemBackground"
         tools:background="@android:color/white">
 
         <TextView
