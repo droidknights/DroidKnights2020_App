@@ -3,11 +3,11 @@ package com.droidknights.app2020.ui.schedule.detail
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.view.ViewTreeObserver
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.appcompat.widget.ActionMenuView
 import androidx.browser.customtabs.CustomTabsIntent
+import androidx.core.view.doOnLayout
 import androidx.navigation.fragment.navArgs
 import com.droidknights.app2020.R
 import com.droidknights.app2020.base.BaseFragment
@@ -52,20 +52,16 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
     }
 
     private fun changeMarginTopToZeroForActionMenuView() {
-        binding.bottomAppBar.viewTreeObserver.addOnGlobalLayoutListener(object :
-            ViewTreeObserver.OnGlobalLayoutListener {
-            override fun onGlobalLayout() {
-                binding.bottomAppBar.viewTreeObserver.removeOnGlobalLayoutListener(this)
-                val actionMenuView = getActionMenuViewInBottomAppBar(binding.bottomAppBar)
-                val margin = getMarginTopOfActionMenuView(
-                    binding.bottomAppBar.height,
-                    actionMenuView?.height ?: 0
-                )
-                if (margin != 0) {
-                    actionMenuView?.translationY =- margin.toFloat()
-                }
+        binding.bottomAppBar.doOnLayout {
+            val actionMenuView = getActionMenuViewInBottomAppBar(binding.bottomAppBar)
+            val margin = getMarginTopOfActionMenuView(
+                binding.bottomAppBar.height,
+                actionMenuView?.height ?: 0
+            )
+            if (margin != 0) {
+                actionMenuView?.translationY =- margin.toFloat()
             }
-        })
+        }
     }
 
     private fun getMarginTopOfActionMenuView(
