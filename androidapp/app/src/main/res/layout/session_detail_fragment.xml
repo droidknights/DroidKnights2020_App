@@ -93,7 +93,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:minHeight="@dimen/session_detail_bottom_app_bar_height"
             app:fabAlignmentMode="end"
             app:menu="@menu/bottom_app_bar" />
 
