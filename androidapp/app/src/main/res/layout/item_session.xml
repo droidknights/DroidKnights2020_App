@@ -13,8 +13,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="15dp"
-        android:paddingTop="15dp"
         android:paddingEnd="15dp"
         tools:background="@android:color/white">
 
@@ -28,7 +26,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@id/cb_alarm"
             app:layout_constraintStart_toEndOf="@+id/tvDate"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvDate"
             tools:text="1년간 토스 앱의 '홈' 탭을 개발하며 쌓은 Learning Share" />
 
         <CheckBox
@@ -45,19 +43,31 @@
             android:id="@+id/tvDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
             android:text="@{item.time}"
             android:textColor="#00d0a8"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
             tools:text="10:45" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="2dp"
+            app:onAir="@{item.isLive}"
+            app:layout_constraintEnd_toEndOf="@+id/tvDate"
+            app:layout_constraintStart_toStartOf="@+id/tvDate"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_onair" />
 
         <TextView
             android:id="@+id/tvSessionSpeakerName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
             android:text="@{@string/session_speaker_name_format(item.speakerName)}"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@id/tvMemoTitle"
             app:layout_constraintStart_toStartOf="@id/tvMemoTitle"
             app:layout_constraintTop_toBottomOf="@id/tvMemoTitle"

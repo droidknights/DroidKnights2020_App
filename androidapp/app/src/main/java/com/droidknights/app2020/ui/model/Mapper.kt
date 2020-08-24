@@ -10,7 +10,8 @@ fun Session.asUiModel() =
         title = title,
         time = time,
         tag = tag?.map { Tag(it, true) },
-        speakerName = speakerName ?: ""
+        speakerName = speakerName ?: "",
+        isLive = isLive
     )
 
 fun Sponsor.asUiModel() =

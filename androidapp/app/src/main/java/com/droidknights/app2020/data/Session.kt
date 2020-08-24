@@ -9,5 +9,6 @@ data class Session(
     var contents: String? = "",
     var speakerName: String? = "",
     var speakerDesc: String? = "",
-    var speakerProfile: String? = ""
+    var speakerProfile: String? = "",
+    var isLive:Boolean = false
 )

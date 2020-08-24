@@ -7,5 +7,6 @@ data class UiSessionModel(
     val title: String,
     val time: String,
     val tag: List<Tag>?,
-    val speakerName: String
+    val speakerName: String,
+    val isLive:Boolean
 )

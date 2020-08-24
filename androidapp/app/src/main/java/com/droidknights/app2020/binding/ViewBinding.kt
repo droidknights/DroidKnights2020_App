@@ -1,5 +1,6 @@
 package com.droidknights.app2020.binding
 
+import android.view.View
 import android.webkit.WebView
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
@@ -19,3 +20,12 @@ fun SwipeRefreshLayout.bindRefreshListener(onRefreshListener: SwipeRefreshLayout
 
 @BindingAdapter("webUrl")
 fun WebView.bindUrl(value: String?) = value?.let(::loadUrl)
+
+@BindingAdapter(value = ["onAir"])
+fun ImageView.setVisibility(onAir: Boolean) {
+    if (onAir) {
+        this.visibility = View.VISIBLE
+    } else {
+        this.visibility = View.INVISIBLE
+    }
+}
