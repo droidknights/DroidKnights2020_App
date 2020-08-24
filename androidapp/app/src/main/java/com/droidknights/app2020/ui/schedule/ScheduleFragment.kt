@@ -80,12 +80,8 @@ class ScheduleFragment : BaseFragment<ScheduleEmptyViewModel, ScheduleFragmentBi
 
         scheduleViewModel.fabEvent.observe(viewLifecycleOwner) { event ->
             binding.floatingFilter.isVisible = false
-
-            val fragment = ScheduleFilterFragment()
-            parentFragmentManager.beginTransaction()
-                .addToBackStack(fragment::class.java.simpleName)
-                .add(R.id.frameLayout, fragment)
-                .commit()
+            val action = ScheduleFragmentDirections.actionScheduleFragmentToScheduleFilterFragment()
+            findNavController().navigate(action)
         }
     }
 }

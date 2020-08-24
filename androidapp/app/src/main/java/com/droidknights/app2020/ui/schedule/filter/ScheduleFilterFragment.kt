@@ -1,9 +1,9 @@
 package com.droidknights.app2020.ui.schedule.filter
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.droidknights.app2020.R
 import com.droidknights.app2020.base.BaseFragment
 import com.droidknights.app2020.data.Tag
@@ -46,10 +46,7 @@ class ScheduleFilterFragment : BaseFragment<ScheduleEmptyViewModel, ScheduleFilt
 
         binding.fabSubmit.setOnClickListener {
             scheduleViewModel.allTags = _allTags
-
-            parentFragmentManager.beginTransaction()
-                .remove(this)
-                .commit()
+            findNavController().navigateUp()
         }
     }
 }
