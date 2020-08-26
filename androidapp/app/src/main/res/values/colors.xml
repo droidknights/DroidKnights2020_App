@@ -20,6 +20,8 @@
     <color name="color_sessionChipText_purple">#5a00d0</color>
     <color name="color_sessionChipText_orange">#ff9900</color>
     <color name="color_sessionChipText_red">#ee5050</color>
+    <color name="color_sessionChipText_green">#66BB6A</color>
+    <color name="color_sessionChipText_brown">#6D4C41</color>
 
     <!--Session-->
     <color name="color_session_date">#00d0a8</color>

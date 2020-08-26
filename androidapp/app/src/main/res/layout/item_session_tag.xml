@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.droidknights.app2020.ui.model.UiSessionModel" />
+
+        <variable
+            name="tags"
+            type="com.droidknights.app2020.data.TagEnum" />
+
+        <import type="androidx.core.content.ContextCompat" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="15dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="15dp"
+        tools:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/tvMemoTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{item.title}"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/cb_alarm"
+            app:layout_constraintStart_toEndOf="@+id/tvDate"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1년간 토스 앱의 '홈' 탭을 개발하며 쌓은 Learning Share" />
+
+        <CheckBox
+            android:id="@+id/cb_alarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_alarm"
+            android:button="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.time}"
+            android:textColor="#00d0a8"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="10:45" />
+
+        <TextView
+            android:id="@+id/tvSessionSpeakerName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{@string/session_speaker_name_format(item.speakerName)}"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@id/tvMemoTitle"
+            app:layout_constraintStart_toStartOf="@id/tvMemoTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvMemoTitle"
+            tools:text="speaker 김안드" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@id/cb_alarm"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tvSessionSpeakerName"
+            app:layout_constraintTop_toBottomOf="@+id/tvSessionSpeakerName"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <com.droidknights.app2020.widget.SessionChipGroup
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cb_alarm"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tvSessionSpeakerName"
+            app:layout_constraintTop_toBottomOf="@+id/tvSessionSpeakerName"
+            app:layout_constraintVertical_bias="0.0">
+
+            <com.droidknights.app2020.widget.SessionChip
+                android:id="@+id/sessionChip1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{item.tag[0].name}"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:sc_strokeSize="1dp"
+                app:setColor="@{ContextCompat.getColor(context, tags.Companion.getColor(item.tag[0].name))}" />
+
+        </com.droidknights.app2020.widget.SessionChipGroup>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
