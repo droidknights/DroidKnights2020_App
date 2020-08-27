@@ -8,12 +8,6 @@
         <variable
             name="item"
             type="com.droidknights.app2020.ui.model.UiSessionModel" />
-
-        <variable
-            name="tags"
-            type="com.droidknights.app2020.data.TagEnum" />
-
-        <import type="androidx.core.content.ContextCompat" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -72,8 +66,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginTop="4dp"
+            android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/cb_alarm"
@@ -81,8 +75,8 @@
             app:layout_constraintStart_toStartOf="@+id/tvSessionSpeakerName"
             app:layout_constraintTop_toBottomOf="@+id/tvSessionSpeakerName"
             app:layout_constraintVertical_bias="0.0"
-            tools:itemCount="3"
             app:setData="@{item.tag}"
+            tools:itemCount="3"
             tools:listitem="@layout/item_session_tag" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
