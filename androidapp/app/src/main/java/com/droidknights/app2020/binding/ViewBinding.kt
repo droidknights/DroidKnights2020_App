@@ -31,8 +31,8 @@ fun SessionChip.setColor(color: Int) {
     this.chipTextColor = color
     this.strokeColor = color
     this.chipBackgroundColor = when (color) {
-        ContextCompat.getColor(context, R.color.toolbar_textColor_black) -> ContextCompat.getColor(context, R.color.color_sessionChipText_white)
-        ContextCompat.getColor(context, R.color.color_sessionChipText_white) -> ContextCompat.getColor(context, R.color.toolbar_textColor_black)
+        ContextCompat.getColor(context, R.color.color_sessionChipText) -> ContextCompat.getColor(context, R.color.color_sessionChipText_white)
+        ContextCompat.getColor(context, R.color.color_sessionChipText_white) -> ContextCompat.getColor(context, R.color.color_sessionChipText)
         else -> lighten(color, 30)
     }
 }
