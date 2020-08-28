@@ -22,11 +22,10 @@ class ScheduleViewModel @ViewModelInject constructor(
     private val repo: SessionRepository
 ) : BaseViewModel() {
 
-    private val _refreshEvent = MutableLiveData(Unit)
-    val sessionList: LiveData<List<UiSessionModel>> = _refreshEvent.switchMap {
-
+    private val _loadingEvent = MutableLiveData(LoadingType.NORMAL)
+    val sessionList: LiveData<List<UiSessionModel>> = _loadingEvent.switchMap { loadingType ->
         liveData {
-            val sessions = repo.get()
+            val sessions = repo.get(isCacheFirstLoad = loadingType == LoadingType.NORMAL)
                 .map {
                     if (allTags.isEmpty()) {
                         withContext(Dispatchers.Main) {
@@ -53,10 +52,6 @@ class ScheduleViewModel @ViewModelInject constructor(
     val selectedTags: List<Tag> get() = allTags.filter { it.isSelected }
 
     var allTags: List<Tag> = emptyList()
-        set(value) {
-            field = value
-            refresh()
-        }
 
     private val _itemEvent = MutableLiveData<Event<String>>()
     val itemEvent: LiveData<Event<String>> get() = _itemEvent
@@ -68,11 +63,11 @@ class ScheduleViewModel @ViewModelInject constructor(
     val submitEvent: LiveData<Event<String>> get() = _submitEvent
 
     init {
-        refresh()
+        loading(LoadingType.NORMAL)
     }
 
     fun refresh() {
-        _refreshEvent.value = Unit
+        loading(LoadingType.FORCE)
     }
 
     fun onClickItem(sessionId: String) {
@@ -86,4 +81,12 @@ class ScheduleViewModel @ViewModelInject constructor(
     fun onClickSubmit() {
         _submitEvent.value = Event("")
     }
+
+    private fun loading(loadingType: LoadingType) {
+        _loadingEvent.value = loadingType
+    }
+}
+
+private enum class LoadingType {
+    NORMAL, FORCE
 }

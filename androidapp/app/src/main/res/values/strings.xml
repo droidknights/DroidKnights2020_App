@@ -10,6 +10,8 @@
     <string name="item_session_deepen">심화</string>
     <string name="item_session_medium">중급</string>
 
+    <string name="session_speaker_name_format">speaker %s</string>
+    
     <string name="session_detail_qna_link_tbd">링크 준비 중</string>
     <string name="session_detail_qna">QnA</string>
 </resources>

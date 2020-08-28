@@ -15,8 +15,16 @@ class SessionRepositoryImpl @Inject constructor(
 ) : SessionRepository {
     private val TAG = this::class.java.simpleName
 
-    override suspend fun get(): Flow<List<Session>> = flow {
-        val snapshot = db.collection("Session").cacheFirstGet()
+    override suspend fun get(
+        isCacheFirstLoad: Boolean
+    ): Flow<List<Session>> = flow {
+        val snapshot = db.collection("Session").let {
+            if (isCacheFirstLoad) {
+                it.cacheFirstGet()
+            } else {
+                it.get(Source.SERVER).await()
+            }
+        }
         Timber.d("Loaded ${if (snapshot.metadata.isFromCache) "Cache" else "Server"} ")
         emit(snapshot.map { it.toObject(Session::class.java) })
     }.catch {
@@ -72,7 +80,7 @@ private suspend fun CollectionReference.fastGet(): QuerySnapshot {
     }
 }
 
-private fun Query.toFlow() = callbackFlow<QuerySnapshot> {
+private fun Query.toFlow() = callbackFlow {
     val listener = addSnapshotListener { snapshot, exception ->
         if (exception != null) close(exception)
         if (snapshot != null) {
@@ -96,8 +104,5 @@ private suspend fun CollectionReference.cacheFirstGet(): QuerySnapshot {
  */
 private fun List<Session>.toSortedSessions(): List<Session> =
     sortedWith(
-        compareBy(
-            { it.time },
-            { it.track }
-        )
+        compareBy { it.id }
     )

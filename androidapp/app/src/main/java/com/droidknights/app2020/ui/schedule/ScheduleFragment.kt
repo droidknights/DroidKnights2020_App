@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
+import androidx.lifecycle.observe
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -35,7 +35,7 @@ class ScheduleFragment : BaseFragment<ScheduleEmptyViewModel, ScheduleFragmentBi
         super.onViewCreated(view, savedInstanceState)
 
         //TODO : 세션 태그 필터링 기능
-        //TODO : 관심세션 북마크 기능 
+        //TODO : 관심세션 북마크 기능
 
         with(binding) {
             setVariable(BR.scheduleVm, scheduleViewModel)
@@ -44,12 +44,6 @@ class ScheduleFragment : BaseFragment<ScheduleEmptyViewModel, ScheduleFragmentBi
 
         initView()
         initObserve()
-    }
-
-    override fun onResume() {
-        super.onResume()
-
-        scheduleViewModel.refresh()
     }
 
     private fun initView() {
@@ -68,13 +62,13 @@ class ScheduleFragment : BaseFragment<ScheduleEmptyViewModel, ScheduleFragmentBi
     }
 
     private fun initObserve() {
-        scheduleViewModel.sessionList.observe(viewLifecycleOwner) {
+        scheduleViewModel.sessionList.observe(viewLifecycleOwner) { sessions ->
             binding.floatingFilter.isVisible = true
 
-            it.filter { session ->
+            sessions.filter { session ->
                 scheduleViewModel.selectedTags.intersect(session.tag.orEmpty()).isNotEmpty()
             }.let(scheduleAdapter::submitList)
-            Timber.d(TAG, "getSessionListData : $it")
+            Timber.d(TAG, "getSessionListData : $sessions")
         }
 
         scheduleViewModel.itemEvent.observe(viewLifecycleOwner) { event ->

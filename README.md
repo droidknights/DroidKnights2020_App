@@ -31,17 +31,23 @@ AAC 기반의 MVVM 구조
 ### Libraries
 
 - Jetpack
-  - [Support Libraries](https://developer.android.com/topic/libraries/support-library/)
+  - [AndroidX](https://developer.android.com/jetpack/androidx)
+  - [Appcompat](https://developer.android.com/jetpack/androidx/releases/appcompat)
+  - [Browser](https://developer.android.com/guide/webapps)
+  - [ConstraintLayout](https://developer.android.com/training/constraint-layout)
   - [Databinding](https://developer.android.com/topic/libraries/data-binding/)
-  - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
   - [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle)
   - [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)
   - [Navigation](https://developer.android.com/topic/libraries/architecture/navigation/)
+  - [Swiperefreshlayout](https://developer.android.com/training/swipe)
+  - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
+
   
 - DI
   - [Hilt](https://developer.android.com/training/dependency-injection/hilt-android)
 
-- Coroutine
+- Kotlin
+  - [Stdlib](https://github.com/JetBrains/kotlin)
   - [Coroutine](https://github.com/Kotlin/kotlinx.coroutines)
   - [flow](https://kotlinlang.org/docs/reference/coroutines/flow.html)
 
@@ -51,6 +57,14 @@ AAC 기반의 MVVM 구조
 - UI
   - [Glide](https://github.com/bumptech/glide)
   - [DarkTheme](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme)
+  - [Material Design](https://github.com/material-components/material-components-android)
   
 - Test
   - [Unit Test](https://developer.android.com/training/testing/unit-testing/local-unit-tests.html?hl=ko)
+
+- Firebase
+  - [Analytics](https://firebase.google.com/products/analytics)
+  - [Firestore](https://firebase.google.com/products/firestore)
+
+- Serialization/Deserialization
+  - [Gson](https://github.com/google/gson)
