@@ -28,6 +28,13 @@
                 app:argType="string"
                 app:nullable="false" />
         </action>
+        <action
+            android:id="@+id/action_scheduleFragment_to_scheduleFilterFragment"
+            app:destination="@id/scheduleFilterFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 
     <fragment
@@ -46,5 +53,11 @@
         android:name="com.droidknights.app2020.ui.settings.SettingsFragment"
         android:label="MypageFragment"
         tools:layout="@layout/settings_fragment" />
+
+    <fragment
+        android:id="@+id/scheduleFilterFragment"
+        android:name="com.droidknights.app2020.ui.schedule.filter.ScheduleFilterFragment"
+        android:label="ScheduleFilterFragment"
+        tools:layout="@layout/schedule_filter_fragment" />
 
 </navigation>

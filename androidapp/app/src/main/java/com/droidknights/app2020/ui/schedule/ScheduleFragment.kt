@@ -5,7 +5,7 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.observe
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.droidknights.app2020.BR
@@ -13,7 +13,7 @@ import com.droidknights.app2020.R
 import com.droidknights.app2020.base.BaseFragment
 import com.droidknights.app2020.common.DataBindingAdapter
 import com.droidknights.app2020.databinding.ScheduleFragmentBinding
-import com.droidknights.app2020.ui.schedule.filter.ScheduleFilterFragment
+import com.droidknights.app2020.util.eventObserve
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
@@ -71,21 +71,15 @@ class ScheduleFragment : BaseFragment<ScheduleEmptyViewModel, ScheduleFragmentBi
             Timber.d(TAG, "getSessionListData : $sessions")
         }
 
-        scheduleViewModel.itemEvent.observe(viewLifecycleOwner) { event ->
-            event.getContentIfNotHandled()?.let { sessionId ->
-                val action = ScheduleFragmentDirections.actionScheduleToSessionDetail(sessionId)
-                binding.root.findNavController().navigate(action)
-            }
+        scheduleViewModel.itemEvent.eventObserve(viewLifecycleOwner) { sessionId ->
+            val action = ScheduleFragmentDirections.actionScheduleToSessionDetail(sessionId)
+            findNavController().navigate(action)
         }
 
-        scheduleViewModel.fabEvent.observe(viewLifecycleOwner) { event ->
+        scheduleViewModel.fabEvent.eventObserve(viewLifecycleOwner) {
             binding.floatingFilter.isVisible = false
-
-            val fragment = ScheduleFilterFragment()
-            parentFragmentManager.beginTransaction()
-                .addToBackStack(fragment::class.java.simpleName)
-                .add(R.id.frameLayout, fragment)
-                .commit()
+            val action = ScheduleFragmentDirections.actionScheduleFragmentToScheduleFilterFragment()
+            findNavController().navigate(action)
         }
     }
 }
