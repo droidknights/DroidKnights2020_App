@@ -12,7 +12,8 @@ import javax.inject.Inject
 
 class SessionRepositoryImpl @Inject constructor(
     private val db: FirebaseFirestore,
-    private val prePackagedDb: PrePackagedDb
+    private val prePackagedDb: PrePackagedDb,
+    private val gson: Gson
 ) : SessionRepository {
     private val TAG = this::class.java.simpleName
 
@@ -28,9 +29,7 @@ class SessionRepositoryImpl @Inject constructor(
         }
         Timber.d("Loaded ${if (snapshot.metadata.isFromCache) "Cache" else "Server"} ")
         emit(snapshot.map {
-            val gson = Gson()
             val json = gson.toJsonTree(it.data)
-            //it.toObject(Session::class.java)
             gson.fromJson(json, Session::class.java)
         })
     }.catch {

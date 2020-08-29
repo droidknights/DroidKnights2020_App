@@ -13,11 +13,6 @@ class PrePackagedDbImpl(
 ) : PrePackagedDb {
 
     private val sessionList: PrePackagedSessionList = loadJson(assetsName)
-        //context.readJsonStringFromAsset(assetsName)?.toSessionList().orEmpty()
-
-    private fun String.toSessionList(): List<Session> {
-        return Gson().fromJson(this, PrePackagedSessionList::class.java).session
-    }
 
     override suspend fun getSessionList(): List<Session> {
         return sessionList.session
@@ -25,17 +20,6 @@ class PrePackagedDbImpl(
 
     override suspend fun getSessionById(id: String): Session? {
         return sessionList.session.find { it.id == id }
-    }
-
-    private fun Context.readJsonStringFromAsset(assetsName: String): String? {
-        return try {
-            assets.open(assetsName)
-                .bufferedReader()
-                .use { it.readText() }
-        } catch (e: Exception) {
-            Timber.e(e)
-            null
-        }
     }
 
     private class PrePackagedSessionList(val session: List<Session>)
