@@ -8,6 +8,9 @@
         <variable
             name="item"
             type="com.droidknights.app2020.ui.model.UiSessionModel" />
+        <variable
+            name="viewModel"
+            type="com.droidknights.app2020.ui.schedule.ScheduleViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,6 +21,7 @@
         android:paddingEnd="15dp"
         android:paddingBottom="5dp"
         android:background="?attr/selectableItemBackground"
+        android:onClick="@{() -> viewModel.onClickItem(item.id)}"
         tools:background="@android:color/white">
 
         <TextView

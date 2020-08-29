@@ -8,6 +8,9 @@
         <variable
             name="item"
             type="com.droidknights.app2020.ui.model.UiSponsorModel" />
+        <variable
+            name="viewModel"
+            type="com.droidknights.app2020.ui.sponsor.SponsorViewModel" />
     </data>
 
 
@@ -15,7 +18,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="15dp"
-        tools:background="@color/sponsor_background_color">
+        tools:background="@color/sponsor_background_color"
+        android:onClick="@{()-> viewModel.onClickSponsor(item.url)}">
 
         <TextView
             android:id="@+id/tvName"
