@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.droidknights.app2020.BR
 import com.droidknights.app2020.R
 import com.droidknights.app2020.base.BaseFragment
-import com.droidknights.app2020.common.DataBindingAdapter
 import com.droidknights.app2020.databinding.ScheduleFragmentBinding
 import com.droidknights.app2020.util.eventObserve
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,7 +26,7 @@ class ScheduleFragment : BaseFragment<ScheduleEmptyViewModel, ScheduleFragmentBi
 ) {
     private val TAG = this@ScheduleFragment::class.java.simpleName
 
-    private val scheduleAdapter = ScheduleAdapter()
+    private lateinit var scheduleAdapter : ScheduleAdapter
 
     val scheduleViewModel by activityViewModels<ScheduleViewModel>()
 
@@ -47,14 +46,7 @@ class ScheduleFragment : BaseFragment<ScheduleEmptyViewModel, ScheduleFragmentBi
     }
 
     private fun initView() {
-        scheduleAdapter.apply {
-            itemClickListener = object : DataBindingAdapter.ItemClickListener {
-                override fun onClickItem(sessionId: String) {
-                    scheduleViewModel.onClickItem(sessionId)
-                }
-            }
-        }
-
+        scheduleAdapter = ScheduleAdapter(scheduleViewModel)
         binding.rvSchedule.apply {
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
             adapter = scheduleAdapter
