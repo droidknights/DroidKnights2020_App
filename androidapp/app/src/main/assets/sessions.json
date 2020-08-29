@@ -1,2 +1,275 @@
-{"session": [{"id": "A-1","time": "10:10","track": 1,"title": "RxJava 구독과 구독 제거 메커니즘 설명","speaker": {"name": "노재춘","profileUrl": "https://postfiles.pstatic.net/MjAxOTAzMDRfMTU5/MDAxNTUxNjg1NDk0Mjk4.pZTfcj6Ffr562KxtU_uHYhAA5jWmghIY_CyLcJW5xiog.b_BiOszNZr7Gcc_mKvnFlNPFylAQexcmi27q6W_33B0g.JPEG.hanuldt/SE-abe5ce07-4c48-4f09-9299-731df1da6440.jpg?type=w580","description": "description"},"contents": "RxJava의 구독과 구독 제거 메커니즘을 이해하고 정확하게 이를 적용하는 방법을 얘기합니다.","tag": ["Rx"]},{"id": "B-1","time": "11:55","track": 2,"title": "Clean Architecture (in Android) Revised","speaker": {"name": "황성현","profileUrl": "https://avatars0.githubusercontent.com/u/8149378","description": "description"},"contents": "Droid Knights 2017 발표 중 하나였던 [Clean Architecture in Android] 발표를 2019년의 시각으로 다시 재구성을 시도합니다. Android라는 콘텍스트를 조금 벗어나 Clean Architecture의 문제의식과 이를 구현한 코드 여럿을 함께 살펴보고 얘기를 나눕니다.","tag": ["Architecture"]},{"id": "C-1","time": "12:55","track": 3,"title": "Kotlin 꼭 해야하나요?","speaker": {"name": "박상권","profileUrl": "https://www.dropbox.com/s/i5evo2188d40s28/1550711591729.png?raw=1","description": "description"},"contents": "- Kotlin이 공식언어로 지정된지 2년이 됐음에도 요즘 각종 안드로이드 커뮤니티에서 제일 많이 나오는 질문은 'Kotlin 꼭 해야하나요?' 입니다.\n- Java코드를 Kotlin코드로 코딩하기 시작하면서 느꼈던 Java코드와 Kotlin을 비교했을때의 특징과 장점들에 대해서 이야기 합니다.\n- Kotlin을 학습하려고 하는 분들을 위한 각종 팁들과 삽질경험들을 공유합니다.","tag": ["Beginner","Kotlin"]},{"id": "A-2","time": "11:10","track": 1,"title": "지금까지 이런 간단한 Logic 처리는 없었다 이것은 Rx 인가, UI 이벤트인가? 네, RxBinding입니다.","speaker": {"name": "하동현","profileUrl": "https://drive.google.com/uc?export=view&id=17XUDJDFep7JGtWq71wPPnYVzFU8VY1Gk","description": "description"},"contents": "한 화면에 다양한 UI가 존재하며 각 UI마다 복잡한 로직이 있으며, 처리하다 보면 엉키게 되어 유지보수를 하기 어렵게 됩니다. RxBinding을 이용하면 손쉽게 중복코드를 처리하고 UI 이벤트를 조합하여 문제를 해결할 수 있습니다. RxBinding의 기본 사용방법과 프로덕트에 적용한 경험을 다양한 예시와 함께 설명합니다.","tag": ["Beginner",
-  "Rx","UI"]}]}
+{
+  "session": [
+    {
+      "speakerName": "박성철",
+      "tag": ["Architecture"],
+      "title": "Android Modularization",
+      "time": "9/21",
+      "speaker": [
+        {
+          "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EB%B0%95%EC%84%B1%EC%B2%A0.jpg",
+          "name": "박성철",
+          "introduce": "이커머스 쿠팡앱을 담당하고 있는 안드로이드 개발자로서 프로젝트의 안정성과 생산성을 향상시키기 위한 아키텍처를 설계하고 앱 사용자들의 편의성을 높이기 위해 노력하고 있습니다."
+        }
+      ],
+      "isLive": false,
+      "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw",
+      "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
+      "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EB%B0%95%EC%84%B1%EC%B2%A0.jpg",
+      "speakerDesc": "이커머스 쿠팡앱을 담당하고 있는 안드로이드 개발자로서 프로젝트의 안정성과 생산성을 향상시키기 위한 아키텍처를 설계하고 앱 사용자들의 편의성을 높이기 위해 노력하고 있습니다.",
+      "id": "D-2",
+      "contents": "안드로이드 프로젝트의 설계를 위한 전략들을 소개합니다.   2년간의 진행되었던 쿠팡 안드로이드 모듈화 프로젝트의 적용사례를 바탕으로 수많은 코드들을 안정적이고 효율적으로 분리하여 관리하는 방안에 대해 이야기 해 보고자 합니다."
+    },
+    {
+      "title": "Android UI에 Animation 들이붓기",
+      "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
+      "speakerDesc": "Android UI, UX, FRW에 관심있는 안드로이드 개발자입니다. 지금은 네이버웹툰에서 앱을 개발하고 있습니다.",
+      "id": "C-1",
+      "isLive": false,
+      "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EC%95%88%EC%84%B1%EC%9A%A9.jpg",
+      "tag": ["UI"],
+      "speakerName": "안성용",
+      "speaker": [
+        {
+          "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EC%95%88%EC%84%B1%EC%9A%A9.jpg",
+          "name": "안성용",
+          "introduce": "Android UI, UX, FRW에 관심있는 안드로이드 개발자입니다. 지금은 네이버웹툰에서 앱을 개발하고 있습니다."
+        }
+      ],
+      "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw",
+      "contents": "안드로이드에는 Animation을 구현할 수 있는 다양한 방법들이 있습니다. Android Platform/Jetpack API를 이용하여 Android UI/UX를 개선하는 방법을 살펴봅니다.",
+      "time": "9/14"
+    },
+    {
+      "speaker": [
+        {
+          "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EA%B0%95%EC%82%AC%EB%A3%A1.png",
+          "name": "강사룡",
+          "introduce": "경력 20년차 개발자. 미국 창업 도중 모바일 개발을 접한 이후 다양한 설계 방식을 모바일 환경에 시도해옴. 최근까지 IBM iX Japan에서 기술 컨설팅을 담당했고, 5월 Google Japan 입사."
+        }
+      ],
+      "id": "A-1",
+      "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
+      "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EA%B0%95%EC%82%AC%EB%A3%A1.png",
+      "contents": "2019년 안드로이드 아키텍처에 일어난 중요한 변화들을 다시 한 번 짚어보고, 2020년에는 대규모 앱을 만들기 위한 설계 전략이 어떻게 진화하고 있는지를 짚어봅니다. 주요 키워드: #Clean Acrhitecture #DDD Lite #AAC #MVVM #Redux #RIBs",
+      "speakerDesc": "경력 20년차 개발자. 미국 창업 도중 모바일 개발을 접한 이후 다양한 설계 방식을 모바일 환경에 시도해옴. 최근까지 IBM iX Japan에서 기술 컨설팅을 담당했고, 5월 Google Japan 입사.",
+      "speakerName": "강사룡",
+      "title": "안드로이드 아키텍처 총정리 2020",
+      "tag": ["Architecture"],
+      "isLive": true,
+      "time": "9/5",
+      "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw",
+      "speakerProfile": "https://droidknights.github.io/2020/build/img/speakers/%EA%B0%95%EC%82%AC%EB%A3%A1.png"
+    },
+    {
+      "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
+      "speakerDesc": "안드로이드 개발 6년차로 LINE Gallery project 소속입니다. Gallery project는 LINE 글로벌 사용자들이 멀티미디어를 대화방, 타임라인 등에서 친구들에게 공유할 때, 멀티미디어를 시청하고 편집하는 유저 경험을 더 좋게 만들고자 매일 노력합니다. 특히 저는 사용자들이 멀티미디어를 통해 머릿속에 있는 감정을 그대로 표현하고 친구들과 더 풍부하게 소통할 수 있도록 만드는 것이 목표입니다. ",
+      "speakerName": "이승원",
+      "contents": "LINE 메신저에서 친구에게 비디오를 공유할 때, 비디오 사이즈를 조절하고 편집할 수 있습니다. 예를들면, 내가 촬영한 비디오에 기분 좋은 감정을 표현하고 싶을 때나 친구들에게 자랑하고 싶을 때, 비디오에 LINE 스티커, 텍스트를 올리거나 비디오를 트림할 수 있습니다. LINE에는 위의 요구사항을 만족할 수 있는 “Cruiser” 프로젝트가 있습니다. “Cruiser” 프로젝트는 비디오 사이즈 조절과 편집에 관련한 필수적인 기능을 제공하는 LINE 내부의 라이브러리입니다. 다음과 같은 기능을 제공합니다. -Android 플랫폼에서 동작합니다. -Standalong library입니다. Android MediaCodec을 이용해 다른 무거운 library를 필요로하지 않습니다. -비디오를 편집할 수 있습니다. 비디오 트림 기능을 제공하며 LINE sticker, text, doodle과 같은 이펙트 아이콘을 비디오 위에 올릴 수 있습니다. -비디오의 사이즈를 조절할 수 있습니다. 비디오의 해상도, bitrate 및 오디오의 sample rate를 변경할 수 있습니다. -비디오 포맷을 변환할 수 있습니다. 다양한 비디오 포맷을 어디에서나 재생가능한 보편적인 하나의 포맷으로 변경할 수 있습니다. 이 세션에서는 Android MediaCodec을 이용해서 Cruiser 프로젝트를 만들고 Android MediaCodec을 사용함으로써 Android의 다양한 디바이스에서 발생한 파편화를 어떻게 해결했는지에 대한 경험을 공유하려고 합니다.",
+      "isLive": false,
+      "title": "Android 비디오 편집의 silver bullet을 찾아서 (Looking for a silver bullet to edit videos on Android)",
+      "tag": [
+        "Framework"
+      ],
+      "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EC%9D%B4%EC%8A%B9%EC%9B%90.jpg",
+      "speaker": [
+        {
+          "name": "이승원",
+          "introduce": "안드로이드 개발 6년차로 LINE Gallery project 소속입니다. Gallery project는 LINE 글로벌 사용자들이 멀티미디어를 대화방, 타임라인 등에서 친구들에게 공유할 때, 멀티미디어를 시청하고 편집하는 유저 경험을 더 좋게 만들고자 매일 노력합니다. 특히 저는 사용자들이 멀티미디어를 통해 머릿속에 있는 감정을 그대로 표현하고 친구들과 더 풍부하게 소통할 수 있도록 만드는 것이 목표입니다. ",
+          "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EC%9D%B4%EC%8A%B9%EC%9B%90.jpg"
+        }
+      ],
+      "time": "9/14",
+      "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw",
+      "id": "C-3"
+    },
+    {
+      "time": "9/5",
+      "speakerDesc": "간결하고 유연한 코드를 지향하는 개발자 김범준입니다. 현재 쿠팡에서 안드로이드 개발자로 일하고 있습니다. :)",
+      "speaker": [
+        {
+          "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EA%B9%80%EB%B2%94%EC%A4%80.png",
+          "name": "김범준",
+          "introduce": "간결하고 유연한 코드를 지향하는 개발자 김범준입니다. 현재 쿠팡에서 안드로이드 개발자로 일하고 있습니다. :)"
+        }
+      ],
+      "id": "A-2",
+      "tag": ["Architecture"],
+      "contents": "화면의 구성이 복잡해지면 복잡해질 수록 프로그래머가 관리해야 할 상태 또한 비례해서 많아집니다. 그럴수록 코드를 이해하기도 어려워지고 이는 점점 유지보수에 더 많은 어려움이 생기게 되죠. 이렇게 관리하기 힘든 상태를 꼭 휴먼이 관리해야 할까요?.?  관리하기 힘든 상태 녀석들을 프로그램에 위임시켜봅시다!.",
+      "isLive": true,
+      "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw",
+      "speakerName": "김범준",
+      "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EA%B9%80%EB%B2%94%EC%A4%80.jpg",
+      "speakerProfile": "https://droidknights.github.io/2020/build/img/speakers/%EA%B9%80%EB%B2%94%EC%A4%80.png",
+      "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
+      "title": "어려운 상태관리! 프로그램에 위임시켜버리기"
+    },
+    {
+      "speaker": [
+        {
+          "name": "배필주",
+          "introduce": "2012년 사회 첫 시작을 안드로이드 개발로 시작해서, 현재는 쿠팡에서 안드로이드 서비스에 힘을 보태고 있습니다. 기술을 나누는 것을 좋아하는 GDG 인천의 운영진입니다. ",
+          "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EB%B0%B0%ED%95%84%EC%A3%BC.jpg"
+        }
+      ],
+      "title": "Find ViewBinding - View를 바인딩하는 모든 방법",
+      "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
+      "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw",
+      "speakerName": "배필주",
+      "isLive": true,
+      "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EB%B0%B0%ED%95%84%EC%A3%BC.jpg",
+      "contents": "Google io 2019에서는 View Binding이 발표 되었습니다. View를 코드에서 바인딩하기 위한 방법도 여러가지가 되었습니다. View를 코드에서 쓰기 위한 가장 기본적인 FindViewbyId 부터 시작해서, Data Binding과 View Binding, 그리고 Butter Knife, Kotlin synthetic에서 뷰를 바인딩하기 위해 각각의 라이브러리 내부의 코드 레벨에서 어떻게 다른 방법으로 바인딩 하고 있는지 비교하고 차이점을 알아봅니다.",
+      "tag": ["Framework"],
+      "speakerDesc": "2012년 사회 첫 시작을 안드로이드 개발로 시작해서, 현재는 쿠팡에서 안드로이드 서비스에 힘을 보태고 있습니다. 기술을 나누는 것을 좋아하는 GDG 인천의 운영진입니다. ",
+      "time": "9/5",
+      "id": "A-3",
+      "speakerProfile": "https://pbs.twimg.com/profile_images/683256802704687104/QnjrPuLj_400x400.jpg"
+    },
+    {
+      "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
+      "tag": ["생산성"],
+      "isLive": false,
+      "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw",
+      "speakerDesc": "카카오에서 카카오톡 안드로이드 개발을 맡고 있습니다.",
+      "speaker": [
+        {
+          "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%ED%99%A9%EC%9D%B8%EC%84%B1.jpg",
+          "introduce": "카카오에서 카카오톡 안드로이드 개발을 맡고 있습니다.",
+          "name": "황인성"
+        }
+      ],
+      "speakerName": "황인성",
+      "time": "9/21",
+      "title": "카카오톡의 Custom Lint 개발기",
+      "contents": "kotlin / java 코드에 모두 적용되는 커스텀 린트 개발기",
+      "id": "D-3",
+      "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%ED%99%A9%EC%9D%B8%EC%84%B1.jpg"
+    },
+    {
+      "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw",
+      "speaker": [
+        {
+          "introduce": "8년차 안드로이드 개발자로 GDG Seoul 운영진 활동을 하고 있습니다. 꿈 많은 개발자가 되자! 블로그를 통해 안드로이드 개발에 관련한 다양한 글을 비주기로 업로드하고 있으며, 현재는 카카오페이에서 안드로이드 개발을 하고 있습니다.",
+          "name": "권태환",
+          "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EA%B6%8C%ED%83%9C%ED%99%98.jpg"
+        }
+      ],
+      "tag": ["Kotlin", "Language"],
+      "speakerName": "권태환",
+      "id": "B-1",
+      "title": "Effective Kotlin을 알아보자",
+      "speakerDesc": "8년차 안드로이드 개발자로 GDG Seoul 운영진 활동을 하고 있습니다. 꿈 많은 개발자가 되자! 블로그를 통해 안드로이드 개발에 관련한 다양한 글을 비주기로 업로드하고 있으며, 현재는 카카오페이에서 안드로이드 개발을 하고 있습니다.",
+      "contents": "Effective Kotlin을 통해 더 나은 코드 접근법을 알아보려한다. 읽기 쉽고 협업하기 좋은 코드는 어떤게 있을지 예를 통해 정답은 아니지만 좀 더 좋은 코드로 다가가기 위한 방법을 알아보자.  본 내용은 Effective Kotlin 책의 일부를 포함하고 있다.",
+      "isLive": false,
+      "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
+      "time": "9/7",
+      "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EA%B6%8C%ED%83%9C%ED%99%98.jpg",
+      "speakerProfile": "https://www.dropbox.com/s/i5evo2188d40s28/1550711591729.png?raw=1"
+    },
+    {
+      "contents": "Jetpack Compose, Flutter, Swift UI 등 UI 개발 패턴의 트랜드로 자리잡은 Declarative UI에 대해서 소개하고, 이를 스타일쉐어 서비스에 녹여내기 위해 고군분투한 경험에 대해 공유합니다.",
+      "tag": ["UI"],
+      "time": "9/21",
+      "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EC%9C%A4%EC%8A%B9%EC%9A%A9.png",
+      "id": "D-1",
+      "speaker": [
+        {
+          "name": "윤승용",
+          "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EC%9C%A4%EC%8A%B9%EC%9A%A9.png",
+          "introduce": "현재 StyleShare에서 안드로이드 개발자로 일하고 있습니다. 유저들에게 더 좋은 제품을 전달하는 것과 즐겁게 협업하는 문화에 관심이 많습니다."
+        }
+      ],
+      "title": "Declarative UI 도입을 향한 여정",
+      "speakerName": "윤승용",
+      "speakerDesc": "현재 StyleShare에서 안드로이드 개발자로 일하고 있습니다. 유저들에게 더 좋은 제품을 전달하는 것과 즐겁게 협업하는 문화에 관심이 많습니다.",
+      "isLive": false,
+      "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
+      "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw"
+    },
+    {
+      "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
+      "tag": ["Architecture"],
+      "speakerDesc": "# 이성원 현재 애드테크 컴퍼니 버즈빌에서 Chief Architect 역할을 맡고 있습니다. 이전에는 울트라캡숑과 42컴퍼니의 대표이자 공동 창업자로서 다양한 안드로이드 서비스를 개발 및 운영하였습니다. 소프트웨어 아키텍처에 관심이 많으며, 개인 블로그를 통해서 이에 관한 내용과 개발/연구 중 얻은 인사이트를 공유하고 있습니다. https://medium.com/@ssowonny https://dev.buzzvil.com/docs/buzzvil-architecture  # 유영혁 현대 자동차 그룹에서 안드로이드 개발을 시작하여, 현재 애드테크 버즈빌에서 Android Developer 역할을 수행하고 있습니다. 좋은 시스템은 어떻게 만들어야 하는지에 대해 관심이 많으며, 최근에는 안드로이드 앱의 모듈화에 관심을 갖고 있습니다. https://dev.buzzvil.com/docs/buzzvil-architecture",
+      "time": "9/7",
+      "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EC%9D%B4%EC%84%B1%EC%9B%90.jpg",
+      "id": "B-2",
+      "speaker": [
+        {
+          "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EC%9D%B4%EC%84%B1%EC%9B%90.jpg",
+          "name": "이성원",
+          "introduce": "현재 애드테크 컴퍼니 버즈빌에서 Chief Architect 역할을 맡고 있습니다. 이전에는 울트라캡숑과 42컴퍼니의 대표이자 공동 창업자로서 다양한 안드로이드 서비스를 개발 및 운영하였습니다. 소프트웨어 아키텍처에 관심이 많으며, 개인 블로그를 통해서 이에 관한 내용과 개발/연구 중 얻은 인사이트를 공유하고 있습니다. https://medium.com/@ssowonny https://dev.buzzvil.com/docs/buzzvil-architecture"
+        },
+        {
+          "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EC%9C%A0%EC%98%81%ED%98%81.jpg",
+          "introduce": "현대 자동차 그룹에서 안드로이드 개발을 시작하여, 현재 애드테크 버즈빌에서 Android Developer 역할을 수행하고 있습니다. 좋은 시스템은 어떻게 만들어야 하는지에 대해 관심이 많으며, 최근에는 안드로이드 앱의 모듈화에 관심을 갖고 있습니다. https://dev.buzzvil.com/docs/buzzvil-architecture",
+          "name": "유영혁"
+        }
+      ],
+      "contents": "Airbnb 같은 거대 서비스는 멀티 모듈을 통해 성공적으로 시스템의 복잡도를 낮춥니다. 하지만 레거시 환경을 모듈화 하는 것은 쉽지 않은 일이죠. 이 세션에서는 레거시를 멀티 모듈로 나눌 때 마주한 문제들과 이를 해결한 경험을 공유합니다.  - 모듈을 나누는 기준(DDD) - 멀티 모듈을 위한 인프라 구성(Gradle, CI) - 레거시로 인한 제약과 대응 방법",
+      "title": "레거시에서 멀티모듈 시스템까지 A to Z 실전 적용기",
+      "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw",
+      "isLive": false,
+      "speakerName": "이성원, 유영혁"
+    },
+    {
+      "contents": "Flutter로 앱을 출시해보면 어떨까? Flutter 데모를 돌려보니 쉬운거 같은데? 이정도를 마음에 생각해보신 분들이, 막상 출시를 위해서 개발에 뛰어들면 신경을 써야 할 것이  한둘이 아닙니다. 저의 경우에도 처음 1달은 프로젝트 세팅하느라 삽질의 연속이었죠. 그 삽질의 시간을 꿀팁과 함께 45분 세션으로 뽀개드립니다.",
+      "id": "E-2",
+      "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EB%82%A8%EB%B0%98%EC%84%9D.jpg",
+      "speakerDesc": "안드로이드 개발 7년차, Flutter 개발 7개월차 개발자입니다. 현재 스타트업 Lawfully에서 175개국 2만명의 유저가 사용중인 글로벌앱을 개발/관리 하고 있습니다. 프론트엔드 개발에 관심이 많아 그 외에 React 프로젝트도 참여하였고, 각 플랫폼과 언어의 장단점을 잘 녹여서 개발에 적용중입니다.",
+      "tag": ["크로스플랫폼", "Flutter"],
+      "speakerName": "남반석",
+      "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
+      "isLive": false,
+      "speaker": [
+        {
+          "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EB%82%A8%EB%B0%98%EC%84%9D.jpg",
+          "introduce": "안드로이드 개발 7년차, Flutter 개발 7개월차 개발자입니다. 현재 스타트업 Lawfully에서 175개국 2만명의 유저가 사용중인 글로벌앱을 개발/관리 하고 있습니다. 프론트엔드 개발에 관심이 많아 그 외에 React 프로젝트도 참여하였고, 각 플랫폼과 언어의 장단점을 잘 녹여서 개발에 적용중입니다.",
+          "name": "남반석"
+        }
+      ],
+      "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw",
+      "title": "Flutter로 글로벌앱 출시를 위한 꿀팁대방출",
+      "time": "9/28"
+    },
+    {
+      "time": "9/28",
+      "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EC%B5%9C%EC%9E%AC%ED%98%B8.jpg",
+      "title": "MVI 아키텍처 적용기",
+      "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
+      "speaker": [
+        {
+          "introduce": "마이리얼트립에서 내면의 평화를 찾기 위한 여행을 하고 있는 11년차 안드로이드 개발자입니다. 과거 엔씨소프트에서 모바일 메신저와 인 게임 커뮤니티를 개발한 경험이 있습니다. 알면 알 수록 모르는 것이 많다는걸 느끼며 즐거워하고 오늘의 내가 과거의 내 코드를 비웃을 수 있도록 항상 깨어있는 감각을 유지하기 위해 노력합니다.",
+          "name": "최재호",
+          "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EC%B5%9C%EC%9E%AC%ED%98%B8.jpg"
+        }
+      ],
+      "contents": "MVI 아키텍처에 대한 개괄적인 설명과 함께 마이리얼트립 안드로이드 앱에 MVI 아키텍처를 적용한 사례를 공유합니다. 실제 적용 된 사례를 통해 MVI 아키텍처의 장점과 단점을 살펴보고 보다 쉽게 MVI 아키텍처를 적용 할 수 있도록 도와주는 오픈소스 BOX를 소개합니다.",
+      "isLive": false,
+      "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw",
+      "id": "E-1",
+      "speakerDesc": "마이리얼트립에서 내면의 평화를 찾기 위한 여행을 하고 있는 11년차 안드로이드 개발자입니다. 과거 엔씨소프트에서 모바일 메신저와 인 게임 커뮤니티를 개발한 경험이 있습니다. 알면 알 수록 모르는 것이 많다는걸 느끼며 즐거워하고 오늘의 내가 과거의 내 코드를 비웃을 수 있도록 항상 깨어있는 감각을 유지하기 위해 노력합니다.",
+      "speakerName": "최재호",
+      "tag": ["Architecture"]
+    },
+    {
+      "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
+      "speaker": [
+        {
+          "introduce": "찰스의 안드로이드' 블로그를 운영하고 있으며, 현재 네이버 밴드에서 안드로이드 개발자로 일하고 있습니다.",
+          "name": "옥수환",
+          "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EC%98%A5%EC%88%98%ED%99%98.png"
+        }
+      ],
+      "speakerName": "옥수환",
+      "id": "C-2",
+      "isLive": false,
+      "title": "Annotation Processor로 코드 생성하기",
+      "tag": ["Language", "생산성"],
+      "contents": "Annotation Processor로 마법같은 코드 생성하기",
+      "time": "9/14",
+      "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw",
+      "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EC%98%A5%EC%88%98%ED%99%98.png",
+      "speakerDesc": "찰스의 안드로이드' 블로그를 운영하고 있으며, 현재 네이버 밴드에서 안드로이드 개발자로 일하고 있습니다."
+    }
+  ]
+}
