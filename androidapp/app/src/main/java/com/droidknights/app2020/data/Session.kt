@@ -8,8 +8,6 @@ data class Session(
     val time: String = "",
     val contents: String? = "",
     val speakerName: String? = "",
-    val speakerDesc: String? = "",
-    val speakerProfile: String? = "",
     val videoLink: String? = "",
     val qnaLink: String? = "",
     val speaker: List<Speaker>? = null
