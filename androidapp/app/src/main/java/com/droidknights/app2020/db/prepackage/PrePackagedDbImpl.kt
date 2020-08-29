@@ -3,12 +3,12 @@ package com.droidknights.app2020.db.prepackage
 import android.content.Context
 import com.droidknights.app2020.data.Session
 import com.google.gson.Gson
-import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import timber.log.Timber
 
 class PrePackagedDbImpl(
     val context: Context,
+    val gson: Gson,
     val assetsName: String
 ) : PrePackagedDb {
 
@@ -51,7 +51,6 @@ class PrePackagedDbImpl(
             null
         }
 
-        val gson = GsonBuilder().create()
         val collectionType = object : TypeToken<ENTITY>() {}.type
         return gson.fromJson(result, collectionType) as ENTITY
     }

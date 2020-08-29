@@ -3,6 +3,7 @@ package com.droidknights.app2020.di
 import android.content.Context
 import com.droidknights.app2020.db.prepackage.PrePackagedDb
 import com.droidknights.app2020.db.prepackage.PrePackagedDbImpl
+import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,6 +17,6 @@ class PrePackagedDbModule {
 
     @Singleton
     @Provides
-    fun providePrePackagedDb(@ApplicationContext application: Context): PrePackagedDb =
-        PrePackagedDbImpl(application, assetsName = "sessions.json")
+    fun providePrePackagedDb(@ApplicationContext application: Context, gson: Gson): PrePackagedDb =
+        PrePackagedDbImpl(application, gson, assetsName = "sessions.json")
 }
