@@ -23,4 +23,8 @@
 
     <!--Session-->
     <color name="color_session_date">#00d0a8</color>
+
+    <!--Session Detail-->
+    <color name="color_session_detail_fab_icon">@android:color/white</color>
+    <color name="color_session_detail_fab_background">#fb0009</color>
 </resources>
