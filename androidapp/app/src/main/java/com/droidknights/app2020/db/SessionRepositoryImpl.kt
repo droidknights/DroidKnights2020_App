@@ -3,6 +3,7 @@ package com.droidknights.app2020.db
 import com.droidknights.app2020.data.Session
 import com.droidknights.app2020.db.prepackage.PrePackagedDb
 import com.google.firebase.firestore.*
+import com.google.gson.Gson
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.tasks.await
@@ -26,7 +27,12 @@ class SessionRepositoryImpl @Inject constructor(
             }
         }
         Timber.d("Loaded ${if (snapshot.metadata.isFromCache) "Cache" else "Server"} ")
-        emit(snapshot.map { it.toObject(Session::class.java) })
+        emit(snapshot.map {
+            val gson = Gson()
+            val json = gson.toJsonTree(it.data)
+            //it.toObject(Session::class.java)
+            gson.fromJson(json, Session::class.java)
+        })
     }.catch {
         Timber.e(it)
         emit(prePackagedDb.getSessionList())
