@@ -8,6 +8,7 @@ import com.droidknights.app2020.R
 import com.droidknights.app2020.base.BaseFragment
 import com.droidknights.app2020.common.DataBindingAdapter
 import com.droidknights.app2020.databinding.SponsorFragmentBinding
+import com.droidknights.app2020.util.eventObserve
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -21,26 +22,29 @@ class SponsorFragment : BaseFragment<SponsorViewModel, SponsorFragmentBinding>(
     //TODO : 행사와 관련된 정보
     //TODO : 코엑스 위치 지도
     //TODO : 세션장 지도 이미지
-    private val sponsorAdapter = SponsorAdapter()
+    private lateinit var sponsorAdapter : SponsorAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         initView()
+        initObserve()
     }
 
     private fun initView() = with(binding) {
+        sponsorAdapter = SponsorAdapter(viewModel)
         sponsorAdapter.run {
             submitList(viewModel.sponsorList)
-            itemClickListener = object : DataBindingAdapter.ItemClickListener {
-                override fun onClickItem(sessionId: String) {
-                    sessionId.let(::openWebUrl)
-                }
-            }
         }
 
         binding.rvSponsor.run {
             adapter = sponsorAdapter
+        }
+    }
+
+    private fun initObserve() {
+        viewModel.onClickSponsorEvent.eventObserve(viewLifecycleOwner) { url ->
+            openWebUrl(url)
         }
     }
 
