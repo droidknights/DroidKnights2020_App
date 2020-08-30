@@ -19,14 +19,15 @@ abstract class BaseFragment<VM : ViewModel, B : ViewDataBinding>(
         ViewModelProvider(this).get(viewModelClass)
     }
 
-    protected val binding: B by lazy {
-        bind(requireView()) as B
-    }
+    private lateinit var _binding: B
+
+    protected val binding: B get() = _binding
 
     private fun <T : ViewDataBinding> bind(view: View): T = DataBindingUtil.bind(view)!!
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        _binding = bind(view)
         with(binding) {
             setVariable(BR.vm, viewModel)
             lifecycleOwner = viewLifecycleOwner

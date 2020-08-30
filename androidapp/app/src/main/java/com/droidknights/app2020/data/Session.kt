@@ -1,13 +1,14 @@
 package com.droidknights.app2020.data
 
 data class Session(
-    var id: String = "",
-    var track: Int = 0,
-    var title: String = "",
-    var tag: List<String>? = emptyList(),
-    var time: String = "",
-    var contents: String? = "",
-    var speakerName: String? = "",
-    var speakerDesc: String? = "",
-    var speakerProfile: String? = ""
+    val id: String = "",
+    val track: Int = 0,
+    val title: String = "",
+    val tag: List<String>? = emptyList(),
+    val time: String = "",
+    val contents: String? = "",
+    val speakerName: String? = "",
+    val videoLink: String? = "",
+    val qnaLink: String? = "",
+    val speaker: List<Speaker>? = null
 )

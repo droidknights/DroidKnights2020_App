@@ -8,14 +8,20 @@
         <variable
             name="item"
             type="com.droidknights.app2020.ui.model.UiSessionModel" />
+        <variable
+            name="viewModel"
+            type="com.droidknights.app2020.ui.schedule.ScheduleViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="15dp"
-        android:paddingTop="15dp"
+        android:paddingTop="10dp"
         android:paddingEnd="15dp"
+        android:paddingBottom="5dp"
+        android:background="?attr/selectableItemBackground"
+        android:onClick="@{() -> viewModel.onClickItem(item.id)}"
         tools:background="@android:color/white">
 
         <TextView
@@ -45,6 +51,8 @@
             android:id="@+id/tvDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="40dp"
+            android:gravity="center_horizontal"
             android:text="@{item.time}"
             android:textColor="#00d0a8"
             android:textStyle="bold"
