@@ -74,6 +74,7 @@ dependencies {
     kapt deps.hilt.view_model_compiler
 
     implementation deps.google.gson
+    implementation deps.google.flexbox
 
     // debugging
     implementation deps.debugging.timber
@@ -83,5 +84,6 @@ dependencies {
     androidTestImplementation deps.atsl.ext_junit
     androidTestImplementation deps.atsl.espresso_core
     testImplementation deps.kotlin.coroutines.test
+
 }
 apply plugin: 'com.google.gms.google-services'
