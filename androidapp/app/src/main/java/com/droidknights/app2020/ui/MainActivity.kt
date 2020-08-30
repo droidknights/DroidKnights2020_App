@@ -8,6 +8,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.droidknights.app2020.R
 import com.droidknights.app2020.databinding.MainActivityBinding
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -15,6 +16,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        if (intent != null) { //푸시알림을 선택해서 실행한것이 아닌경우 예외처리
+            val notificationData = intent.getStringExtra("data")
+            if (notificationData != null) Timber.d("FCM_TEST_DATA $notificationData")
+        }
 
         val binding =
             DataBindingUtil.setContentView<MainActivityBinding>(this, R.layout.main_activity)
