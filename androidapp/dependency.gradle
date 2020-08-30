@@ -7,8 +7,8 @@ ext.deps = [:]
 // version
 def versions = [:]
 versions.kotlin = "1.4.0"
-versions.firebase = "17.2.2"
-versions.firestore = "21.3.1"
+versions.firebase = "17.5.0"
+versions.firestore = "21.6.0"
 versions.messaging = "20.2.4"
 versions.lifecycle = "2.2.0"
 versions.coroutine = "1.3.9"
