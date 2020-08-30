@@ -32,8 +32,8 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         val notificationManager =
             getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
+        val channelId = "채널"
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channelId = "채널"
             val channelName = "영상 업로드 알림"
             val channelMessage = NotificationChannel(
                 channelId, channelName,
@@ -47,28 +47,17 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             }
             notificationManager.createNotificationChannel(channelMessage)
 
-            val notificationBuilder =
-                NotificationCompat.Builder(this, channelId)
-                    .setSmallIcon(R.drawable.ic_alarm)
-                    .setContentTitle(title)
-                    .setContentText(message)
-                    .setChannelId(channelId)
-                    .setAutoCancel(true)
-                    .setContentIntent(pendingIntent)
-                    .setDefaults(Notification.DEFAULT_SOUND or Notification.DEFAULT_VIBRATE)
-
-            notificationManager.notify(9999, notificationBuilder.build())
-        } else {
-            val notificationBuilder =
-                NotificationCompat.Builder(this, "")
-                    .setSmallIcon(R.drawable.ic_alarm)
-                    .setContentTitle(title)
-                    .setContentText(message)
-                    .setAutoCancel(true)
-                    .setContentIntent(pendingIntent)
-                    .setDefaults(Notification.DEFAULT_SOUND or Notification.DEFAULT_VIBRATE)
-
-            notificationManager.notify(9999, notificationBuilder.build())
         }
+        val notificationBuilder =
+            NotificationCompat.Builder(this, channelId)
+                .setSmallIcon(R.drawable.ic_alarm)
+                .setContentTitle(title)
+                .setContentText(message)
+                .setChannelId(channelId)
+                .setAutoCancel(true)
+                .setContentIntent(pendingIntent)
+                .setDefaults(Notification.DEFAULT_SOUND or Notification.DEFAULT_VIBRATE)
+
+        notificationManager.notify(9999, notificationBuilder.build())
     }
 }
