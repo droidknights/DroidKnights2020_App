@@ -6,15 +6,9 @@ import timber.log.Timber
 
 
 inline fun <reified ENTITY> Context.loadJson(gson: Gson, fileName: String): ENTITY {
-    val result = try {
-        assets.open(fileName)
-            .bufferedReader()
-            .use { it.readText() }
-
-    } catch (e: Exception) {
-        Timber.e(e)
-        throw Exception("Can not read Json file", e)
-    }
+    val result = assets.open(fileName)
+        .bufferedReader()
+        .use { it.readText() }
 
     return gson.fromJson(result, ENTITY::class.java)
 }
