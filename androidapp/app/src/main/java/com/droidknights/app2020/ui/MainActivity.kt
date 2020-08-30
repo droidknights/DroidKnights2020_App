@@ -17,9 +17,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (intent != null) { //푸시알림을 선택해서 실행한것이 아닌경우 예외처리
-            val notificationData = intent.getStringExtra("data")
-            if (notificationData != null) Timber.d("FCM_TEST_DATA $notificationData")
+        intent?.getStringExtra("data")?.let{
+            // TODO : 푸시 알림으로 진입 시 처리
+            Timber.d("FCM_TEST_DATA $it")
         }
 
         val binding =
