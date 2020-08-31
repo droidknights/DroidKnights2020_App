@@ -5,8 +5,7 @@ import com.droidknights.app2020.R
 import com.droidknights.app2020.common.DataBindingAdapter
 import com.droidknights.app2020.data.Tag
 
-class TagAdapter : DataBindingAdapter<Tag>(DiffCallback()) {
-    override var itemClickListener: ItemClickListener? = null
+class TagAdapter : DataBindingAdapter<Tag>(DiffCallback(), TabViewModel()) {
 
     class DiffCallback : DiffUtil.ItemCallback<Tag>() {
         override fun areItemsTheSame(oldItem: Tag, newItem: Tag): Boolean {
