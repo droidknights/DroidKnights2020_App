@@ -95,11 +95,11 @@ ext.deps = deps
 
 // build gradle plugin
 def gradlePlugin = [
-        android             : "com.android.tools.build:gradle:4.1.0-rc01",
+        android             : "com.android.tools.build:gradle:4.0.1",
         kotlin              : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
         play_services       : "com.google.gms:google-services:4.3.3",
         navigation_safe_args: "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigation",
-        hilt: "com.google.dagger:hilt-android-gradle-plugin:$versions.hilt"
+        hilt                : "com.google.dagger:hilt-android-gradle-plugin:$versions.hilt"
 ]
 ext.gradlePlugin = gradlePlugin
 
