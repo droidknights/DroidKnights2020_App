@@ -9,10 +9,6 @@
             name="item"
             type="com.droidknights.app2020.data.Tag" />
 
-        <variable
-            name="tags"
-            type="com.droidknights.app2020.data.TagEnum" />
-
         <import type="androidx.core.content.ContextCompat" />
     </data>
 
@@ -36,7 +32,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             app:sc_strokeSize="1dp"
-            app:setColor="@{ContextCompat.getColor(context, tags.Companion.getColor(item.name))}" />
+            app:setColor="@{ContextCompat.getColor(context, item.color)}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
