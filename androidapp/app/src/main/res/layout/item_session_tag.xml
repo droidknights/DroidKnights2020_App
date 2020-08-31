@@ -20,6 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingEnd="15dp"
+        android:paddingBottom="4dp"
         tools:background="@android:color/white">
 
         <com.droidknights.app2020.widget.SessionChip

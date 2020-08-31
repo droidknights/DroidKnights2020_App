@@ -11,6 +11,9 @@ import com.droidknights.app2020.R
 import com.droidknights.app2020.data.Tag
 import com.droidknights.app2020.ui.schedule.TagAdapter
 import com.droidknights.app2020.widget.SessionChip
+import com.google.android.flexbox.FlexDirection
+import com.google.android.flexbox.FlexWrap
+import com.google.android.flexbox.FlexboxLayoutManager
 
 @BindingAdapter(value = ["bindImgRes"])
 fun ImageView.bindSetImage(resId: Int) = setImageResource(resId)
@@ -40,6 +43,12 @@ fun SessionChip.setColor(@ColorRes color: Int) {
 
 @BindingAdapter("setData")
 fun RecyclerView.setData(items: List<Tag>?) {
+    FlexboxLayoutManager(context).apply {
+        flexWrap = FlexWrap.WRAP
+        flexDirection = FlexDirection.ROW
+    }.let {
+        this.layoutManager = it
+    }
     this.adapter = TagAdapter()
     (this.adapter as TagAdapter).run {
         submitList(items)
