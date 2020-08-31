@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.net.toUri
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.droidknights.app2020.R
 import com.droidknights.app2020.base.BaseFragment
@@ -25,15 +26,25 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
         super.onViewCreated(view, savedInstanceState)
         viewModel.getSession(args.sessionId)
 
-        initBottomAppBar()
+        initMenu()
         initObserve()
     }
 
-    private fun initBottomAppBar() {
-        setOnMenuItemClickListenerInBottomAppBar()
-    }
-
-    private fun setOnMenuItemClickListenerInBottomAppBar() {
+    private fun initMenu() {
+        binding.toolbar.run {
+            setNavigationOnClickListener {
+                findNavController().navigateUp()
+            }
+            setOnMenuItemClickListener { item ->
+                when (item.itemId) {
+                    R.id.menu_alarm -> {
+                        viewModel.onClickAlarm()
+                        true
+                    }
+                    else -> false
+                }
+            }
+        }
         binding.bottomAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.menu_share -> {

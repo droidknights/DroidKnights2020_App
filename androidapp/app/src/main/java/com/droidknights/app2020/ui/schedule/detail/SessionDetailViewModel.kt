@@ -55,6 +55,10 @@ class SessionDetailViewModel @ViewModelInject constructor(
         _qnaEvent.value = Event(qnaLink)
     }
 
+    fun onClickAlarm() {
+        // TODO : 알림 설정
+    }
+
     companion object {
         private const val DEFAULT_VIDEO_LINK = "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw"
     }
