@@ -66,6 +66,7 @@ dependencies {
     // firebase
     implementation deps.firebase.analytics
     implementation deps.firebase.firestore
+    implementation deps.firebase.messaging
 
     // Dagger
     implementation deps.hilt.android
