@@ -18,7 +18,7 @@ class SessionDetailAdapter(
     private fun buildMergeList(session: Session): List<UiSpeakerModel> {
         val list = mutableListOf<UiSpeakerModel>()
         session.speaker?.map {
-            UiSpeakerModel.UiSpeaker(it, "")
+            UiSpeakerModel.UiSpeaker(it)
         }?.let {
             list.addAll(it)
         }
@@ -29,8 +29,8 @@ class SessionDetailAdapter(
     private class DiffCallback : DiffUtil.ItemCallback<UiSpeakerModel>() {
         override fun areItemsTheSame(oldItem: UiSpeakerModel, newItem: UiSpeakerModel): Boolean {
             return when {
-                oldItem is UiSpeakerModel.UiSpeaker && newItem is UiSpeakerModel.UiSpeaker -> oldItem == newItem
-                oldItem is UiSpeakerModel.UiSession && newItem is UiSpeakerModel.UiSession -> oldItem == newItem
+                oldItem is UiSpeakerModel.UiSpeaker && newItem is UiSpeakerModel.UiSpeaker -> oldItem.speaker == newItem.speaker
+                oldItem is UiSpeakerModel.UiSession && newItem is UiSpeakerModel.UiSession -> oldItem.contents == newItem.contents
                 else -> false
             }
         }
@@ -51,6 +51,6 @@ class SessionDetailAdapter(
 }
 
 sealed class UiSpeakerModel {
-    data class UiSpeaker(val speaker: Speaker, val company: String) : UiSpeakerModel()
+    data class UiSpeaker(val speaker: Speaker) : UiSpeakerModel()
     data class UiSession(val tags: List<String>, val contents: String) : UiSpeakerModel()
 }
