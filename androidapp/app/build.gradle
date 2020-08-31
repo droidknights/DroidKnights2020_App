@@ -74,6 +74,7 @@ dependencies {
     kapt deps.hilt.view_model_compiler
 
     implementation deps.google.gson
+    implementation deps.google.flexbox
 
     // Glide
     implementation deps.glide.glide

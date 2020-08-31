@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -13,19 +14,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp"
+        android:padding="10dp"
         tools:background="@android:color/white">
 
-        <!-- TODO : 세션 태그 -->
-        <View
-            android:id="@+id/groupTags"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tags"
             android:layout_width="match_parent"
-            android:layout_height="1dp" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:flexDirection="row"
+            app:flexWrap="wrap"
+            app:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
+            app:sessionTags="@{item.tags}"
+            tools:itemCount="10"
+            tools:listitem="@layout/item_session_deetail_tag" />
 
         <TextView
             android:id="@+id/tvSessionDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:lineSpacingExtra="6sp"
             android:text="@{item.contents}"
             android:textColor="@android:color/black"
