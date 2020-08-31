@@ -26,17 +26,14 @@ fun SwipeRefreshLayout.bindRefreshListener(onRefreshListener: SwipeRefreshLayout
 fun WebView.bindUrl(value: String?) = value?.let(::loadUrl)
 
 @BindingAdapter("speakerName")
-fun TextView.bindSpeakerName(value: List<Speaker>?) {
-    text = value?.joinToString(separator = ", ") { it.name }
+fun TextView.bindSpeakerName(value: Speaker?) {
+    text = value?.name
 }
 
 @BindingAdapter("speakerImage")
-fun ImageView.bindProfile(speakers: List<Speaker>?) {
-    speakers ?: return
-
-    val imageUrl = speakers.firstOrNull()?.profileImage
+fun ImageView.bindProfile(speaker: Speaker?) {
     Glide.with(this)
-        .load(imageUrl)
+        .load(speaker?.profileImage)
         .apply(
             RequestOptions()
                 .placeholder(R.drawable.img_droid_space)

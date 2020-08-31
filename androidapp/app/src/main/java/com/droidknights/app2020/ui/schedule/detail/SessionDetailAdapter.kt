@@ -15,11 +15,16 @@ class SessionDetailAdapter(
         submitList(buildMergeList(session))
     }
 
-    private fun buildMergeList(session: Session) = listOf(
-        // TODO: 회사 소속
-        UiSpeakerModel.UiSpeaker(session.speaker.orEmpty(), ""),
-        UiSpeakerModel.UiSession(session.tag.orEmpty(), session.contents.orEmpty())
-    )
+    private fun buildMergeList(session: Session): List<UiSpeakerModel> {
+        val list = mutableListOf<UiSpeakerModel>()
+        session.speaker?.map {
+            UiSpeakerModel.UiSpeaker(it, "")
+        }?.let {
+            list.addAll(it)
+        }
+        list.add(UiSpeakerModel.UiSession(session.tag.orEmpty(), session.contents.orEmpty()))
+        return list
+    }
 
     private class DiffCallback : DiffUtil.ItemCallback<UiSpeakerModel>() {
         override fun areItemsTheSame(oldItem: UiSpeakerModel, newItem: UiSpeakerModel): Boolean {
@@ -46,6 +51,6 @@ class SessionDetailAdapter(
 }
 
 sealed class UiSpeakerModel {
-    data class UiSpeaker(val speakers: List<Speaker>, val company: String) : UiSpeakerModel()
+    data class UiSpeaker(val speaker: Speaker, val company: String) : UiSpeakerModel()
     data class UiSession(val tags: List<String>, val contents: String) : UiSpeakerModel()
 }

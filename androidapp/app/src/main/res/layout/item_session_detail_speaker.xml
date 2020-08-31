@@ -13,7 +13,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
+        android:paddingStart="16dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="10dp"
         tools:background="@android:color/white">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -22,7 +25,7 @@
             android:layout_height="64dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:speakerImage="@{item.speakers}"
+            app:speakerImage="@{item.speaker}"
             tools:src="@mipmap/ic_launcher" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -39,7 +42,7 @@
             app:layout_constraintStart_toEndOf="@id/ivSpeakerImage"
             app:layout_constraintTop_toTopOf="@id/ivSpeakerImage"
             app:layout_constraintVertical_chainStyle="packed"
-            app:speakerName="@{item.speakers}"
+            app:speakerName="@{item.speaker}"
             tools:text="발표자 이름" />
 
         <androidx.appcompat.widget.AppCompatTextView
