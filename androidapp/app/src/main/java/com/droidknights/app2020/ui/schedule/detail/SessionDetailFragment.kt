@@ -53,8 +53,16 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
     private fun setOnMenuItemClickListenerInBottomAppBar() {
         binding.bottomAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
+                R.id.menu_share -> {
+                    // TODO: Click Share
+                    return@setOnMenuItemClickListener true
+                }
                 R.id.menu_qna -> {
                     viewModel.onClickQnALink()
+                    return@setOnMenuItemClickListener true
+                }
+                R.id.menu_calendar -> {
+                    // TODO: Click Calendar
                     return@setOnMenuItemClickListener true
                 }
             }
@@ -70,6 +78,12 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
     }
 
     private fun initObserve() {
+        viewModel.sessionContents.observe(viewLifecycleOwner) {
+            val menu = binding.bottomAppBar.menu
+            menu.findItem(R.id.menu_share).isVisible = !it.videoLink.isNullOrEmpty()
+            menu.findItem(R.id.menu_qna).isVisible = !it.qnaLink.isNullOrEmpty()
+        }
+
         viewModel.videoEvent.observe(viewLifecycleOwner, EventObserver(this::openBrowser))
 
         viewModel.qnaEvent.observe(viewLifecycleOwner, EventObserver(this::openBrowser))
