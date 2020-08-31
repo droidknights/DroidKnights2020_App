@@ -2,15 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@id/infoFragment"
-        android:icon="@android:drawable/ic_menu_info_details"
-        android:title="스폰서" />
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="@string/menu_home_title" />
     <item
         android:id="@id/scheduleFragment"
-        android:icon="@android:drawable/ic_menu_agenda"
-        android:title="일정" />
-    <item
-        android:id="@id/mypageFragment"
-        android:icon="@drawable/ic_person_white_24dp"
-        android:title="설정" />
+        android:icon="@drawable/ic_baseline_date_range_24"
+        android:title="@string/menu_schedule_title" />
 
 </menu>
