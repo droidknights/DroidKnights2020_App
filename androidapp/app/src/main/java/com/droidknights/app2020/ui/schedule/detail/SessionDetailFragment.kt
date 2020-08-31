@@ -6,8 +6,6 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.net.toUri
-import androidx.core.view.doOnPreDraw
-import androidx.core.view.updatePadding
 import androidx.navigation.fragment.navArgs
 import com.droidknights.app2020.R
 import com.droidknights.app2020.base.BaseFragment
@@ -27,27 +25,12 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
         super.onViewCreated(view, savedInstanceState)
         viewModel.getSession(args.sessionId)
 
-        //TODO : Speaker 표시
-
-        initNestedScrollView()
         initBottomAppBar()
         initObserve()
     }
 
-    private fun initNestedScrollView() {
-        updatePaddingBottomByBottomAppBar()
-    }
-
-    private fun updatePaddingBottomByBottomAppBar() {
-        binding.nsvSessionDetail.doOnPreDraw {
-            val bottomAppBarHeight = binding.bottomAppBar.measuredHeight
-            it.updatePadding(bottom = it.paddingBottom + bottomAppBarHeight)
-        }
-    }
-
     private fun initBottomAppBar() {
         setOnMenuItemClickListenerInBottomAppBar()
-        updateHeightByBottomNavigationView()
     }
 
     private fun setOnMenuItemClickListenerInBottomAppBar() {
@@ -70,18 +53,14 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
         }
     }
 
-    private fun updateHeightByBottomNavigationView() {
-        binding.bottomAppBar.doOnPreDraw {
-            val bottomNavigationViewHeight = requireContext().resources.getDimensionPixelOffset(R.dimen.bottom_nav_height)
-            it.updatePadding(bottom = it.paddingBottom + bottomNavigationViewHeight)
-        }
-    }
-
     private fun initObserve() {
         viewModel.sessionContents.observe(viewLifecycleOwner) {
             val menu = binding.bottomAppBar.menu
             menu.findItem(R.id.menu_share).isVisible = !it.videoLink.isNullOrEmpty()
             menu.findItem(R.id.menu_qna).isVisible = !it.qnaLink.isNullOrEmpty()
+
+            val detailAdapter = SessionDetailAdapter(viewModel, it)
+            binding.sessionDetailRecyclerView.adapter = detailAdapter
         }
 
         viewModel.videoEvent.observe(viewLifecycleOwner, EventObserver(this::openBrowser))

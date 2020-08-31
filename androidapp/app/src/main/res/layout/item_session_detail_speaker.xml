@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.droidknights.app2020.ui.schedule.detail.UiSpeakerModel.UiSpeaker" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        tools:background="@android:color/white">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivSpeakerImage"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:speakerImage="@{item.speakers}"
+            tools:src="@mipmap/ic_launcher" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSpeakerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toTopOf="@id/tvCompany"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/ivSpeakerImage"
+            app:layout_constraintTop_toTopOf="@id/ivSpeakerImage"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:speakerName="@{item.speakers}"
+            tools:text="발표자 이름" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCompany"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@{item.company}"
+            android:textColor="#808080"
+            android:textSize="14sp"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="@id/ivSpeakerImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@id/tvSpeakerName"
+            app:layout_constraintTop_toBottomOf="@id/tvSpeakerName"
+            tools:text="발표자 소소속" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

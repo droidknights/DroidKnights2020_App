@@ -75,6 +75,10 @@ dependencies {
 
     implementation deps.google.gson
 
+    // Glide
+    implementation deps.glide.glide
+    kapt deps.glide.compiler
+
     // debugging
     implementation deps.debugging.timber
 

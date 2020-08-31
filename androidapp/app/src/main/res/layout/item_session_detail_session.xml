@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.droidknights.app2020.ui.schedule.detail.UiSpeakerModel.UiSession" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        tools:background="@android:color/white">
+
+        <!-- TODO : 세션 태그 -->
+        <View
+            android:id="@+id/groupTags"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+        <TextView
+            android:id="@+id/tvSessionDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="6sp"
+            android:text="@{item.contents}"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            tools:text="코루틴은 비동기적으로 실행되는 코드를 간소화하기 위해 Android에서 사용할 수 있는 동시 실행 설계 패턴입니다." />
+    </LinearLayout>
+</layout>

@@ -16,6 +16,7 @@ versions.timber = "4.7.1"
 versions.browser = "1.2.0"
 versions.hilt = "2.28.3-alpha"
 versions.hilt_view_model = "1.0.0-alpha02"
+versions.glide = "4.11.0"
 deps.versions = versions
 
 // dependency
@@ -74,6 +75,12 @@ deps.google = [
 // debugging
 deps.debugging = [
         timber      : "com.jakewharton.timber:timber:$versions.timber"
+]
+
+// Glide
+deps.glide = [
+        glide   : "com.github.bumptech.glide:glide:$versions.glide",
+        compiler: "com.github.bumptech.glide:compiler:$versions.glide"
 ]
 
 // test
