@@ -2,7 +2,7 @@ package com.droidknights.app2020.binding
 
 import android.webkit.WebView
 import android.widget.ImageView
-import androidx.annotation.ColorRes
+import androidx.annotation.ColorInt
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -31,7 +31,7 @@ fun SwipeRefreshLayout.bindRefreshListener(onRefreshListener: SwipeRefreshLayout
 fun WebView.bindUrl(value: String?) = value?.let(::loadUrl)
 
 @BindingAdapter("setColor")
-fun SessionChip.setColor(@ColorRes color: Int) {
+fun SessionChip.setColor(@ColorInt color: Int) {
     this.chipTextColor = color
     this.strokeColor = color
     this.chipBackgroundColor = when (color) {
