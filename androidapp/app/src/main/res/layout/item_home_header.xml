@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="34dp"
-            android:paddingBottom="40dp">
+            android:paddingBottom="30dp">
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/beginGuide"
@@ -95,11 +95,17 @@
                 android:id="@+id/sponsorList"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="30dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
                 android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvDesc" />
+                app:layout_constraintTop_toBottomOf="@id/tvDesc"
+                app:sponsors="@{item.sponsor}"
+                tools:itemCount="4"
+                tools:listitem="@layout/item_home_sponsor" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 </layout>
