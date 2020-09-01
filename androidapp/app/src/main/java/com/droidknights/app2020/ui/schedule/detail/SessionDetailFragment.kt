@@ -37,8 +37,8 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
             }
             setOnMenuItemClickListener { item ->
                 when (item.itemId) {
-                    R.id.menu_alarm -> {
-                        viewModel.onClickAlarm()
+                    R.id.menu_share -> {
+                        // TODO: Click Share
                         true
                     }
                     else -> false
