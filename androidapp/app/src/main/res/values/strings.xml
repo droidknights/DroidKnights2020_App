@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">DroidKnights2020</string>
 
-    <string name="menu_schedule_title">일정</string>
+    <string name="menu_home_title">홈</string>
+    <string name="menu_schedule_title">스케줄</string>
     <string name="menu_settings_title">설정</string>
     <string name="menu_sponsor_title">스폰서</string>
 
@@ -13,5 +14,8 @@
     <string name="session_speaker_name_format">speaker %s</string>
     
     <string name="session_detail_qna_link_tbd">링크 준비 중</string>
+    <string name="session_detail_share">공유</string>
     <string name="session_detail_qna">QnA</string>
+    <string name="session_detail_event">캘린더</string>
+    <string name="session_detail_alarm">알림</string>
 </resources>

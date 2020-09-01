@@ -9,7 +9,8 @@
         {
           "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EB%B0%95%EC%84%B1%EC%B2%A0.jpg",
           "name": "박성철",
-          "introduce": "이커머스 쿠팡앱을 담당하고 있는 안드로이드 개발자로서 프로젝트의 안정성과 생산성을 향상시키기 위한 아키텍처를 설계하고 앱 사용자들의 편의성을 높이기 위해 노력하고 있습니다."
+          "introduce": "이커머스 쿠팡앱을 담당하고 있는 안드로이드 개발자로서 프로젝트의 안정성과 생산성을 향상시키기 위한 아키텍처를 설계하고 앱 사용자들의 편의성을 높이기 위해 노력하고 있습니다.",
+          "belong":  "쿠팡"
         }
       ],
       "isLive": false,
@@ -28,7 +29,8 @@
         {
           "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EC%95%88%EC%84%B1%EC%9A%A9.jpg",
           "name": "안성용",
-          "introduce": "Android UI, UX, FRW에 관심있는 안드로이드 개발자입니다. 지금은 네이버웹툰에서 앱을 개발하고 있습니다."
+          "introduce": "Android UI, UX, FRW에 관심있는 안드로이드 개발자입니다. 지금은 네이버웹툰에서 앱을 개발하고 있습니다.",
+          "belong":  "네이버 웹툰"
         }
       ],
       "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw",
@@ -39,7 +41,8 @@
         {
           "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EA%B0%95%EC%82%AC%EB%A3%A1.png",
           "name": "강사룡",
-          "introduce": "경력 20년차 개발자. 미국 창업 도중 모바일 개발을 접한 이후 다양한 설계 방식을 모바일 환경에 시도해옴. 최근까지 IBM iX Japan에서 기술 컨설팅을 담당했고, 5월 Google Japan 입사."
+          "introduce": "경력 20년차 개발자. 미국 창업 도중 모바일 개발을 접한 이후 다양한 설계 방식을 모바일 환경에 시도해옴. 최근까지 IBM iX Japan에서 기술 컨설팅을 담당했고, 5월 Google Japan 입사.",
+          "belong":  "Google Japan"
         }
       ],
       "id": "A-1",
@@ -65,7 +68,8 @@
         {
           "name": "이승원",
           "introduce": "안드로이드 개발 6년차로 LINE Gallery project 소속입니다. Gallery project는 LINE 글로벌 사용자들이 멀티미디어를 대화방, 타임라인 등에서 친구들에게 공유할 때, 멀티미디어를 시청하고 편집하는 유저 경험을 더 좋게 만들고자 매일 노력합니다. 특히 저는 사용자들이 멀티미디어를 통해 머릿속에 있는 감정을 그대로 표현하고 친구들과 더 풍부하게 소통할 수 있도록 만드는 것이 목표입니다. ",
-          "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EC%9D%B4%EC%8A%B9%EC%9B%90.jpg"
+          "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EC%9D%B4%EC%8A%B9%EC%9B%90.jpg",
+          "belong":  "LINE"
         }
       ],
       "time": "9/14",
@@ -78,7 +82,8 @@
         {
           "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EA%B9%80%EB%B2%94%EC%A4%80.png",
           "name": "김범준",
-          "introduce": "간결하고 유연한 코드를 지향하는 개발자 김범준입니다. 현재 쿠팡에서 안드로이드 개발자로 일하고 있습니다. :)"
+          "introduce": "간결하고 유연한 코드를 지향하는 개발자 김범준입니다. 현재 쿠팡에서 안드로이드 개발자로 일하고 있습니다. :)",
+          "belong":  "쿠팡"
         }
       ],
       "id": "A-2",
@@ -117,7 +122,8 @@
         {
           "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%ED%99%A9%EC%9D%B8%EC%84%B1.jpg",
           "introduce": "카카오에서 카카오톡 안드로이드 개발을 맡고 있습니다.",
-          "name": "황인성"
+          "name": "황인성",
+          "belong":  "카카오"
         }
       ],
       "speakerName": "황인성",
@@ -132,7 +138,8 @@
         {
           "introduce": "8년차 안드로이드 개발자로 GDG Seoul 운영진 활동을 하고 있습니다. 꿈 많은 개발자가 되자! 블로그를 통해 안드로이드 개발에 관련한 다양한 글을 비주기로 업로드하고 있으며, 현재는 카카오페이에서 안드로이드 개발을 하고 있습니다.",
           "name": "권태환",
-          "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EA%B6%8C%ED%83%9C%ED%99%98.jpg"
+          "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EA%B6%8C%ED%83%9C%ED%99%98.jpg",
+          "belong":  "카카오페이"
         }
       ],
       "tag": ["Kotlin", "Language"],
@@ -153,7 +160,8 @@
         {
           "name": "윤승용",
           "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EC%9C%A4%EC%8A%B9%EC%9A%A9.png",
-          "introduce": "현재 StyleShare에서 안드로이드 개발자로 일하고 있습니다. 유저들에게 더 좋은 제품을 전달하는 것과 즐겁게 협업하는 문화에 관심이 많습니다."
+          "introduce": "현재 StyleShare에서 안드로이드 개발자로 일하고 있습니다. 유저들에게 더 좋은 제품을 전달하는 것과 즐겁게 협업하는 문화에 관심이 많습니다.",
+          "belong":  "StyleShare"
         }
       ],
       "title": "Declarative UI 도입을 향한 여정",
@@ -171,12 +179,14 @@
         {
           "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EC%9D%B4%EC%84%B1%EC%9B%90.jpg",
           "name": "이성원",
-          "introduce": "현재 애드테크 컴퍼니 버즈빌에서 Chief Architect 역할을 맡고 있습니다. 이전에는 울트라캡숑과 42컴퍼니의 대표이자 공동 창업자로서 다양한 안드로이드 서비스를 개발 및 운영하였습니다. 소프트웨어 아키텍처에 관심이 많으며, 개인 블로그를 통해서 이에 관한 내용과 개발/연구 중 얻은 인사이트를 공유하고 있습니다. https://medium.com/@ssowonny https://dev.buzzvil.com/docs/buzzvil-architecture"
+          "introduce": "현재 애드테크 컴퍼니 버즈빌에서 Chief Architect 역할을 맡고 있습니다. 이전에는 울트라캡숑과 42컴퍼니의 대표이자 공동 창업자로서 다양한 안드로이드 서비스를 개발 및 운영하였습니다. 소프트웨어 아키텍처에 관심이 많으며, 개인 블로그를 통해서 이에 관한 내용과 개발/연구 중 얻은 인사이트를 공유하고 있습니다. https://medium.com/@ssowonny https://dev.buzzvil.com/docs/buzzvil-architecture",
+          "belong":  "버즈빌"
         },
         {
           "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EC%9C%A0%EC%98%81%ED%98%81.jpg",
           "introduce": "현대 자동차 그룹에서 안드로이드 개발을 시작하여, 현재 애드테크 버즈빌에서 Android Developer 역할을 수행하고 있습니다. 좋은 시스템은 어떻게 만들어야 하는지에 대해 관심이 많으며, 최근에는 안드로이드 앱의 모듈화에 관심을 갖고 있습니다. https://dev.buzzvil.com/docs/buzzvil-architecture",
-          "name": "유영혁"
+          "name": "유영혁",
+          "belong":  "버즈빌"
         }
       ],
       "contents": "Airbnb 같은 거대 서비스는 멀티 모듈을 통해 성공적으로 시스템의 복잡도를 낮춥니다. 하지만 레거시 환경을 모듈화 하는 것은 쉽지 않은 일이죠. 이 세션에서는 레거시를 멀티 모듈로 나눌 때 마주한 문제들과 이를 해결한 경험을 공유합니다.  - 모듈을 나누는 기준(DDD) - 멀티 모듈을 위한 인프라 구성(Gradle, CI) - 레거시로 인한 제약과 대응 방법",
@@ -196,7 +206,8 @@
         {
           "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EB%82%A8%EB%B0%98%EC%84%9D.jpg",
           "introduce": "안드로이드 개발 7년차, Flutter 개발 7개월차 개발자입니다. 현재 스타트업 Lawfully에서 175개국 2만명의 유저가 사용중인 글로벌앱을 개발/관리 하고 있습니다. 프론트엔드 개발에 관심이 많아 그 외에 React 프로젝트도 참여하였고, 각 플랫폼과 언어의 장단점을 잘 녹여서 개발에 적용중입니다.",
-          "name": "남반석"
+          "name": "남반석",
+          "belong":  "Lawfully"
         }
       ],
       "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw",
@@ -211,7 +222,8 @@
         {
           "introduce": "마이리얼트립에서 내면의 평화를 찾기 위한 여행을 하고 있는 11년차 안드로이드 개발자입니다. 과거 엔씨소프트에서 모바일 메신저와 인 게임 커뮤니티를 개발한 경험이 있습니다. 알면 알 수록 모르는 것이 많다는걸 느끼며 즐거워하고 오늘의 내가 과거의 내 코드를 비웃을 수 있도록 항상 깨어있는 감각을 유지하기 위해 노력합니다.",
           "name": "최재호",
-          "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EC%B5%9C%EC%9E%AC%ED%98%B8.jpg"
+          "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EC%B5%9C%EC%9E%AC%ED%98%B8.jpg",
+          "belong":  "마이리얼트립"
         }
       ],
       "contents": "MVI 아키텍처에 대한 개괄적인 설명과 함께 마이리얼트립 안드로이드 앱에 MVI 아키텍처를 적용한 사례를 공유합니다. 실제 적용 된 사례를 통해 MVI 아키텍처의 장점과 단점을 살펴보고 보다 쉽게 MVI 아키텍처를 적용 할 수 있도록 도와주는 오픈소스 BOX를 소개합니다.",
@@ -227,7 +239,8 @@
         {
           "introduce": "'찰스의 안드로이드' 블로그를 운영하고 있으며, 현재 네이버 밴드에서 안드로이드 개발자로 일하고 있습니다.",
           "name": "옥수환",
-          "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EC%98%A5%EC%88%98%ED%99%98.png"
+          "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EC%98%A5%EC%88%98%ED%99%98.png",
+          "belong":  "네이버 밴드"
         }
       ],
       "speakerName": "옥수환",
