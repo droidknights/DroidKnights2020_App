@@ -57,25 +57,37 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/bottomAppBar"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:theme="@style/Widget.Knights.BottomAppBar"
-            app:fabAlignmentMode="end"
-            app:menu="@menu/bottom_app_bar" />
+            android:layout_gravity="bottom">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_session_detail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/color_session_detail_fab_background"
-            android:onClick="@{() -> vm.onClickVideoLink()}"
-            app:borderWidth="0dp"
-            app:layout_anchor="@id/bottomAppBar"
-            app:srcCompat="@drawable/ic_session_video_play_arrow_24"
-            app:tint="@color/color_session_detail_fab_icon" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/sessionDetailVideoLinkTextView"
+                style="@style/Widget.Knights.SessionDetailButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/session_detail_link_button_height"
+                android:layout_weight="5.8"
+                android:background="#43b1b3"
+                android:gravity="center"
+                android:onClick="@{() -> vm.onClickVideoLink()}"
+                android:text="@string/session_detail_go_video"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/sessionDetailQnALinkTextView"
+                style="@style/Widget.Knights.SessionDetailButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/session_detail_link_button_height"
+                android:layout_weight="4.2"
+                android:background="#2f3339"
+                android:onClick="@{() -> vm.onClickQnALink()}"
+                android:text="@string/session_detail_question"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </LinearLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

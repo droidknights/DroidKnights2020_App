@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.net.toUri
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.droidknights.app2020.R
@@ -45,30 +46,12 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
                 }
             }
         }
-        binding.bottomAppBar.setOnMenuItemClickListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.menu_share -> {
-                    // TODO: Click Share
-                    return@setOnMenuItemClickListener true
-                }
-                R.id.menu_qna -> {
-                    viewModel.onClickQnALink()
-                    return@setOnMenuItemClickListener true
-                }
-                R.id.menu_calendar -> {
-                    // TODO: Click Calendar
-                    return@setOnMenuItemClickListener true
-                }
-            }
-            return@setOnMenuItemClickListener false
-        }
     }
 
     private fun initObserve() {
         viewModel.sessionContents.observe(viewLifecycleOwner) {
-            val menu = binding.bottomAppBar.menu
-            menu.findItem(R.id.menu_share).isVisible = !it.videoLink.isNullOrEmpty()
-            menu.findItem(R.id.menu_qna).isVisible = !it.qnaLink.isNullOrEmpty()
+            binding.sessionDetailVideoLinkTextView.isVisible = !it.videoLink.isNullOrEmpty()
+            binding.sessionDetailQnALinkTextView.isVisible = !it.qnaLink.isNullOrEmpty()
 
             val detailAdapter = SessionDetailAdapter(viewModel, it)
             binding.sessionDetailRecyclerView.adapter = detailAdapter

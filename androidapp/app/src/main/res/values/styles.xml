@@ -21,4 +21,14 @@
     <style name="Widget.Knights.BottomAppBar" parent="Widget.MaterialComponents.BottomAppBar">
         <item name="colorControlNormal">#212121</item>
     </style>
+
+    <style name="Widget.Knights.SessionDetailButton" parent="Widget.AppCompat.TextView">
+        <item name="android:gravity">center</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">false</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:textSize">16sp</item>
+    </style>
 </resources>
