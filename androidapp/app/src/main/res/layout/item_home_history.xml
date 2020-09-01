@@ -6,7 +6,7 @@
     <data>
 
         <variable
-            name="vm"
+            name="viewModel"
             type="com.droidknights.app2020.ui.home.HomeViewModel" />
 
         <variable
@@ -17,7 +17,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
         android:minHeight="88dp"
+        android:onClick="@{() -> viewModel.onClickEvent(item)}"
         android:paddingStart="24dp"
         android:paddingTop="20dp"
         android:paddingEnd="16dp"

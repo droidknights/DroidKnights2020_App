@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.droidknights.app2020.R
+import com.droidknights.app2020.common.Event
 import com.droidknights.app2020.data.EventHistory
 import com.droidknights.app2020.data.Sponsor
 import com.droidknights.app2020.ui.model.UiHomeModel
@@ -44,6 +45,9 @@ class HomeViewModel @ViewModelInject constructor() : ViewModel() {
     private val _homeItems: MutableLiveData<List<UiHomeModel>> = MutableLiveData()
     val homeItems: LiveData<List<UiHomeModel>> get() = _homeItems
 
+    private val _openHomePageEvent = MutableLiveData<Event<String>>()
+    val openHomePageEvent: LiveData<Event<String>> get() = _openHomePageEvent
+
     init {
         val list = mutableListOf<UiHomeModel>()
         list.add(UiHomeModel.Header(sponsors))
@@ -53,5 +57,11 @@ class HomeViewModel @ViewModelInject constructor() : ViewModel() {
             }
         )
         _homeItems.value = list
+    }
+
+    fun onClickEvent(item: HomeItemModel.Item) {
+        if (item.history.url.isNotEmpty()) {
+            _openHomePageEvent.value = Event(item.history.url)
+        }
     }
 }
