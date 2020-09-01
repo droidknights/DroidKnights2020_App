@@ -43,7 +43,7 @@ class HomeAdapter(
 
     override fun getItemViewType(position: Int) = when (getItem(position)) {
         is HomeItemModel.Header -> R.layout.item_home_header
-        is HomeItemModel.Item -> R.layout.item_home_introduce
+        is HomeItemModel.Item -> R.layout.item_home_history
     }
 }
 

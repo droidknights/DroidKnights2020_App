@@ -18,10 +18,27 @@ class HomeViewModel @ViewModelInject constructor() : ViewModel() {
     )
 
     private val eventHistory = listOf(
-        EventHistory(2020, "https://droidknights.github.io/2020/"),
-        EventHistory(2019, "https://droidknights.github.io/2019/"),
-        EventHistory(2018, "https://droidknights.github.io/2018/"),
-        EventHistory(2017, "https://droidknights.github.io/2017/"),
+        EventHistory(
+            year = 2020,
+            date = "2020년 9월 5일 Live",
+            url = "https://droidknights.github.io/2020/",
+            isActive = true
+        ),
+        EventHistory(
+            year = 2019,
+            date = "2019년 4월 05일",
+            url = "https://droidknights.github.io/2019/"
+        ),
+        EventHistory(
+            year = 2018,
+            date = "2018년 4월 22일",
+            url = "https://droidknights.github.io/2018/"
+        ),
+        EventHistory(
+            year = 2017,
+            date = "2017년 3월 25일",
+            url = "https://droidknights.github.io/2017/"
+        ),
     )
 
     private val _homeItems: MutableLiveData<List<UiHomeModel>> = MutableLiveData()

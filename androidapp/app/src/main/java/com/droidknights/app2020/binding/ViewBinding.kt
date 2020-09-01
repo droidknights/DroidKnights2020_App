@@ -93,3 +93,8 @@ fun ImageView.bindSponsorLogo(@DrawableRes imageResId: Int?) {
         .load(imageResId)
         .into(this)
 }
+
+@BindingAdapter("isActiveEvent")
+fun ImageView.isActiveEvent(_isActivated: Boolean?) {
+    this.isActivated = _isActivated ?: false
+}
