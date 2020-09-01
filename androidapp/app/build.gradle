@@ -66,6 +66,7 @@ dependencies {
     // firebase
     implementation deps.firebase.analytics
     implementation deps.firebase.firestore
+    implementation deps.firebase.messaging
 
     // Dagger
     implementation deps.hilt.android
@@ -74,6 +75,11 @@ dependencies {
     kapt deps.hilt.view_model_compiler
 
     implementation deps.google.gson
+    implementation deps.google.flexbox
+
+    // Glide
+    implementation deps.glide.glide
+    kapt deps.glide.compiler
 
     // debugging
     implementation deps.debugging.timber
