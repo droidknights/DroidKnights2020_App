@@ -14,5 +14,8 @@
     <string name="session_speaker_name_format">speaker %s</string>
     
     <string name="session_detail_qna_link_tbd">링크 준비 중</string>
+    <string name="session_detail_share">공유</string>
     <string name="session_detail_qna">QnA</string>
+    <string name="session_detail_event">캘린더</string>
+    <string name="session_detail_alarm">알림</string>
 </resources>

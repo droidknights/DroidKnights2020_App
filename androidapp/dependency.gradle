@@ -17,6 +17,7 @@ versions.timber = "4.7.1"
 versions.browser = "1.2.0"
 versions.hilt = "2.28.3-alpha"
 versions.hilt_view_model = "1.0.0-alpha02"
+versions.glide = "4.11.0"
 deps.versions = versions
 
 // dependency
@@ -70,12 +71,19 @@ deps.hilt = [
 ]
 
 deps.google = [
-        gson: 'com.google.code.gson:gson:2.8.6'
+        gson: 'com.google.code.gson:gson:2.8.6',
+        flexbox: 'com.google.android:flexbox:2.0.1'
 ]
 
 // debugging
 deps.debugging = [
         timber      : "com.jakewharton.timber:timber:$versions.timber"
+]
+
+// Glide
+deps.glide = [
+        glide   : "com.github.bumptech.glide:glide:$versions.glide",
+        compiler: "com.github.bumptech.glide:compiler:$versions.glide"
 ]
 
 // test
@@ -89,11 +97,11 @@ ext.deps = deps
 
 // build gradle plugin
 def gradlePlugin = [
-        android      : "com.android.tools.build:gradle:4.0.1",
-        kotlin       : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
-        play_services: "com.google.gms:google-services:4.3.3",
+        android             : "com.android.tools.build:gradle:4.0.1",
+        kotlin              : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+        play_services       : "com.google.gms:google-services:4.3.3",
         navigation_safe_args: "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigation",
-        hilt: "com.google.dagger:hilt-android-gradle-plugin:$versions.hilt"
+        hilt                : "com.google.dagger:hilt-android-gradle-plugin:$versions.hilt"
 ]
 ext.gradlePlugin = gradlePlugin
 
