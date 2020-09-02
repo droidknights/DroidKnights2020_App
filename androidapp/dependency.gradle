@@ -93,6 +93,10 @@ deps.atsl = [
         espresso_core: "androidx.test.espresso:espresso-core:3.2.0"
 ]
 
+// play services
+deps.play_services = [
+        oss_license     : "com.google.android.gms:play-services-oss-licenses:17.0.0"
+]
 ext.deps = deps
 
 // build gradle plugin
