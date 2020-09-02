@@ -13,6 +13,7 @@
           "belong":  "쿠팡"
         }
       ],
+      "contents": "안드로이드 프로젝트의 설계를 위한 전략들을 소개합니다.   2년간의 진행되었던 쿠팡 안드로이드 모듈화 프로젝트의 적용사례를 바탕으로 수많은 코드들을 안정적이고 효율적으로 분리하여 관리하는 방안에 대해 이야기 해 보고자 합니다.",
       "isLive": false,
       "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw",
       "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
@@ -33,6 +34,7 @@
           "belong":  "네이버 웹툰"
         }
       ],
+      "contents" : "안드로이드에는 Animation을 구현할 수 있는 다양한 방법들이 있습니다. Android Platform/Jetpack API를 이용하여 Android UI/UX를 개선하는 방법을 살펴봅니다.",
       "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw",
       "time": "9/14"
     },
