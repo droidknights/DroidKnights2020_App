@@ -20,16 +20,17 @@
             android:id="@+id/sessionChip1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:lineSpacingExtra="1sp"
             android:text="@{tag}"
-            android:textSize="10sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            app:sc_strokeSize="1dp"
-            app:sc_textColor="@color/color_sessionChipText"
+            app:sc_cornerRadius="4dp"
+            app:sc_textColor="@android:color/white"
             tools:text="ABCD" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
