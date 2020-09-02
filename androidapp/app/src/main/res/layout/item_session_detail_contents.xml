@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -58,10 +59,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:lineSpacingExtra="10sp"
-            android:text="@{item.contents}"
             android:textColor="#9b9b9b"
             android:textSize="14sp"
-            tools:text="코루틴은 비동기적으로 실행되는 코드를 간소화하기 위해 Android에서 사용할 수 있는 동시 실행 설계 패턴입니다." />
+            app:sessionSpeakersIntroduce="@{item.speakers}"
+            tools:text="카카오에서 카카오톡 안드로이드 개발을 맡고 있습니다." />
 
     </LinearLayout>
 </layout>

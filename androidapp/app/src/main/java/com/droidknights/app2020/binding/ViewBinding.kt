@@ -56,3 +56,15 @@ fun RecyclerView.bindSessionTags(tags: List<String>?) {
         isGone = true
     }
 }
+
+@BindingAdapter("sessionSpeakersIntroduce")
+fun TextView.bindSpeakersIntroduce(speakers: List<Speaker>?) {
+    val builder = StringBuilder()
+    for (speaker in speakers.orEmpty()) {
+        if ((speakers?.size ?: 0) > 1) {
+            builder.append("${speaker.belong} ${speaker.name}\n\n")
+        }
+        builder.append("${speaker.introduce}\n\n")
+    }
+    text = builder.toString()
+}
