@@ -13,14 +13,15 @@
           "belong":  "쿠팡"
         }
       ],
+      "contents": "안드로이드 프로젝트의 설계를 위한 전략들을 소개합니다.   2년간의 진행되었던 쿠팡 안드로이드 모듈화 프로젝트의 적용사례를 바탕으로 수많은 코드들을 안정적이고 효율적으로 분리하여 관리하는 방안에 대해 이야기 해 보고자 합니다.",
       "isLive": false,
       "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw",
-      "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
+      "qnaLink": "https://forms.gle/ZJBya9BxVn2fByev9",
       "id": "D-2"
     },
     {
       "title": "Android UI에 Animation 들이붓기",
-      "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
+      "qnaLink": "https://forms.gle/ZJBya9BxVn2fByev9",
       "id": "C-1",
       "isLive": false,
       "tag": ["UI"],
@@ -33,6 +34,7 @@
           "belong":  "네이버 웹툰"
         }
       ],
+      "contents" : "안드로이드에는 Animation을 구현할 수 있는 다양한 방법들이 있습니다. Android Platform/Jetpack API를 이용하여 Android UI/UX를 개선하는 방법을 살펴봅니다.",
       "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw",
       "time": "9/14"
     },
@@ -46,7 +48,7 @@
         }
       ],
       "id": "A-1",
-      "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
+      "qnaLink": "https://forms.gle/ZJBya9BxVn2fByev9",
       "contents": "2019년 안드로이드 아키텍처에 일어난 중요한 변화들을 다시 한 번 짚어보고, 2020년에는 대규모 앱을 만들기 위한 설계 전략이 어떻게 진화하고 있는지를 짚어봅니다. 주요 키워드: #Clean Acrhitecture #DDD Lite #AAC #MVVM #Redux #RIBs",
       "speakerName": "강사룡",
       "title": "안드로이드 아키텍처 총정리 2020",
@@ -56,7 +58,7 @@
       "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw"
     },
     {
-      "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
+      "qnaLink": "https://forms.gle/ZJBya9BxVn2fByev9",
       "speakerName": "이승원",
       "contents": "LINE 메신저에서 친구에게 비디오를 공유할 때, 비디오 사이즈를 조절하고 편집할 수 있습니다. 예를들면, 내가 촬영한 비디오에 기분 좋은 감정을 표현하고 싶을 때나 친구들에게 자랑하고 싶을 때, 비디오에 LINE 스티커, 텍스트를 올리거나 비디오를 트림할 수 있습니다. LINE에는 위의 요구사항을 만족할 수 있는 “Cruiser” 프로젝트가 있습니다. “Cruiser” 프로젝트는 비디오 사이즈 조절과 편집에 관련한 필수적인 기능을 제공하는 LINE 내부의 라이브러리입니다. 다음과 같은 기능을 제공합니다. -Android 플랫폼에서 동작합니다. -Standalong library입니다. Android MediaCodec을 이용해 다른 무거운 library를 필요로하지 않습니다. -비디오를 편집할 수 있습니다. 비디오 트림 기능을 제공하며 LINE sticker, text, doodle과 같은 이펙트 아이콘을 비디오 위에 올릴 수 있습니다. -비디오의 사이즈를 조절할 수 있습니다. 비디오의 해상도, bitrate 및 오디오의 sample rate를 변경할 수 있습니다. -비디오 포맷을 변환할 수 있습니다. 다양한 비디오 포맷을 어디에서나 재생가능한 보편적인 하나의 포맷으로 변경할 수 있습니다. 이 세션에서는 Android MediaCodec을 이용해서 Cruiser 프로젝트를 만들고 Android MediaCodec을 사용함으로써 Android의 다양한 디바이스에서 발생한 파편화를 어떻게 해결했는지에 대한 경험을 공유하려고 합니다.",
       "isLive": false,
@@ -92,7 +94,7 @@
       "isLive": true,
       "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw",
       "speakerName": "김범준",
-      "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
+      "qnaLink": "https://forms.gle/ZJBya9BxVn2fByev9",
       "title": "어려운 상태관리! 프로그램에 위임시켜버리기"
     },
     {
@@ -104,7 +106,7 @@
         }
       ],
       "title": "Find ViewBinding - View를 바인딩하는 모든 방법",
-      "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
+      "qnaLink": "https://forms.gle/ZJBya9BxVn2fByev9",
       "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw",
       "speakerName": "배필주",
       "isLive": true,
@@ -114,7 +116,7 @@
       "id": "A-3"
     },
     {
-      "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
+      "qnaLink": "https://forms.gle/ZJBya9BxVn2fByev9",
       "tag": ["생산성"],
       "isLive": false,
       "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw",
@@ -148,7 +150,7 @@
       "title": "Effective Kotlin을 알아보자",
       "contents": "Effective Kotlin을 통해 더 나은 코드 접근법을 알아보려한다. 읽기 쉽고 협업하기 좋은 코드는 어떤게 있을지 예를 통해 정답은 아니지만 좀 더 좋은 코드로 다가가기 위한 방법을 알아보자.  본 내용은 Effective Kotlin 책의 일부를 포함하고 있다.",
       "isLive": false,
-      "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
+      "qnaLink": "https://forms.gle/ZJBya9BxVn2fByev9",
       "time": "9/7"
     },
     {
@@ -167,11 +169,11 @@
       "title": "Declarative UI 도입을 향한 여정",
       "speakerName": "윤승용",
       "isLive": false,
-      "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
+      "qnaLink": "https://forms.gle/ZJBya9BxVn2fByev9",
       "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw"
     },
     {
-      "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
+      "qnaLink": "https://forms.gle/ZJBya9BxVn2fByev9",
       "tag": ["Architecture"],
       "time": "9/7",
       "id": "B-2",
@@ -197,10 +199,10 @@
     },
     {
       "contents": "Flutter로 앱을 출시해보면 어떨까? Flutter 데모를 돌려보니 쉬운거 같은데? 이정도를 마음에 생각해보신 분들이, 막상 출시를 위해서 개발에 뛰어들면 신경을 써야 할 것이  한둘이 아닙니다. 저의 경우에도 처음 1달은 프로젝트 세팅하느라 삽질의 연속이었죠. 그 삽질의 시간을 꿀팁과 함께 45분 세션으로 뽀개드립니다.",
-      "id": "E-2",
+      "id": "E-1",
       "tag": ["크로스플랫폼", "Flutter"],
       "speakerName": "남반석",
-      "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
+      "qnaLink": "https://forms.gle/ZJBya9BxVn2fByev9",
       "isLive": false,
       "speaker": [
         {
@@ -211,13 +213,13 @@
         }
       ],
       "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw",
-      "title": "Flutter로 글로벌앱 출시를 위한 꿀팁대방출",
+      "title": "Flutter로 글로벌앱 출시를 위한 꿀팁",
       "time": "9/28"
     },
     {
-      "time": "9/28",
+      "time": "9/7",
       "title": "MVI 아키텍처 적용기",
-      "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
+      "qnaLink": "https://forms.gle/ZJBya9BxVn2fByev9",
       "speaker": [
         {
           "introduce": "마이리얼트립에서 내면의 평화를 찾기 위한 여행을 하고 있는 11년차 안드로이드 개발자입니다. 과거 엔씨소프트에서 모바일 메신저와 인 게임 커뮤니티를 개발한 경험이 있습니다. 알면 알 수록 모르는 것이 많다는걸 느끼며 즐거워하고 오늘의 내가 과거의 내 코드를 비웃을 수 있도록 항상 깨어있는 감각을 유지하기 위해 노력합니다.",
@@ -229,12 +231,12 @@
       "contents": "MVI 아키텍처에 대한 개괄적인 설명과 함께 마이리얼트립 안드로이드 앱에 MVI 아키텍처를 적용한 사례를 공유합니다. 실제 적용 된 사례를 통해 MVI 아키텍처의 장점과 단점을 살펴보고 보다 쉽게 MVI 아키텍처를 적용 할 수 있도록 도와주는 오픈소스 BOX를 소개합니다.",
       "isLive": false,
       "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw",
-      "id": "E-1",
+      "id": "B-3",
       "speakerName": "최재호",
       "tag": ["Architecture"]
     },
     {
-      "qnaLink": "https://forms.gle/jpVyMyZ96KZGLt3R9",
+      "qnaLink": "https://forms.gle/ZJBya9BxVn2fByev9",
       "speaker": [
         {
           "introduce": "'찰스의 안드로이드' 블로그를 운영하고 있으며, 현재 네이버 밴드에서 안드로이드 개발자로 일하고 있습니다.",
@@ -251,6 +253,44 @@
       "contents": "Annotation Processor로 마법같은 코드 생성하기",
       "time": "9/14",
       "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw"
+    },
+    {
+      "contents": "In this talk, we will learn how to create image filters with LUTs (Lookup Tables) using Renderscript on Android. We will briefly look into various approaches one can take for creating filters on Android. We will then learn about the basics of LUTs and how we can use them with Renderscript for creating filters. Finally, we will focus on the challenges that we faced while implementing filters on Android with the Renderscript framework. We will try to use graphical representations wherever possible to explain all these concepts.",
+      "id": "E-2",
+      "tag": ["Framework"],
+      "speakerName": "Garima Jain",
+      "qnaLink": "https://forms.gle/ZJBya9BxVn2fByev9",
+      "isLive": false,
+      "speaker": [
+        {
+          "profileImage": "",
+          "introduce": "Garima Jain, recent Android GDE, also known as @ragdroid is working as an Android Engineer at Over. Previously she has worked with Fueled Noida and Bharti Soft Bank (Hoppr, Hike). She is also an international speaker and an active technical blogger. She has done her post-graduation from IIT Jodhpur.",
+          "name": "Garima Jain",
+          "belong":  "Android GDE from India"
+        }
+      ],
+      "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw",
+      "title": "A LUT (lot) of image filters on Android",
+      "time": "9/28"
+    },
+    {
+      "contents": "",
+      "id": "E-3",
+      "tag": [],
+      "speakerName": "Yacine Rezgui",
+      "qnaLink": "https://forms.gle/ZJBya9BxVn2fByev9",
+      "isLive": false,
+      "speaker": [
+        {
+          "profileImage": "",
+          "introduce": "I'm an Android developer advocate at Google in London where I work on Android Studio, privacy on Android and Jetpack Compose. I worked previously as a developer advocate at IBM on artificial intelligence API ecosystem and as a full stack developer in several startups.",
+          "name": "Yacine Rezgui",
+          "belong":  "Google London"
+        }
+      ],
+      "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw",
+      "title": "TBD",
+      "time": "9/28"
     }
   ]
 }

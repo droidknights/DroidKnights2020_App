@@ -93,5 +93,6 @@ dependencies {
 
     // play services
     implementation deps.play_services.oss_license
+
 }
 apply plugin: 'com.google.gms.google-services'

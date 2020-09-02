@@ -51,7 +51,9 @@ class SessionRepositoryImpl @Inject constructor(
                 // 사전 처리 DB로 전환하기 위한 에러 반환
                 throw IllegalStateException("Not Found")
             }
-            snapshot.mapNotNull { it.toObject(Session::class.java) }[0]
+            snapshot.mapNotNull {
+                val json = gson.toJsonTree(it.data)
+                gson.fromJson(json, Session::class.java) }[0]
         }.catch {
             Timber.e(it)
             prePackagedDb.getSessionById(id)?.let { session ->

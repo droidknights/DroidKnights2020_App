@@ -64,71 +64,26 @@
             android:id="@+id/tvSessionSpeakerName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
             android:text="@{@string/session_speaker_name_format(item.speakerName)}"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@id/tvMemoTitle"
             app:layout_constraintStart_toStartOf="@id/tvMemoTitle"
             app:layout_constraintTop_toBottomOf="@id/tvMemoTitle"
             tools:text="speaker 김안드" />
 
-        <com.droidknights.app2020.widget.SessionChipGroup
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/cb_alarm"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/tvSessionSpeakerName"
             app:layout_constraintTop_toBottomOf="@+id/tvSessionSpeakerName"
-            app:layout_constraintVertical_bias="0.0">
-
-            <com.droidknights.app2020.widget.SessionChip
-                android:id="@+id/sessionChip1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/item_session_skill"
-                android:textSize="10sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvDate"
-                app:sc_strokeSize="1dp"
-                app:sc_textColor="@color/color_sessionChipText" />
-
-            <com.droidknights.app2020.widget.SessionChip
-                android:id="@+id/sessionChip2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/item_session_experience"
-                android:textSize="10sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/sessionChip1"
-                app:layout_constraintTop_toTopOf="@+id/sessionChip1"
-                app:sc_strokeSize="1dp"
-                app:sc_textColor="@color/color_sessionChipText_white" />
-
-            <com.droidknights.app2020.widget.SessionChip
-                android:id="@+id/sessionChip3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/item_session_deepen"
-                android:textSize="10sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/sessionChip2"
-                app:layout_constraintTop_toTopOf="@+id/sessionChip2"
-                app:sc_strokeSize="1dp"
-                app:sc_textColor="@color/color_sessionChipText_red" />
-
-            <com.droidknights.app2020.widget.SessionChip
-                android:id="@+id/sessionChip4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/item_session_medium"
-                android:textSize="10sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/sessionChip3"
-                app:layout_constraintTop_toTopOf="@+id/sessionChip3"
-                app:sc_strokeSize="1dp"
-                app:sc_textColor="@color/color_sessionChipText_purple" />
-
-        </com.droidknights.app2020.widget.SessionChipGroup>
+            app:layout_constraintVertical_bias="0.0"
+            app:setData="@{item.tag}"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_session_tag" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
