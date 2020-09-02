@@ -1,5 +1,6 @@
 package com.droidknights.app2020.ui.schedule.detail
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -41,7 +42,7 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
             setOnMenuItemClickListener { item ->
                 when (item.itemId) {
                     R.id.menu_share -> {
-                        // TODO: Click Share
+                        viewModel.onClickShare()
                         true
                     }
                     else -> false
@@ -78,6 +79,8 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
         viewModel.qnaEvent.observe(viewLifecycleOwner, EventObserver(this::openBrowser))
 
         viewModel.toastEvent.observe(viewLifecycleOwner, EventObserver(this::toastMessage))
+
+        viewModel.shareEvent.observe(viewLifecycleOwner, EventObserver(this::shareVideoLink))
     }
 
     private fun openBrowser(url: String) {
@@ -88,5 +91,13 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
 
     private fun toastMessage(@StringRes messageRes: Int) {
         Toast.makeText(requireContext(), messageRes, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun shareVideoLink(url: String) {
+        startActivity(Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, url)
+            type = "text/plain"
+        })
     }
 }
