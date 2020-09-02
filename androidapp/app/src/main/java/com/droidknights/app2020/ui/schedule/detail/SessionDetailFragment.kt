@@ -9,6 +9,7 @@ import androidx.core.net.toUri
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.RecyclerView
 import com.droidknights.app2020.R
 import com.droidknights.app2020.base.BaseFragment
 import com.droidknights.app2020.common.EventObserver
@@ -28,6 +29,7 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
         viewModel.getSession(args.sessionId)
 
         initMenu()
+        initRecyclerView()
         initObserve()
     }
 
@@ -45,6 +47,20 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
                     else -> false
                 }
             }
+        }
+    }
+
+    private fun initRecyclerView() {
+        binding.sessionDetailRecyclerView.run {
+            addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                    binding.appbar.elevation = if (!canScrollVertically(-1)) {
+                        0f
+                    } else {
+                        (4 * context.resources.displayMetrics.density + 0.5).toFloat()
+                    }
+                }
+            })
         }
     }
 
