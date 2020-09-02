@@ -7,14 +7,13 @@
 
         <variable
             name="item"
-            type="com.droidknights.app2020.ui.schedule.detail.UiSpeakerModel.UiSession" />
+            type="com.droidknights.app2020.ui.schedule.detail.UiSessionDetailModel.UiHeader" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp"
+        android:padding="24dp"
         tools:background="@android:color/white">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -25,19 +24,27 @@
             app:flexDirection="row"
             app:flexWrap="wrap"
             app:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:sessionTags="@{item.tags}"
             tools:itemCount="10"
             tools:listitem="@layout/item_session_deetail_tag" />
 
-        <TextView
-            android:id="@+id/tvSessionDescription"
-            android:layout_width="match_parent"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sessionDetailTitle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:lineSpacingExtra="6sp"
-            android:text="@{item.contents}"
-            android:textColor="@android:color/black"
-            android:textSize="14sp"
-            tools:text="코루틴은 비동기적으로 실행되는 코드를 간소화하기 위해 Android에서 사용할 수 있는 동시 실행 설계 패턴입니다." />
-    </LinearLayout>
+            android:layout_marginEnd="62dp"
+            android:lineSpacingExtra="10sp"
+            android:text="@{item.title}"
+            android:textColor="#2f2e32"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tags"
+            tools:text="1년간 토스 앱의 ‘홈’탭을 개발하며 쌓은 Leaning Share" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

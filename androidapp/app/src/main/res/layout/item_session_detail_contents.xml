@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.droidknights.app2020.ui.schedule.detail.UiSessionDetailModel.UiContents" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        tools:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/tvSessionDescriptionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#2f2e32"
+            android:lineSpacingExtra="8sp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/session_detail_description_label" />
+
+        <TextView
+            android:id="@+id/tvSessionDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="10sp"
+            android:text="@{item.contents}"
+            android:textColor="#9b9b9b"
+            android:textSize="14sp"
+            tools:text="코루틴은 비동기적으로 실행되는 코드를 간소화하기 위해 Android에서 사용할 수 있는 동시 실행 설계 패턴입니다." />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="#f1f1f1" />
+
+        <TextView
+            android:id="@+id/tvSessionSpeakerIntroductionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#2f2e32"
+            android:lineSpacingExtra="8sp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/session_detail_speaker_introduction_label" />
+
+        <TextView
+            android:id="@+id/tvSessionSpeakerIntroduction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="10sp"
+            android:text="@{item.contents}"
+            android:textColor="#9b9b9b"
+            android:textSize="14sp"
+            tools:text="코루틴은 비동기적으로 실행되는 코드를 간소화하기 위해 Android에서 사용할 수 있는 동시 실행 설계 패턴입니다." />
+
+    </LinearLayout>
+</layout>

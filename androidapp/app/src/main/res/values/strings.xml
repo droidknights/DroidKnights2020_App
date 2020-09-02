@@ -21,4 +21,6 @@
     <string name="session_detail_title">세션 소개</string>
     <string name="session_detail_question">질문 하기</string>
     <string name="session_detail_go_video">영상 보러가기</string>
+    <string name="session_detail_description_label">내용</string>
+    <string name="session_detail_speaker_introduction_label">연사자 소개</string>
 </resources>
