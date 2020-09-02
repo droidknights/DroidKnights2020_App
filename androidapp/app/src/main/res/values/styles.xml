@@ -21,4 +21,8 @@
     <style name="Widget.Knights.BottomAppBar" parent="Widget.MaterialComponents.BottomAppBar">
         <item name="colorControlNormal">#212121</item>
     </style>
+
+    <style name="LicensesTheme" parent="AppTheme">
+        <item name="android:windowBackground">?android:colorBackground</item>
+    </style>
 </resources>
