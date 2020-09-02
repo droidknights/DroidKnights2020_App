@@ -89,5 +89,6 @@ dependencies {
     androidTestImplementation deps.atsl.ext_junit
     androidTestImplementation deps.atsl.espresso_core
     testImplementation deps.kotlin.coroutines.test
+
 }
 apply plugin: 'com.google.gms.google-services'
