@@ -18,4 +18,9 @@
     <string name="session_detail_qna">QnA</string>
     <string name="session_detail_event">캘린더</string>
     <string name="session_detail_alarm">알림</string>
+
+    <string name="droid_knights_eng">Droid Knights</string>
+    <string name="droid_knights_ko">국내 최대 안드로이드 컨퍼런스</string>
+    <string name="droid_knights_desc">안드로이드 개발자들을 위한 컨퍼런스를 표방하며 안드로이드 기술에 대한 세션으로 안드로이드 개발자들의 경험을 공유하고 만남의 장을 만드는 컨퍼런스입니다.</string>
+    <string name="format_history_year">%d년 드로이드 나이츠</string>
 </resources>

@@ -4,14 +4,13 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.StringRes
-import androidx.browser.customtabs.CustomTabsIntent
-import androidx.core.net.toUri
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.droidknights.app2020.R
 import com.droidknights.app2020.base.BaseFragment
 import com.droidknights.app2020.common.EventObserver
 import com.droidknights.app2020.databinding.SessionDetailFragmentBinding
+import com.droidknights.app2020.util.startOpenUrl
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -82,9 +81,7 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
     }
 
     private fun openBrowser(url: String) {
-        CustomTabsIntent.Builder()
-            .build()
-            .launchUrl(requireContext(), url.toUri())
+        requireContext().startOpenUrl(url)
     }
 
     private fun toastMessage(@StringRes messageRes: Int) {
