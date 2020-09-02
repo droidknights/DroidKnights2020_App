@@ -8,6 +8,8 @@
     <dimen name="bottom_nav_horizontal_margin">30dp</dimen>
     <dimen name="bottom_nav_bottom_margin">12dp</dimen>
 
+    <dimen name="toolbar_height">60dp</dimen>
+
     <dimen name="fragment_bottom_padding">60dp</dimen>
 
     <dimen name="fab_filter_bottom_margin">66dp</dimen>
