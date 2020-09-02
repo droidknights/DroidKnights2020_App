@@ -31,6 +31,15 @@
             android:text="MyPage Fragment"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar" />
+    
+        <TextView
+          android:id="@+id/tvOssl"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/settings_open_source_libraries"
+          android:onClick="@{() -> vm.onClickOssl()}"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/tvMyPage" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
