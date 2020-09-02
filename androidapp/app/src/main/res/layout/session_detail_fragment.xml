@@ -10,28 +10,20 @@
             type="com.droidknights.app2020.ui.schedule.detail.SessionDetailViewModel" />
     </data>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/sessionDetailRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:scrollbars="vertical"
-            app:layoutManager="LinearLayoutManager"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            tools:listitem="@layout/item_session_detail_header" />
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#eee"
-            android:fitsSystemWindows="true"
-            app:elevation="0dp">
+            app:elevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -57,10 +49,27 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/sessionDetailRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:scrollbars="vertical"
+            app:layoutManager="LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/sessionDetailLinkLinearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appbar"
+            tools:listitem="@layout/item_session_detail_header" />
+
         <LinearLayout
+            android:id="@+id/sessionDetailLinkLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom">
+            android:layout_gravity="bottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/sessionDetailVideoLinkTextView"
@@ -71,9 +80,7 @@
                 android:background="#43b1b3"
                 android:gravity="center"
                 android:onClick="@{() -> vm.onClickVideoLink()}"
-                android:text="@string/session_detail_go_video"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:text="@string/session_detail_go_video" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/sessionDetailQnALinkTextView"
@@ -83,11 +90,9 @@
                 android:layout_weight="4.2"
                 android:background="#2f3339"
                 android:onClick="@{() -> vm.onClickQnALink()}"
-                android:text="@string/session_detail_question"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                android:text="@string/session_detail_question" />
 
         </LinearLayout>
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
