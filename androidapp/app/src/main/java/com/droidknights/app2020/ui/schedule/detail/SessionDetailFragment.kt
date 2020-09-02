@@ -53,6 +53,7 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
 
     private fun initRecyclerView() {
         binding.sessionDetailRecyclerView.run {
+            addItemDecoration(SessionDetailDecoration(this@SessionDetailFragment.requireContext()))
             addOnScrollListener(object : RecyclerView.OnScrollListener() {
                 override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                     binding.appbar.elevation = if (!canScrollVertically(-1)) {
