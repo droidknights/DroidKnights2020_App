@@ -3,7 +3,6 @@ package com.droidknights.app2020.ui.schedule.detail
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import com.bumptech.glide.Glide
@@ -11,6 +10,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.droidknights.app2020.R
 import com.droidknights.app2020.data.Speaker
 import com.droidknights.app2020.databinding.ViewSessionDetailSpeakerBinding
+import com.droidknights.app2020.util.dp2px
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -27,8 +27,8 @@ class SessionDetailSpeakerView @JvmOverloads constructor(
 
     private val profileSize =
         context.resources.getDimensionPixelSize(R.dimen.session_detail_speaker_profile_size)
-    private val profileMargin = context.dpToPx(2)
-    private val profileOverlay = context.dpToPx(10)
+    private val profileMargin = 2.dp2px()
+    private val profileOverlay = 10.dp2px()
 
     var speakers: List<Speaker> = emptyList()
         set(value) {
@@ -174,9 +174,3 @@ class SessionDetailSpeakerView @JvmOverloads constructor(
         return result
     }
 }
-
-fun Context.dpToPx(dp: Int) = TypedValue.applyDimension(
-    TypedValue.COMPLEX_UNIT_DIP,
-    dp.toFloat(),
-    this.resources.displayMetrics
-).toInt()
