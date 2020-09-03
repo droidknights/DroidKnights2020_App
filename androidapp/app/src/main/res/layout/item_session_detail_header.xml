@@ -36,7 +36,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="62dp"
             android:lineSpacingExtra="10sp"
             android:text="@{item.title}"
             android:textColor="#2f2e32"
