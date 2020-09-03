@@ -1,5 +1,6 @@
 package com.droidknights.app2020.binding
 
+import android.view.View
 import android.webkit.WebView
 import android.widget.ImageView
 import android.widget.TextView

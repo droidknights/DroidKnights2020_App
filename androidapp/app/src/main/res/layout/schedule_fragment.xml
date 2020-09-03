@@ -6,7 +6,7 @@
     <data>
         <variable
             name="vm"
-            type="com.droidknights.app2020.ui.schedule.ScheduleEmptyViewModel" />
+            type="com.droidknights.app2020.ui.schedule.Sched0uleEmptyViewModel" />
 
         <variable
             name="scheduleVm"
