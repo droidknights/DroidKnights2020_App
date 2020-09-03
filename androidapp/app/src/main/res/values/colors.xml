@@ -5,9 +5,16 @@
     <color name="colorAccent">#EE5050</color>
     <color name="colorBorder">#a0a0a0</color>
 
+    <!--launcher icon-->
+    <color name="ic_launcher_background">#27272A</color>
+
     <!--toolbar-->
     <color name="toolbar_background_white">#FFFFFF</color>
     <color name="toolbar_textColor_black">#000000</color>
+
+    <!--bottom navigation menu-->
+    <color name="bottom_nav_selected">#2e2e33</color>
+    <color name="bottom_nav_unselected">#d0d0d0</color>
 
     <!--sponsor tab-->
     <color name="sponsor_background_color">#303033</color>
@@ -20,7 +27,13 @@
     <color name="color_sessionChipText_purple">#5a00d0</color>
     <color name="color_sessionChipText_orange">#ff9900</color>
     <color name="color_sessionChipText_red">#ee5050</color>
+    <color name="color_sessionChipText_green">#66BB6A</color>
+    <color name="color_sessionChipText_brown">#6D4C41</color>
 
     <!--Session-->
     <color name="color_session_date">#00d0a8</color>
+
+    <!--Session Detail-->
+    <color name="color_session_detail_fab_icon">@android:color/white</color>
+    <color name="color_session_detail_fab_background">#fb0009</color>
 </resources>

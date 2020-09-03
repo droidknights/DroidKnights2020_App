@@ -3,6 +3,7 @@ package com.droidknights.app2020.db
 import com.droidknights.app2020.data.Session
 import com.droidknights.app2020.db.prepackage.PrePackagedDb
 import com.google.firebase.firestore.*
+import com.google.gson.Gson
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.tasks.await
@@ -11,7 +12,8 @@ import javax.inject.Inject
 
 class SessionRepositoryImpl @Inject constructor(
     private val db: FirebaseFirestore,
-    private val prePackagedDb: PrePackagedDb
+    private val prePackagedDb: PrePackagedDb,
+    private val gson: Gson
 ) : SessionRepository {
     private val TAG = this::class.java.simpleName
 
@@ -26,7 +28,10 @@ class SessionRepositoryImpl @Inject constructor(
             }
         }
         Timber.d("Loaded ${if (snapshot.metadata.isFromCache) "Cache" else "Server"} ")
-        emit(snapshot.map { it.toObject(Session::class.java) })
+        emit(snapshot.map {
+            val json = gson.toJsonTree(it.data)
+            gson.fromJson(json, Session::class.java)
+        })
     }.catch {
         Timber.e(it)
         emit(prePackagedDb.getSessionList())
@@ -46,7 +51,9 @@ class SessionRepositoryImpl @Inject constructor(
                 // 사전 처리 DB로 전환하기 위한 에러 반환
                 throw IllegalStateException("Not Found")
             }
-            snapshot.mapNotNull { it.toObject(Session::class.java) }[0]
+            snapshot.mapNotNull {
+                val json = gson.toJsonTree(it.data)
+                gson.fromJson(json, Session::class.java) }[0]
         }.catch {
             Timber.e(it)
             prePackagedDb.getSessionById(id)?.let { session ->

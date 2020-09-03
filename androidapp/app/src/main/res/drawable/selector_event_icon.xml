@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_activated="true">
+        <layer-list>
+            <item>
+                <shape android:shape="rectangle">
+                    <padding android:bottom="10dp" android:left="10dp" android:right="10dp" android:top="10dp" />
+                    <solid android:color="#19e96060" />
+                </shape>
+            </item>
+            <item android:drawable="@drawable/ic_date_range_red" />
+        </layer-list>
+    </item>
+
+    <item>
+        <layer-list>
+            <item>
+                <shape android:shape="rectangle">
+                    <padding android:bottom="10dp" android:left="10dp" android:right="10dp" android:top="10dp" />
+                    <solid android:color="#19aeaeae" />
+                </shape>
+            </item>
+            <item android:drawable="@drawable/ic_date_range_grey" />
+        </layer-list>
+    </item>
+</selector>

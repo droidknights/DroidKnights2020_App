@@ -4,7 +4,7 @@
     <dimen name="SessionChip_horizontal_margin">8dp</dimen>
     <dimen name="SessionChip_vertical_margin">4dp</dimen>
 
-    <dimen name="bottom_nav_height">48dp</dimen>
+    <dimen name="bottom_nav_height">60dp</dimen>
     <dimen name="bottom_nav_horizontal_margin">30dp</dimen>
     <dimen name="bottom_nav_bottom_margin">12dp</dimen>
 

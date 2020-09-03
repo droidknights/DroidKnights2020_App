@@ -1,9 +1,7 @@
 package com.droidknights.app2020.base
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -15,28 +13,21 @@ import com.droidknights.app2020.BR
 abstract class BaseFragment<VM : ViewModel, B : ViewDataBinding>(
     @LayoutRes private val layoutResId: Int,
     private val viewModelClass: Class<VM>
-) : Fragment() {
+) : Fragment(layoutResId) {
 
-    protected lateinit var viewModel: VM
-
-    protected lateinit var binding: B
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(viewModelClass)
+    protected val viewModel: VM by lazy {
+        ViewModelProvider(this).get(viewModelClass)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = DataBindingUtil.inflate(inflater, layoutResId, container, false)
-        return binding.root
-    }
+    private lateinit var _binding: B
+
+    protected val binding: B get() = _binding
+
+    private fun <T : ViewDataBinding> bind(view: View): T = DataBindingUtil.bind(view)!!
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        _binding = bind(view)
         with(binding) {
             setVariable(BR.vm, viewModel)
             lifecycleOwner = viewLifecycleOwner
