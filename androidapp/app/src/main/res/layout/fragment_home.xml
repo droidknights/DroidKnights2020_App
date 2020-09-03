@@ -10,10 +10,11 @@
             type="com.droidknights.app2020.ui.home.HomeViewModel" />
     </data>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/white">
+        android:background="@android:color/white"
+        android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -24,12 +25,10 @@
             android:id="@+id/homeRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:clipToPadding="false"
             android:orientation="vertical"
-            android:paddingTop="@dimen/toolbar_height"
             app:homeItems="@{vm.homeItems}"
             app:homeVm="@{vm}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/item_home_history" />
-    </FrameLayout>
+    </LinearLayout>
 </layout>

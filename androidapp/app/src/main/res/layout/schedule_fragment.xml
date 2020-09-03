@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="vm"
             type="com.droidknights.app2020.ui.schedule.ScheduleEmptyViewModel" />
@@ -13,11 +14,12 @@
             type="com.droidknights.app2020.ui.schedule.ScheduleViewModel" />
     </data>
 
-    <FrameLayout
-        android:id="@+id/frameLayout"
+    <LinearLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/white">
+        android:background="@android:color/white"
+        android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -35,9 +37,6 @@
                 android:id="@+id/rvSchedule"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:clipToPadding="false"
-                android:paddingTop="@dimen/toolbar_height"
-                android:paddingBottom="@dimen/fragment_bottom_padding"
                 tools:listitem="@layout/item_session" />
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
@@ -52,6 +51,6 @@
             android:onClick="@{() -> scheduleVm.onClickFilter()}"
             android:src="@drawable/ic_filter_list_white_24dp" />
 
-    </FrameLayout>
+    </LinearLayout>
 
 </layout>
