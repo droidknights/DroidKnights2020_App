@@ -29,7 +29,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:sessionTags="@{item.tags}"
             tools:itemCount="10"
-            tools:listitem="@layout/item_session_deetail_tag" />
+            tools:listitem="@layout/item_session_detail_tag" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/sessionDetailTitle"

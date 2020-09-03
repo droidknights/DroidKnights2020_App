@@ -3,7 +3,7 @@ package com.droidknights.app2020.ui.schedule.detail
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.droidknights.app2020.databinding.ItemSessionDeetailTagBinding
+import com.droidknights.app2020.databinding.ItemSessionDetailTagBinding
 
 class DetailTagAdapter : RecyclerView.Adapter<TagViewHolder>() {
 
@@ -13,7 +13,7 @@ class DetailTagAdapter : RecyclerView.Adapter<TagViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TagViewHolder {
         return TagViewHolder(
-            ItemSessionDeetailTagBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ItemSessionDetailTagBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
     }
 
@@ -22,7 +22,7 @@ class DetailTagAdapter : RecyclerView.Adapter<TagViewHolder>() {
     }
 }
 
-class TagViewHolder(private val binding: ItemSessionDeetailTagBinding) : RecyclerView.ViewHolder(binding.root) {
+class TagViewHolder(private val binding: ItemSessionDetailTagBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bind(tag: String) {
         binding.tag = tag
         binding.executePendingBindings()
