@@ -101,12 +101,18 @@ fun ImageView.isActiveEvent(_isActivated: Boolean?) {
 
 @BindingAdapter("sessionSpeakersIntroduce")
 fun TextView.bindSpeakersIntroduce(speakers: List<Speaker>?) {
-    val builder = StringBuilder()
-    for (speaker in speakers.orEmpty()) {
-        if ((speakers?.size ?: 0) > 1) {
-            builder.append("${speaker.belong} ${speaker.name}\n\n")
+    speakers?.let {
+        val isOneSpeaker = it.size == 1
+        if (isOneSpeaker) {
+            text = it[0].introduce
+            return
         }
-        builder.append("${speaker.introduce}\n\n")
+
+        val builder = StringBuilder()
+        it.forEach { speaker ->
+            builder.append("${speaker.belong} ${speaker.name}\n\n")
+            builder.append("${speaker.introduce}\n\n")
+        }
+        text = builder.toString()
     }
-    text = builder.toString()
 }
