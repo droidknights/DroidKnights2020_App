@@ -14,23 +14,30 @@
             type="com.droidknights.app2020.ui.schedule.ScheduleViewModel" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/white"
-        android:orientation="vertical">
+        android:background="@android:color/white">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             style="@style/Widget.Knights.Toolbar"
+            app:layout_constraintBottom_toTopOf="@+id/swipeRefreshLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:title="@string/menu_schedule_title" />
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipeRefreshLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:isRefreshing="@{scheduleVm.isRefreshing}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
             app:onRefresh="@{scheduleVm::refresh}">
 
             <androidx.recyclerview.widget.RecyclerView
@@ -46,11 +53,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="@dimen/fab_filter_bottom_margin"
             android:layout_marginBottom="@dimen/fab_filter_bottom_margin"
             android:onClick="@{() -> scheduleVm.onClickFilter()}"
-            android:src="@drawable/ic_filter_list_white_24dp" />
+            android:src="@drawable/ic_filter_list_white_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

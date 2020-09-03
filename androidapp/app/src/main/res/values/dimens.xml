@@ -12,7 +12,7 @@
 
     <dimen name="fragment_bottom_padding">60dp</dimen>
 
-    <dimen name="fab_filter_bottom_margin">66dp</dimen>
+    <dimen name="fab_filter_bottom_margin">24dp</dimen>
 
     <dimen name="session_detail_toolbar_height">60dp</dimen>
     <dimen name="session_detail_link_button_height">60dp</dimen>
