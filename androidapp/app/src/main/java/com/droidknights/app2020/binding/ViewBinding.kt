@@ -22,10 +22,10 @@ fun SwipeRefreshLayout.bindRefreshListener(onRefreshListener: SwipeRefreshLayout
 fun WebView.bindUrl(value: String?) = value?.let(::loadUrl)
 
 @BindingAdapter(value = ["onAir"])
-fun ImageView.setVisibility(onAir: Boolean) {
+fun setOnAir(imageView: ImageView, onAir: Boolean) {
     if (onAir) {
-        this.visibility = View.VISIBLE
+        imageView.visibility = View.VISIBLE
     } else {
-        this.visibility = View.INVISIBLE
+        imageView.visibility = View.INVISIBLE
     }
 }
