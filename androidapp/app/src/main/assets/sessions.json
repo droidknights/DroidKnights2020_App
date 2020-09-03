@@ -239,7 +239,7 @@
       "qnaLink": "https://forms.gle/ZJBya9BxVn2fByev9",
       "speaker": [
         {
-          "introduce": "'찰스의 안드로이드' 블로그를 운영하고 있으며, 현재 네이버 밴드에서 안드로이드 개발자로 일하고 있습니다.",
+          "introduce": "'아키텍처를 알면 앱 개발이 보인다' 저자로서 온라인에서는 찰스의 안드로이드(https://charlezz.com)라는 블로그를 운영하고 있습니다. 현재는 네이버 밴드 앱 개발을 하고 있습니다.",
           "name": "옥수환",
           "profileImage": "https://droidknights.github.io/2020/build/img/speakers/%EC%98%A5%EC%88%98%ED%99%98.png",
           "belong":  "네이버 밴드"
@@ -250,7 +250,7 @@
       "isLive": false,
       "title": "Annotation Processor로 코드 생성하기",
       "tag": ["Language", "생산성"],
-      "contents": "Annotation Processor로 마법같은 코드 생성하기",
+      "contents": "선택이 아닌 필수가 되어버린 안드로이드 의존성주입! 배우기 어려웠던 Dagger를 좀 더 쉽게 사용할 수 있게 해주는 Hilt를 소개합니다.",
       "time": "9/14",
       "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw"
     },
