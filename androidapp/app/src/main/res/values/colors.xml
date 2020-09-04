@@ -36,4 +36,5 @@
     <!--Session Detail-->
     <color name="color_session_detail_fab_icon">@android:color/white</color>
     <color name="color_session_detail_fab_background">#fb0009</color>
+    <color name="color_session_detail_title">#2f2e32</color>
 </resources>

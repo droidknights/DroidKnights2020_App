@@ -1,11 +1,14 @@
 package com.droidknights.app2020.ui.schedule.detail
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.StringRes
+import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.RecyclerView
 import com.droidknights.app2020.R
 import com.droidknights.app2020.base.BaseFragment
 import com.droidknights.app2020.common.EventObserver
@@ -26,6 +29,7 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
         viewModel.getSession(args.sessionId)
 
         initMenu()
+        initRecyclerView()
         initObserve()
     }
 
@@ -36,38 +40,35 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
             }
             setOnMenuItemClickListener { item ->
                 when (item.itemId) {
-                    R.id.menu_alarm -> {
-                        viewModel.onClickAlarm()
+                    R.id.menu_share -> {
+                        viewModel.onClickShare()
                         true
                     }
                     else -> false
                 }
             }
         }
-        binding.bottomAppBar.setOnMenuItemClickListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.menu_share -> {
-                    // TODO: Click Share
-                    return@setOnMenuItemClickListener true
+    }
+
+    private fun initRecyclerView() {
+        binding.sessionDetailRecyclerView.run {
+            addItemDecoration(SessionDetailDecoration(this@SessionDetailFragment.requireContext()))
+            addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                    binding.appbar.elevation = if (!canScrollVertically(-1)) {
+                        0f
+                    } else {
+                        (4 * context.resources.displayMetrics.density + 0.5).toFloat()
+                    }
                 }
-                R.id.menu_qna -> {
-                    viewModel.onClickQnALink()
-                    return@setOnMenuItemClickListener true
-                }
-                R.id.menu_calendar -> {
-                    // TODO: Click Calendar
-                    return@setOnMenuItemClickListener true
-                }
-            }
-            return@setOnMenuItemClickListener false
+            })
         }
     }
 
     private fun initObserve() {
         viewModel.sessionContents.observe(viewLifecycleOwner) {
-            val menu = binding.bottomAppBar.menu
-            menu.findItem(R.id.menu_share).isVisible = !it.videoLink.isNullOrEmpty()
-            menu.findItem(R.id.menu_qna).isVisible = !it.qnaLink.isNullOrEmpty()
+            binding.sessionDetailVideoLinkTextView.isVisible = !it.videoLink.isNullOrEmpty()
+            binding.sessionDetailQnALinkTextView.isVisible = !it.qnaLink.isNullOrEmpty()
 
             val detailAdapter = SessionDetailAdapter(viewModel, it)
             binding.sessionDetailRecyclerView.adapter = detailAdapter
@@ -78,6 +79,8 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
         viewModel.qnaEvent.observe(viewLifecycleOwner, EventObserver(this::openBrowser))
 
         viewModel.toastEvent.observe(viewLifecycleOwner, EventObserver(this::toastMessage))
+
+        viewModel.shareEvent.observe(viewLifecycleOwner, EventObserver(this::shareVideoLink))
     }
 
     private fun openBrowser(url: String) {
@@ -86,5 +89,13 @@ class SessionDetailFragment : BaseFragment<SessionDetailViewModel, SessionDetail
 
     private fun toastMessage(@StringRes messageRes: Int) {
         Toast.makeText(requireContext(), messageRes, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun shareVideoLink(url: String) {
+        startActivity(Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, url)
+            type = "text/plain"
+        })
     }
 }

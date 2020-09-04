@@ -10,107 +10,89 @@
             type="com.droidknights.app2020.ui.schedule.detail.SessionDetailViewModel" />
     </data>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/sessionDetailRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:scrollbars="vertical"
-            app:layoutManager="LinearLayoutManager"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            tools:listitem="@layout/item_session_detail_speaker" />
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#eee"
-            android:fitsSystemWindows="true"
-            app:elevation="0dp">
+            app:elevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:id="@+id/collapsing_toolbar"
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_scrollFlags="scroll"
-                app:statusBarScrim="?colorSurface">
+                android:layout_height="@dimen/session_detail_toolbar_height"
+                android:background="@color/toolbar_background_white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:menu="@menu/detail_top_menu"
+                app:navigationIcon="@drawable/ic_session_detail_arrow_back">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:paddingBottom="20dp"
-                    app:contentScrim="?attr/colorPrimary"
-                    app:layout_scrollFlags="scroll">
+                    android:layout_gravity="center"
+                    android:lineSpacingExtra="10sp"
+                    android:text="@string/session_detail_title"
+                    android:textColor="@color/color_session_detail_title"
+                    android:textSize="18sp" />
 
-                    <androidx.appcompat.widget.Toolbar
-                        android:id="@+id/toolbar"
-                        android:layout_width="0dp"
-                        android:layout_height="?actionBarSize"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:menu="@menu/detail_top_menu"
-                        app:navigationIcon="@drawable/ic_baseline_arrow_back_24" />
+            </androidx.appcompat.widget.Toolbar>
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tvSessionTitle"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="20dp"
-                        android:text="@{vm.sessionContents.title}"
-                        android:textSize="24sp"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/toolbar"
-                        tools:text="코틀린 코루틴 이해하기" />
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tvSessionTime"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="20dp"
-                        android:text="@{vm.sessionContents.time}"
-                        android:textSize="18sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tvSessionTitle"
-                        app:layout_goneMarginEnd="10dp"
-                        tools:text="8월 14일 / 40min" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </com.google.android.material.appbar.CollapsingToolbarLayout>
         </com.google.android.material.appbar.AppBarLayout>
 
-        <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/bottomAppBar"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/sessionDetailRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:scrollbars="vertical"
+            app:layoutManager="LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/sessionDetailLinkLinearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appbar"
+            tools:listitem="@layout/item_session_detail_header" />
+
+        <LinearLayout
+            android:id="@+id/sessionDetailLinkLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:theme="@style/Widget.Knights.BottomAppBar"
-            app:fabAlignmentMode="end"
-            app:menu="@menu/bottom_app_bar" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_session_detail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/color_session_detail_fab_background"
-            android:onClick="@{() -> vm.onClickVideoLink()}"
-            app:borderWidth="0dp"
-            app:layout_anchor="@id/bottomAppBar"
-            app:srcCompat="@drawable/ic_session_video_play_arrow_24"
-            app:tint="@color/color_session_detail_fab_icon" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/sessionDetailVideoLinkTextView"
+                style="@style/Widget.Knights.SessionDetailButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/session_detail_link_button_height"
+                android:layout_weight="5.8"
+                android:background="#43b1b3"
+                android:gravity="center"
+                android:onClick="@{() -> vm.onClickVideoLink()}"
+                android:text="@string/session_detail_go_video" />
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/sessionDetailQnALinkTextView"
+                style="@style/Widget.Knights.SessionDetailButton"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/session_detail_link_button_height"
+                android:layout_weight="4.2"
+                android:background="#2f3339"
+                android:onClick="@{() -> vm.onClickQnALink()}"
+                android:text="@string/session_detail_question" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

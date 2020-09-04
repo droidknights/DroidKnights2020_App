@@ -131,3 +131,21 @@ fun ImageView.bindSponsorLogo(@DrawableRes imageResId: Int?) {
 fun ImageView.isActiveEvent(_isActivated: Boolean?) {
     this.isActivated = _isActivated ?: false
 }
+
+@BindingAdapter("sessionSpeakersIntroduce")
+fun TextView.bindSpeakersIntroduce(speakers: List<Speaker>?) {
+    speakers?.let {
+        val isOneSpeaker = it.size == 1
+        if (isOneSpeaker) {
+            text = it[0].introduce
+            return
+        }
+
+        val builder = StringBuilder()
+        it.forEach { speaker ->
+            builder.append("${speaker.belong} ${speaker.name}\n\n")
+            builder.append("${speaker.introduce}\n\n")
+        }
+        text = builder.toString()
+    }
+}

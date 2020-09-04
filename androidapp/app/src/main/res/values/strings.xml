@@ -12,12 +12,17 @@
     <string name="item_session_medium">중급</string>
 
     <string name="session_speaker_name_format">speaker %s</string>
-    
+
     <string name="session_detail_qna_link_tbd">링크 준비 중</string>
     <string name="session_detail_share">공유</string>
     <string name="session_detail_qna">QnA</string>
     <string name="session_detail_event">캘린더</string>
     <string name="session_detail_alarm">알림</string>
+    <string name="session_detail_title">세션 소개</string>
+    <string name="session_detail_question">질문 하기</string>
+    <string name="session_detail_go_video">영상 보러가기</string>
+    <string name="session_detail_description_label">내용</string>
+    <string name="session_detail_speaker_introduction_label">연사자 소개</string>
 
     <string name="droid_knights_eng">Droid Knights</string>
     <string name="droid_knights_ko">국내 최대 안드로이드 컨퍼런스</string>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.droidknights.app2020.ui.schedule.detail.UiSessionDetailModel.UiHeader" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        tools:background="@android:color/white">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tags"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:flexDirection="row"
+            app:flexWrap="wrap"
+            app:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:sessionTags="@{item.tags}"
+            tools:itemCount="10"
+            tools:listitem="@layout/item_session_detail_tag" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sessionDetailTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:lineSpacingExtra="10sp"
+            android:text="@{item.title}"
+            android:textColor="#2f2e32"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tags"
+            tools:text="1년간 토스 앱의 ‘홈’탭을 개발하며 쌓은 Leaning Share" />
+
+        <com.droidknights.app2020.ui.schedule.detail.SessionDetailSpeakerView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sessionDetailTitle"
+            app:speakers="@{item.speakers}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

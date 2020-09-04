@@ -2,13 +2,13 @@ package com.droidknights.app2020.ui.schedule.detail
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
+import com.droidknights.app2020.R
 import com.droidknights.app2020.base.BaseViewModel
 import com.droidknights.app2020.base.DispatcherProvider
 import com.droidknights.app2020.common.Event
 import com.droidknights.app2020.data.Session
 import com.droidknights.app2020.db.SessionRepository
 import kotlinx.coroutines.flow.flowOn
-import com.droidknights.app2020.R
 
 class SessionDetailViewModel @ViewModelInject constructor(
     private val dispatchers: DispatcherProvider,
@@ -26,6 +26,9 @@ class SessionDetailViewModel @ViewModelInject constructor(
     private val _toastEvent = MutableLiveData<Event<Int>>()
     val toastEvent: LiveData<Event<Int>> = _toastEvent
 
+    private val _shareEvent = MutableLiveData<Event<String>>()
+    val shareEvent: LiveData<Event<String>> = _shareEvent
+
     val sessionContents: LiveData<Session> = _id.switchMap { id ->
         liveData {
             emitSource(
@@ -39,10 +42,7 @@ class SessionDetailViewModel @ViewModelInject constructor(
     }
 
     fun onClickVideoLink() {
-        val videoLink = sessionContents.value?.videoLink
-        _videoEvent.value = Event(
-            if (videoLink.isNullOrEmpty()) DEFAULT_VIDEO_LINK else videoLink
-        )
+        _videoEvent.value = Event(getVideoLink())
     }
 
     fun onClickQnALink() {
@@ -55,8 +55,13 @@ class SessionDetailViewModel @ViewModelInject constructor(
         _qnaEvent.value = Event(qnaLink)
     }
 
-    fun onClickAlarm() {
-        // TODO : 알림 설정
+    fun onClickShare() {
+        _shareEvent.value = Event(getVideoLink())
+    }
+
+    private fun getVideoLink(): String {
+        val videoLink = sessionContents.value?.videoLink
+        return if (videoLink.isNullOrEmpty()) DEFAULT_VIDEO_LINK else videoLink
     }
 
     companion object {
