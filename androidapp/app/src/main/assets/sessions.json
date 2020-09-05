@@ -274,22 +274,22 @@
       "time": "9/28"
     },
     {
-      "contents": "",
+      "contents": "Privacy continues to be a priority in Android 11. This presentation will help you understand privacy related changes and how to make your app compatible. This includes changes to permissions including one-time permission, storage, package visibility, tooling to help identify private data access, and other new platform APIs.",
       "id": "E-3",
-      "tag": [],
+      "tag": ["Framework"],
       "speakerName": "Yacine Rezgui",
       "qnaLink": "https://forms.gle/ZJBya9BxVn2fByev9",
       "isLive": false,
       "speaker": [
         {
           "profileImage": "",
-          "introduce": "I'm an Android developer advocate at Google in London where I work on Android Studio, privacy on Android and Jetpack Compose. I worked previously as a developer advocate at IBM on artificial intelligence API ecosystem and as a full stack developer in several startups.",
+          "introduce": "Android developer advocate at Google in London where he works on Android Studio, privacy on Android and Jetpack Compose. He worked previously as a developer advocate at IBM on artificial intelligence API ecosystem and as a full stack developer in several startups.",
           "name": "Yacine Rezgui",
           "belong":  "Google London"
         }
       ],
       "videoLink": "https://www.youtube.com/channel/UCjeUnwS8mHhsl600-nFJKmw",
-      "title": "TBD",
+      "title": "Adapting Your Apps for Android 11 Privacy Changes",
       "time": "9/28"
     }
   ]
