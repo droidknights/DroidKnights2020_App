@@ -18,6 +18,7 @@ versions.browser = "1.2.0"
 versions.hilt = "2.28.3-alpha"
 versions.hilt_view_model = "1.0.0-alpha02"
 versions.glide = "4.11.0"
+versions.oss_license = "0.10.2"
 deps.versions = versions
 
 // dependency
@@ -93,6 +94,10 @@ deps.atsl = [
         espresso_core: "androidx.test.espresso:espresso-core:3.2.0"
 ]
 
+// play services
+deps.play_services = [
+        oss_license     : "com.google.android.gms:play-services-oss-licenses:17.0.0"
+]
 ext.deps = deps
 
 // build gradle plugin
@@ -101,7 +106,8 @@ def gradlePlugin = [
         kotlin              : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
         play_services       : "com.google.gms:google-services:4.3.3",
         navigation_safe_args: "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigation",
-        hilt                : "com.google.dagger:hilt-android-gradle-plugin:$versions.hilt"
+        hilt                : "com.google.dagger:hilt-android-gradle-plugin:$versions.hilt",
+        oss_license         : "com.google.android.gms:oss-licenses-plugin:$versions.oss_license"
 ]
 ext.gradlePlugin = gradlePlugin
 

@@ -39,4 +39,8 @@
         <item name="android:foreground">?attr/selectableItemBackground</item>
         <item name="android:textSize">16sp</item>
     </style>
+
+    <style name="LicensesTheme" parent="AppTheme">
+        <item name="android:windowBackground">?android:colorBackground</item>
+    </style>
 </resources>

@@ -5,6 +5,7 @@ apply plugin: 'kotlin-kapt'
 apply plugin: "scabbard.gradle"
 apply plugin: "androidx.navigation.safeargs.kotlin"
 apply plugin: "dagger.hilt.android.plugin"
+apply plugin: "com.google.android.gms.oss-licenses-plugin"
 
 android {
     compileSdkVersion build_versions.compile_sdk
@@ -89,6 +90,9 @@ dependencies {
     androidTestImplementation deps.atsl.ext_junit
     androidTestImplementation deps.atsl.espresso_core
     testImplementation deps.kotlin.coroutines.test
+
+    // play services
+    implementation deps.play_services.oss_license
 
 }
 apply plugin: 'com.google.gms.google-services'
