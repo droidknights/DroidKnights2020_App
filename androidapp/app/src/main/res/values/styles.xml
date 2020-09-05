@@ -12,14 +12,32 @@
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
-    <style name="Widget.Knights.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+    <style name="ToolbarTitleText">
         <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/toolbar_textColor_black</item>
+    </style>
+
+    <style name="Widget.Knights.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/toolbar_height</item>
         <item name="android:background">@color/toolbar_background_white</item>
-        <item name="android:titleTextColor">@color/toolbar_textColor_black</item>
+        <item name="titleTextAppearance">@style/ToolbarTitleText</item>
+        <item name="contentInsetStart">24dp</item>
     </style>
 
     <style name="Widget.Knights.BottomAppBar" parent="Widget.MaterialComponents.BottomAppBar">
         <item name="colorControlNormal">#212121</item>
+    </style>
+
+    <style name="Widget.Knights.SessionDetailButton" parent="Widget.AppCompat.TextView">
+        <item name="android:gravity">center</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">false</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
     <style name="LicensesTheme" parent="AppTheme">

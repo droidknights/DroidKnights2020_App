@@ -10,7 +10,7 @@
 
     <!--toolbar-->
     <color name="toolbar_background_white">#FFFFFF</color>
-    <color name="toolbar_textColor_black">#000000</color>
+    <color name="toolbar_textColor_black">#2F2E32</color>
 
     <!--bottom navigation menu-->
     <color name="bottom_nav_selected">#2e2e33</color>
@@ -36,4 +36,5 @@
     <!--Session Detail-->
     <color name="color_session_detail_fab_icon">@android:color/white</color>
     <color name="color_session_detail_fab_background">#fb0009</color>
+    <color name="color_session_detail_title">#2f2e32</color>
 </resources>
