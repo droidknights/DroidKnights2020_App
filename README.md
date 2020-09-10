@@ -20,8 +20,9 @@
 - Issue 제안
 - 버그 리포트
 
-### Google Play Store 
-// TODO : 행사 한달 전 내외 시점부터 주단위 배포 예정
+### Google Play Store (매주 업데이트 예정)
+https://play.google.com/store/apps/details?id=com.droidknights.app2020
+- 2020.09.02 첫 배포
 
 ## Development Environment
 AAC 기반의 MVVM 구조
